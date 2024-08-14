@@ -23,5 +23,5 @@
     "strictNullChecks": true,
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src", "./jest-setup.ts"]
 }
