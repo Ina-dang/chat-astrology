@@ -5,6 +5,8 @@
     "skipLibCheck": true,
     "target": "ES2020",
     "useDefineForClassFields": true,
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "esModuleInterop": true,
 
     /* Bundler mode */
     "allowImportingTsExtensions": true,
@@ -25,3 +27,40 @@
   },
   "include": ["src", "./jest-setup.ts"]
 }
+
+// {
+//   "compilerOptions": {
+//     "allowImportingTsExtensions": true, // 새로운 tsconfig 파일 추가
+//     "allowSyntheticDefaultImports": true, // dayjs docs에서 설정해야한다고 해서 설정함
+//     "alwaysStrict": true, // 항상 strict 모드로 지정
+//     "baseUrl": "./", // baseUrl 설정
+//     "esModuleInterop": true, // ES 모듈 및 CommonJS 모듈 간의 상호 운용성 활성화
+//     "forceConsistentCasingInFileNames": true, // 파일 이름의 대소문자 일관성을 강제로 지정
+//     "isolatedModules": true, // 각 파일을 독립적으로 컴파일하기
+//     "jsx": "react-jsx", // JSX 구문 사용 설정
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"], // 라이브러리 지정
+//     "module": "ESNext", // 모듈 시스템 지정
+//     "moduleResolution": "node", // 생성된 코드가 ES 모듈 표준을 준수할 것으로 예상
+//     "noEmit": true, // 출력 파일 생성 비활성화
+//     "noFallthroughCasesInSwitch": true, // switch 문의 모든 case에 대한 폴스루 방지
+//     "noImplicitAny": true, // 암묵적인 any 사용 금지
+//     "noImplicitReturns": true, // 암시적인 반환값의 누락을 방지
+//     "noImplicitThis": true, // 암시적인 this 사용 금지
+//     "noUnusedLocals": true, // 사용되지 않는 로컬 변수 검사
+//     "noUnusedParameters": true, // 사용되지 않는 파라미터 검사
+//     "removeComments": true, // 주석 제거 설정
+//     "resolveJsonModule": true, // JSON 모듈 해석 활성화
+//     "paths": {
+//       "@/*": ["src/*"] // 모듈 경로 별칭 설정
+//     },
+//     "skipLibCheck": true, // 라이브러리 체크 건너뛰기
+//     "strict": true, // 엄격한 타입 체크 활성화
+//     "strictBindCallApply": true, // bind, call, apply의 엄격한 검사
+//     "strictFunctionTypes": true, // 함수 타입에 대한 엄격한 체크
+//     "strictNullChecks": true, // null 값 사용시 엄격한 체크
+//     "target": "ES2020" // 컴파일 대상 타겟 지정
+//   },
+//   "include": ["src"], // 포함할 파일 및 디렉토리 설정
+//   "exclude": ["node_modules", "build", "dist", "public"], // 제외할 파일 및 디렉토리 설정
+//   "references": [{ "path": "./tsconfig.node.json" }] // 참조할 다른 tsconfig 파일 경로 설정
+// }

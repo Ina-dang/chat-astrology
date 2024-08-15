@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LOCALES } from '../../assets';
 
+const STR_COM = LOCALES.COMMON;
 const MainPage: React.FC = () => {
   const navigate = useNavigate();
   const handleRoute = (href: string) => () => {
@@ -9,11 +11,11 @@ const MainPage: React.FC = () => {
   return (
     <main className="MainPage">
       <header>
-        <h1>GPT가 말아주는 사주&타로</h1>
+        <h1>{STR_COM.TITLE}</h1>
       </header>
       <section>
         {routing.map((item) => (
-          <button onClick={handleRoute(item.label)}>
+          <button onClick={handleRoute(item.href)} key={item.label}>
             <span>{item.label}</span>
           </button>
         ))}
@@ -25,15 +27,15 @@ const MainPage: React.FC = () => {
 
 const routing = [
   {
-    label: '사주보기',
+    label: STR_COM.SAJU,
     href: '/saju',
   },
   {
-    label: '타로보기',
+    label: STR_COM.TARO,
     href: '/taro',
   },
   {
-    label: '로그인 하여 사주장소 추천받기',
+    label: STR_COM.LOGIN_AND_RECOMMEND,
     href: '/login',
   },
 ];

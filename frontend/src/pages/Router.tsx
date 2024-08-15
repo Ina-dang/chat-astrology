@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ErrorPage, MainPage } from './common';
+import { ErrorPage, MainPage, SajuPage } from './common';
 
 const router = createBrowserRouter([
   {
@@ -7,8 +7,8 @@ const router = createBrowserRouter([
     element: <MainPage />,
   },
   {
-    path: '/taro',
-    element: <div>안타로녕하세요</div>,
+    path: '/saju',
+    element: <SajuPage />,
   },
   {
     path: '*',
