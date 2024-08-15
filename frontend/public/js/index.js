@@ -8,7 +8,7 @@
       const origin = location.origin;
       const href = location.href;
       const reg = /Android|iPhone|iPad|webOS|BlackBerry/i;
-      const isMobile = reg.test(navigator.userAgent) || window.opera;
+      const isMobile = reg.test(navigator.userAgent);
 
       if (isMobile) {
         if (href.includes(desktopPath)) {

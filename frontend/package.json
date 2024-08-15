@@ -31,12 +31,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc && vite build",
+    "dev": "pm2 restart saju-taro-with-gpt-front-dev || PORT=5173 pm2 start --name saju-taro-with-gpt-front-dev npm -- run local",
+    "format:fix": "prettier --write ./",
+    "format": "prettier --check ./",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "local": "vite",
     "preview": "vite preview",
-    "test": "vitest",
-    "test:ui": "vitest --ui"
+    "start": "npm run build && pm2 restart saju-taro-with-gpt-front-prod || pm2 start ecosystem.config.cjs --only saju-taro-with-gpt-front-prod",
+    "test:ui": "vitest --ui",
+    "test": "vitest"
   },
   "version": "0.0.0"
 }
