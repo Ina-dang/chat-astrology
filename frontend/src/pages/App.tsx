@@ -1,7 +1,7 @@
-import Link from '../components/Link';
+import { Router } from './Router';
 
 function App() {
-  return <Link page="http://antfu.me">Anthony Fu</Link>;
+  return <Router />;
 }
 
 export default App;

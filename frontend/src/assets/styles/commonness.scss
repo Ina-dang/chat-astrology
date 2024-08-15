@@ -1,0 +1,22 @@
+/* Pretendard (https://github.com/orioncactus/pretendard) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+
+@function dp($dp) {
+  @return ($dp / 16) + rem;
+}
+
+@function sp($sp) {
+  @return ($sp / 16) + rem;
+}
+
+@mixin font($weight, $size, $line-height) {
+  font-family: $font-family-default;
+  font-size: sp($size);
+  font-weight: $weight;
+  line-height: sp($line-height);
+}
+
+$font-family-default: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo',
+  'Roboto', 'Helvetica Neue', sans-serif;
+
+$c-3: #333;

@@ -2,7 +2,6 @@
 {
   const win = top.window,
     handleResize = () => {
-      const navi = navigator;
       const desktopPath = '/desktop.html';
       const location = win.location;
       const origin = location.origin;
