@@ -15,10 +15,13 @@ module.exports = {
       /* 배포 환경용 서버 */
       autorestart: true,
       exec_mode: 'cluster',
+      ignore_watch: ['node_modules/'],
       instances: 1,
+      interpreter: 'none',
       merge_logs: true,
       name: 'saju-taro-with-gpt-front-prod',
       script: 'serve',
+      watch: ['dist/'],
       watch_delay: 1000,
       env: {
         NODE_ENV: 'production',
