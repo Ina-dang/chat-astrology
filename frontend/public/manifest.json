@@ -1,0 +1,20 @@
+{
+  "author": "Ina <inadang77@gmail.com>",
+  "background_color": "#ffffff",
+  "default_locale": "ko",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "any",
+      "src": "images/vite.svg",
+      "type": "image/svg+xml"
+    }
+  ],
+  "manifest_version": 2,
+  "name": "GPT가 말아주는 사주🍶&타로🍺",
+  "short_name": "GPT가 말아주는 사주🍶&타로🍺",
+  "start_url": ".",
+  "theme_color": "#ffffff",
+  "version": "0.0.1",
+  "version_name": "0.0.1"
+}
