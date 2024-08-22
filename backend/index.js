@@ -1,15 +1,20 @@
-const OpenAI = require('openai');
-require('dotenv').config();
-const serverless = require('serverless-http');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import OpenAI from 'openai';
+import serverless from 'serverless-http';
+import { handleRequest } from './tools.js';
+
+dotenv.config();
 const openai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
-const express = require('express');
 const app = express();
-const cors = require('cors');
 
 let corsOptions = {
-  origin: 'https://chat-astrology-cjp.pages.dev',
-  credentials: true,
+  // origin: 'https://chat-astrology-cjp.pages.dev',
+  // credentials: true,
+  origin: 'http://localhost:5173',
 };
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -79,9 +84,56 @@ app.post('/askQuestion', async function (req, res) {
   }
 });
 
-//aws Lambda에서 서버리스로 사용하도록
-module.exports.handler = serverless(app);
+// app.post('/saju', async (req, res) => {
+//   const { name, birth, birthTime } = req.body;
 
-// app.listen(3000, () => {
-//   console.log('Server is running on port 3000');
+//   const messages = [
+//     {
+//       role: 'system',
+//       content:
+//         '당신은 세계 최고의 역술가입니다. 사람의 이름과 생년월일로 그 사람의 음양오행을 분석할 수 있습니다.',
+//     },
+//     {
+//       role: 'user',
+//       content: `저의 이름과 생년월일시를 분석해서 제 음양오행과 사주결과를 알려주세요: 이름은 ${name}이고, 태어난 생년월일은 ${birth}, 태어난 시간은 ${birthTime} 입니다.`,
+//     },
+//   ];
+
+//   try {
+//     const completion = await openai.chat.completions.create({
+//       messages,
+//       model: 'gpt-3.5-turbo',
+//     });
+
+//     let sajuResult = completion.choices[0].message['content'];
+//     res.json({
+//       code: 'OK',
+//       message: '사주 해석에 성공하였습니다.',
+//       result: sajuResult,
+//     });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(200).send({
+//       code: 'ERROR',
+//       message: error?.message || String(error),
+//     });
+//   }
 // });
+app.post('/saju', async (req, res) => {
+  try {
+    await handleRequest(req, res);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      code: 'ERROR',
+      message: '서버에서 오류가 발생했습니다.',
+    });
+  }
+});
+
+//aws Lambda에서 서버리스로 사용하도록
+// module.exports.handler = serverless(app);?
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

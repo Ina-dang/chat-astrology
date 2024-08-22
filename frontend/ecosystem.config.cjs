@@ -5,10 +5,11 @@ module.exports = {
       autorestart: false,
       instances: 1, // 단일 쓰레드
       name: 'saju-taro-with-gpt-front-dev',
-      script: 'react-scripts start',
+      script: 'vite',
       watch: false,
       env_development: {
         NODE_ENV: 'development',
+        PM2_SERVE_PORT: 5173,
       },
     },
     {
