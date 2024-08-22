@@ -35,6 +35,10 @@ const routing = [
     href: '/taro',
   },
   {
+    label: '오늘의 포춘쿠키',
+    href: '/fortune',
+  },
+  {
     label: STR_COM.LOGIN_AND_RECOMMEND,
     href: '/login',
   },
