@@ -3,7 +3,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import OpenAI from 'openai';
 import serverless from 'serverless-http';
-import { handleRequest } from './tools.js';
+import {
+  handleFortuneRequest,
+  handleGetFortuneRequest,
+  handleSajuRequest,
+} from './tools.js';
 
 dotenv.config();
 const openai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
@@ -121,16 +125,39 @@ app.post('/askQuestion', async function (req, res) {
 // });
 app.post('/saju', async (req, res) => {
   try {
-    await handleRequest(req, res);
+    await handleSajuRequest(req, res);
   } catch (error) {
     console.error(error);
-    res.status(500).send({
+    res.status(200).send({
       code: 'ERROR',
       message: '서버에서 오류가 발생했습니다.',
     });
   }
 });
 
+app.get('/fortune', async (req, res) => {
+  try {
+    await handleFortuneRequest(res);
+  } catch (error) {
+    console.error(error);
+    res.status(200).send({
+      code: 'ERROR',
+      message: '서버에서 오류가 발생했습니다.',
+    });
+  }
+});
+app.get('/fortune/result/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    await handleGetFortuneRequest(id, res);
+  } catch (error) {
+    console.error(error);
+    res.status(200).send({
+      code: 'ERROR',
+      message: '서버에서 오류가 발생했습니다.',
+    });
+  }
+});
 //aws Lambda에서 서버리스로 사용하도록
 // module.exports.handler = serverless(app);?
 
