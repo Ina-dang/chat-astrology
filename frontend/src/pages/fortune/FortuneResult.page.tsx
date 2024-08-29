@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { KakaoShareButton } from '../../components';
+import { KakaoShareButton, TwitterShareButton } from '../../components';
 
 const FortuneResultPage = () => {
   const query = new URLSearchParams(location.search);
@@ -25,12 +25,17 @@ const FortuneResultPage = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
+  const propsTwitterShareButton = {
+    url: location.href,
+    text: 'GPT가 말아주는 사주🍶&타로🍺',
+  };
   return (
     <div>
       결과
       <p>{result}</p>
       결과를 공유하고싶다면?
       <KakaoShareButton />
+      <TwitterShareButton {...propsTwitterShareButton} />
       <button>공유하기</button>
     </div>
   );
