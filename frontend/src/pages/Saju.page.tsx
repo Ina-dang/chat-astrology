@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { Sections } from '../components';
 interface SajuItem {
   key: string;
   value: {
@@ -65,9 +66,9 @@ const SajuPage: React.FC = () => {
   };
   console.log(result);
   return (
-    <main className="SajuPage">
-      사주페이지
-      <section>
+    <main className="Pages SajuPage">
+      <h2>사주페이지</h2>
+      <header>
         <form>
           <label htmlFor="name">
             <span>이름</span>
@@ -97,49 +98,51 @@ const SajuPage: React.FC = () => {
             결과보기
           </button>
         </form>
-      </section>
-      {result && (
-        <section>
-          <h2>나의 오행</h2>
-          <article>
-            <p>{result?.yinYang}</p>
-            <p>{result?.fiveElements}</p>
-          </article>
-          <table>
-            <thead>
-              <tr>
-                <th>사주</th>
-                <th>일주</th>
-                <th>월주</th>
-                <th>년주</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {result?.sajuAnalysis?.map((item) => (
-                  <td key={item.key}>
-                    <p>{item.value.pre.first.title}</p>
-                    <em>{item.value.pre.first.type}</em>
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                {result?.sajuAnalysis?.map((item) => (
-                  <td key={item.key}>
-                    <p> {item.value.pre.second.title}</p>
-                    <em>{item.value.pre.second.type}</em>
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-          <article>
-            {result?.sajuAnalysis?.map((item) => (
-              <p key={item.key}>{item.value.description}</p>
-            ))}
-          </article>
-        </section>
-      )}
+      </header>
+      <Sections>
+        {result && (
+          <section>
+            <h2>나의 오행</h2>
+            <article>
+              <p>{result?.yinYang}</p>
+              <p>{result?.fiveElements}</p>
+            </article>
+            <table>
+              <thead>
+                <tr>
+                  <th>사주</th>
+                  <th>일주</th>
+                  <th>월주</th>
+                  <th>년주</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {result?.sajuAnalysis?.map((item) => (
+                    <td key={item.key}>
+                      <p>{item.value.pre.first.title}</p>
+                      <em>{item.value.pre.first.type}</em>
+                    </td>
+                  ))}
+                </tr>
+                <tr>
+                  {result?.sajuAnalysis?.map((item) => (
+                    <td key={item.key}>
+                      <p> {item.value.pre.second.title}</p>
+                      <em>{item.value.pre.second.type}</em>
+                    </td>
+                  ))}
+                </tr>
+              </tbody>
+            </table>
+            <article>
+              {result?.sajuAnalysis?.map((item) => (
+                <p key={item.key}>{item.value.description}</p>
+              ))}
+            </article>
+          </section>
+        )}
+      </Sections>
       <footer>
         <button
           type="button"

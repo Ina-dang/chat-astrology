@@ -10,11 +10,7 @@ const TwitterShareButton: React.FC<TwitterShareButtonProps> = ({ url, text }) =>
     )}&url=${encodeURIComponent(url)}`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
   };
-  return (
-    <div className="TwitterShareButton">
-      <button onClick={handleClick} />
-    </div>
-  );
+  return <button className="TwitterShareButton" onClick={handleClick} />;
 };
 
 export { TwitterShareButton };

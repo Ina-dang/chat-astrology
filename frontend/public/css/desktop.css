@@ -16,7 +16,6 @@ body {
   height: 742px;
   margin-top: calc(740px / -2);
   margin-left: calc(380px / -2);
-  padding: 1px;
   background-color: #fff;
   box-shadow: 5px 10px 20px 0 #00000040;
   box-sizing: border-box;

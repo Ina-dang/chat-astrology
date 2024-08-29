@@ -1,11 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { ClipboardShareButton, KakaoShareButton, TwitterShareButton } from '../../components';
+import {
+  ClipboardShareButton,
+  KakaoShareButton,
+  Sections,
+  TwitterShareButton,
+} from '../../components';
 
 const FortuneResultPage = () => {
   const query = new URLSearchParams(location.search);
   const id = query.get('id');
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<string>('');
 
   useEffect(() => {
     axios
@@ -30,14 +35,30 @@ const FortuneResultPage = () => {
     text: 'GPT가 말아주는 사주🍶&타로🍺',
   };
   return (
-    <div>
-      결과
-      <p>{result}</p>
-      결과를 공유하고싶다면?
-      <KakaoShareButton />
-      <TwitterShareButton {...propsTwitterShareButton} />
-      <ClipboardShareButton />
-    </div>
+    <main className="Pages FortuneResultPage">
+      <header>
+        <h2>결과</h2>
+        <p>{result}</p>
+      </header>
+      <Sections>
+        <article>
+          <h4>결과를 공유하고싶다면?</h4>
+          <KakaoShareButton />
+          <TwitterShareButton {...propsTwitterShareButton} />
+          <ClipboardShareButton />
+        </article>
+      </Sections>
+      <footer>
+        <button
+          type="button"
+          onClick={() => {
+            window.history.back();
+          }}
+        >
+          돌아가기
+        </button>
+      </footer>
+    </main>
   );
 };
 

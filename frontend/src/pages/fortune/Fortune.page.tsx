@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Sections } from '../../components';
 
 /**
  * FortunePage 컴포넌트
@@ -29,11 +30,24 @@ const FortunePage = () => {
   };
   console.log(result);
   return (
-    <div>
-      포춘쿠키
-      <button onClick={handleGetFortune}>오늘의 운세 확인하기</button>
-      <p>{result}</p>
-    </div>
+    <main className="Pages FortunePage">
+      <header>
+        <h2>포춘쿠키</h2>
+      </header>
+      <Sections>
+        <button onClick={handleGetFortune}>오늘의 운세 확인하기</button>
+      </Sections>
+      <footer>
+        <button
+          type="button"
+          onClick={() => {
+            window.history.back();
+          }}
+        >
+          돌아가기
+        </button>
+      </footer>
+    </main>
   );
 };
 

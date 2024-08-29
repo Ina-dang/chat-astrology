@@ -1,10 +1,8 @@
 @import '../commonness.scss';
 .TwitterShareButton {
-  button {
-    width: dp(50);
-    height: dp(50);
-    background-image: url('../../images/x.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+  width: dp(50);
+  height: dp(50);
+  background-image: url('../../images/x.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
