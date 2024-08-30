@@ -1,8 +1,7 @@
-import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
 import OpenAI from 'openai';
-import serverless from 'serverless-http';
 import {
   handleFortuneRequest,
   handleGetFortuneRequest,
@@ -123,7 +122,7 @@ app.post('/askQuestion', async function (req, res) {
 //     });
 //   }
 // });
-app.post('/saju', async (req, res) => {
+app.post('/saju/result', async (req, res) => {
   try {
     await handleSajuRequest(req, res);
   } catch (error) {

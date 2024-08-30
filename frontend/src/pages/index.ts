@@ -1,3 +1,3 @@
 export * from './fortune';
-export * from './Saju.page';
+export * from './saju';
 export * from './common';
