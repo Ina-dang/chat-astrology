@@ -31,12 +31,12 @@ body {
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: 100%;
-  color: $c-3;
+  font-family: $font-family-default;
+  color: $c-2;
   user-select: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
-  @include font(400, 16, 24);
 }
 
 #root {

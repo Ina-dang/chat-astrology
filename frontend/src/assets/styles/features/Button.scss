@@ -1,0 +1,24 @@
+@import '../commonness.scss';
+
+.Button {
+  width: 100%;
+  padding: dp(12);
+  border: none;
+  border-radius: dp(8);
+  background-color: #4169e1;
+  box-shadow: 0 dp(4) dp(6) rgba(0, 0, 0, 0.2);
+  p {
+    margin: 0;
+    color: #ffffff;
+    @include font(bold, 20, 24);
+  }
+  &:hover,
+  &:focus {
+    background-color: #365bb3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    background-color: #314d92;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}

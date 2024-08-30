@@ -1,10 +1,37 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sections } from '../../components';
+import { InputField, Sections } from '../../components';
+import { IMAGES } from '../../assets';
+
+interface FormValues {
+  name: string;
+  birth: string;
+  gender: string;
+  birthTime: string;
+}
+
+const inputConfigs = [
+  { id: 'name', label: '이름', type: 'text' as const },
+  {
+    id: 'birth',
+    label: '생년월일',
+    type: 'date' as const,
+    pattern: '[0-9]*',
+    inputMode: 'numeric' as const,
+  },
+  {
+    id: 'birthTime',
+    label: '출생시간',
+    type: 'time' as const,
+    pattern: '[0-9]*',
+    inputMode: 'numeric' as const,
+  },
+];
 
 const SajuPage: React.FC = () => {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<FormValues>({
     name: '',
+    gender: '',
     birth: '',
     birthTime: '',
   });
@@ -12,7 +39,10 @@ const SajuPage: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setValues({ ...values, [id]: value });
+    setValues((prevValues) => ({
+      ...prevValues,
+      [id]: value,
+    }));
   };
 
   const handleGetTaro = () => {
@@ -23,56 +53,44 @@ const SajuPage: React.FC = () => {
       return;
     }
 
-    console.log(values);
-    const queryString = `name=${name}&birth=${birth}&birthTime=${birthTime}`;
-    navigate(encodeURI(`/saju/result?${queryString}`));
-
-    //  transition효과로 생년월일은 줄어들고 결과 화면이 표시된다(고민)
+    const queryString = `name=${encodeURIComponent(name)}&birth=${encodeURIComponent(
+      birth,
+    )}&birthTime=${encodeURIComponent(birthTime)}`;
+    navigate(`/saju/result?${queryString}`);
   };
+
   return (
     <main className="Pages SajuPage">
-      <header>사주페이지</header>
-      <Sections>
-        <form>
-          <label htmlFor="name">
-            <span>이름</span>
-          </label>
-          <input onChange={handleChange} id="name" />
-          <label htmlFor="birth">
-            <span>생년월일</span>
-          </label>
-          <input
-            type="date"
-            onChange={handleChange}
-            pattern="[0-9]"
-            inputMode="numeric"
-            id="birth"
-          />
-          <label htmlFor="birthTime">
-            <span>출생시간</span>
-          </label>
-          <input
-            type="time"
-            onChange={handleChange}
-            pattern="[0-9]"
-            inputMode="numeric"
-            id="birthTime"
-          />
-          <button type="button" onClick={handleGetTaro}>
-            결과보기
-          </button>
-        </form>
-      </Sections>
-      <footer>
+      <header>
         <button
-          type="button"
           onClick={() => {
             window.history.back();
           }}
         >
-          돌아가기
+          <img src={IMAGES.ARROW_LEFT} alt="arrow left" />
         </button>
-      </footer>
+        <h1>사주 정보 입력</h1>
+      </header>
+      <Sections>
+        <form>
+          <h3>사주 정보를 입력해주세요.</h3>
+          {inputConfigs.map(({ id, label, type, pattern, inputMode }) => (
+            <InputField
+              key={id}
+              id={id}
+              label={label}
+              type={type}
+              pattern={pattern}
+              inputMode={inputMode}
+              onChange={handleChange}
+            />
+          ))}
+        </form>
+        <button className="Button" type="button" onClick={handleGetTaro}>
+          <p>결과보기</p>
+        </button>
+      </Sections>
+      <footer></footer>
     </main>
   );
 };

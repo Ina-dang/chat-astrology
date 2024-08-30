@@ -1,2 +1,2 @@
 import './common';
-import './Saju.page.scss';
+import './saju';

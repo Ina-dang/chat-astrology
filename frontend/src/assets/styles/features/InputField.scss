@@ -1,0 +1,24 @@
+@import '../commonness.scss';
+
+.InputField {
+  display: flex;
+  align-items: center;
+  margin-bottom: dp(10);
+  padding: dp(10) dp(15);
+  border: dp(1) solid $c-a;
+  border-radius: dp(8);
+  label {
+    width: 30%;
+    @include font(600, 18, 24);
+  }
+  input {
+    @include font(500, 16, 24);
+    border: none;
+    background-color: inherit;
+    text-align: right;
+    flex-grow: 1;
+    &:focus {
+      outline: none;
+    }
+  }
+}
