@@ -2,11 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import OpenAI from 'openai';
-import {
-  handleFortuneRequest,
-  handleGetFortuneRequest,
-  handleSajuRequest,
-} from './tools.js';
+import { handleFortuneRequest, handleGetFortuneRequest, handleSajuRequest } from './tools.js';
 
 dotenv.config();
 const openai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
@@ -14,8 +10,9 @@ const app = express();
 
 let corsOptions = {
   // origin: 'https://chat-astrology-cjp.pages.dev',
+  origin: 'https://chat-astrology-6c51.vercel.app/',
   // credentials: true,
-  origin: 'http://localhost:5173',
+  // origin: 'http://localhost:5173',
 };
 
 app.use(cors(corsOptions));
@@ -40,8 +37,7 @@ app.post('/askQuestion', async function (req, res) {
     },
     {
       role: 'assistant',
-      content:
-        '안녕하세요. 점성술사 유리입니다! 어떤 질문에 대해 도와드릴까요?',
+      content: '안녕하세요. 점성술사 유리입니다! 어떤 질문에 대해 도와드릴까요?',
     },
     {
       role: 'user',
@@ -59,8 +55,8 @@ app.post('/askQuestion', async function (req, res) {
         JSON.parse(
           `{"role": "user", "content": "${String(userMessages.shift())
             .replace(/"/g, "'")
-            .replace(/\n/g, '')}"}`
-        )
+            .replace(/\n/g, '')}"}`,
+        ),
       );
     }
     if (assistantMessages.length != 0) {
@@ -68,8 +64,8 @@ app.post('/askQuestion', async function (req, res) {
         JSON.parse(
           `{"role": "user", "content": "${String(assistantMessages.shift())
             .replace(/"/g, "'")
-            .replace(/\n/g, '')}"}`
-        )
+            .replace(/\n/g, '')}"}`,
+        ),
       );
     }
   }
