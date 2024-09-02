@@ -31,7 +31,6 @@ const FortunePage = () => {
       // .get('http://localhost:3000/fortune')
       .get('/api/fortune')
       .then((response) => {
-        console.log(response);
         if (!response?.data) {
           throw new Error('axios error');
         }
