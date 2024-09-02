@@ -1,0 +1,24 @@
+@import '../../commonness.scss';
+
+.FortunePage {
+  @keyframes shake-up-down {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(dp(10));
+    }
+  }
+  .Sections {
+    .FortuneCookie {
+      display: block;
+      margin: 0 auto;
+      width: dp(150);
+      padding-bottom: dp(50);
+      &.Active {
+        animation: shake-up-down 0.5s infinite;
+      }
+    }
+  }
+}

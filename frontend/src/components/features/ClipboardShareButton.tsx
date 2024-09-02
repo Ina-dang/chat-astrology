@@ -7,9 +7,7 @@ const ClipboardShareButton = () => {
   };
 
   return (
-    <button className="ClipboardShareButton" onClick={handleCopyToClipboard}>
-      링크 복사하기
-    </button>
+    <button className="ShareButton ClipboardShareButton" onClick={handleCopyToClipboard}></button>
   );
 };
 

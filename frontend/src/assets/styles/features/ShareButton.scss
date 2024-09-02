@@ -1,0 +1,27 @@
+@import '../commonness.scss';
+
+.ShareButton {
+  width: dp(50);
+  height: dp(50);
+  border: none;
+  border-radius: 50%;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  &.KakaoShareButton {
+    background-image: url('https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png');
+  }
+  &.TwitterShareButton {
+    border: dp(1) solid $c-a;
+    background-image: url('../../images/x.svg');
+    background-size: 70%;
+  }
+
+  &.ClipboardShareButton {
+    border: dp(1) solid $c-a;
+    background-image: url('../../images/link.svg');
+    background-size: 50%;
+  }
+}

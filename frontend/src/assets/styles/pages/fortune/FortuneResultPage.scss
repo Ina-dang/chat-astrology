@@ -1,0 +1,42 @@
+@import '../../commonness.scss';
+
+.FortuneResultPage {
+  @keyframes fortune-result-on {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+  }
+  .Sections {
+    article {
+      &:first-child {
+        margin-bottom: dp(30);
+        padding: dp(30) dp(20);
+        border-radius: dp(8);
+        background-color: #fff;
+        text-align: center;
+        animation: fortune-result-on 1.5s ease-in;
+        p {
+          width: 80%;
+          margin: dp(30) auto;
+          text-wrap: pretty;
+          @include font(bold, 20, 30);
+        }
+      }
+      &:last-child {
+        width: 100%;
+        text-align: center;
+        h4 {
+          @include font(bold, 20, 30);
+        }
+        .ShareButtons {
+          padding: dp(30);
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+}

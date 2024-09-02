@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Sections } from '../../components';
+import { Headers, Sections } from '../../components';
 import axios from 'axios';
 
 interface SajuAnalysisItem {
@@ -57,6 +57,7 @@ const SajuResultPage = () => {
 
   return (
     <main className="Pages SajuResultPage">
+      <Headers title={'사주 결과'} />
       <Sections>
         {result && (
           <section>

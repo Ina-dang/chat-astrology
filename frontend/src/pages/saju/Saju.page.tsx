@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { InputField, Sections } from '../../components';
+import { Headers, InputField, Sections } from '../../components';
 import { IMAGES } from '../../assets';
 
 interface FormValues {
@@ -61,16 +61,7 @@ const SajuPage: React.FC = () => {
 
   return (
     <main className="Pages SajuPage">
-      <header>
-        <button
-          onClick={() => {
-            window.history.back();
-          }}
-        >
-          <img src={IMAGES.ARROW_LEFT} alt="arrow left" />
-        </button>
-        <h1>사주 정보 입력</h1>
-      </header>
+      <Headers title={'사주 정보 입력'} />
       <Sections>
         <form>
           <h3>사주 정보를 입력해주세요.</h3>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>운세보는 유우리</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="intro-container">
+      <h1>시바유우리가 운세를 알려드립니다.</h1>
+      <img src="/doge.webp" alt="doge" />
+      <div>
+        <label for="date" id="dateLabel"> 태어난 날짜 </label>
+        <input id="date" type="date" placeholder="태어난 날짜" />
+      </div>
+      <div>
+        <label for="time" id="timeLabel"> 태어난 시간 </label>
+        <input id="time" type="time" placeholder="태어난 시간" />
+      </div>
+      <button onclick="handleStart()">오늘의 운세보기</button>
+    </div>
+    <div class="chat-container">
+      <div class="chat-header">운세보는 유우리</div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="loading" id="loading">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="messageInput"
+          placeholder="메시지를 입력하세요"
+          onkeypress="handleEnter(event)"
+        />
+        <button onclick="sendMessage()">보내기</button>
+      </div>
+    </div>
+    <div class="kakao-add">
+      <a href="https://toss.me/inadang"> 운세가 마음에 들었다면? 복채보내기🍀 </a>
+      <ins
+        class="kakao_ad_area"
+        style="display: none"
+        data-ad-unit="DAN-XtUlfyiwPrPohP8p"
+        data-ad-width="320"
+        data-ad-height="50"
+      ></ins>
+      <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+    </div>
+    <script src="env.js" />
+    <script>
+      let userMessages = [];
+      let assistantMessages = [];
+      let myBirthTime = '';
+
+      function handleEnter() {
+        if (event.keyCode == 13) {
+          sendMessage();
+          document.getElementById('messageInput').focus();
+        }
+      }
+
+      function handleStart() {
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        if (!date) {
+          alert('생년월일을 입력해주세요');
+          return;
+        }
+        myBirthTime = date + ' ' + time;
+        console.log('myBirthTime', myBirthTime);
+        document.querySelector('.intro-container').style.display = 'none';
+        document.querySelector('.chat-container').style.display = 'block';
+        document.querySelector('.kakao-add a ').style.display = 'block';
+      }
+
+      console.log('userMessages', userMessages);
+      console.log('assistantMessages', assistantMessages);
+
+      const chatMessages = document.getElementById('chatMessages');
+
+      const appendMessage = (message, sender) => {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}`;
+        messageDiv.textContent = message;
+        if (sender === 'assistant') {
+          messageDiv.classList.add('assistant');
+          message !== '운세를 확인하는 중입니다...' && assistantMessages.push(message);
+        } else {
+          userMessages.push(message);
+        }
+        chatMessages.appendChild(messageDiv);
+        // Scroll to the bottom of chat messages
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      };
+
+      const sendGreeting = () => {
+        const greeting = '안녕하세요~ 오늘의 운세를 확인하시겠어요?';
+        appendMessage(greeting, 'assistant');
+      };
+
+      const sendMessage = () => {
+        openLoading();
+        const message = document.getElementById('messageInput').value.trim();
+        if (message === '') {
+          alert('메시지를 입력해주세요.');
+          return;
+        }
+
+        appendMessage(message, 'user');
+        document.getElementById('messageInput').value = ''; // Clear input field
+        postFortune({ userMessages, assistantMessages, myBirthTime }); // Fetch fortune after sending message
+      };
+
+      const postFortune = async (data) => {
+        try {
+          if (data.userMessages[0].includes('운세')) {
+            appendMessage('운세를 확인하는 중입니다...', 'assistant');
+            const response = await fetch(`${lamdaUrl}/askQuestion`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            appendMessage(result.assistant, 'assistant');
+          } else {
+            // 운세가 아닌 일반 메시지인 경우
+            // fetch 요청을 보낼 필요 없으므로 별도의 로딩 처리 없이 바로 메시지를 표시할 수 있습니다.
+            const response = await fetch(`${lamdaUrl}/askQuestion`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            appendMessage(result.assistant, 'assistant');
+          }
+          closeLoading();
+        } catch (error) {
+          console.error(error);
+          appendMessage('운세를 불러오는 중에 오류가 발생했습니다.', 'assistant');
+          closeLoading();
+        }
+      };
+
+      const displayFortune = (fortune) => {
+        const messages = fortune.split('\n\n');
+        messages.forEach((message, index) => {
+          setTimeout(() => appendMessage(message.trim(), 'assistant'), index * 1000);
+        });
+      };
+
+      function openLoading() {
+        const loadingDiv = document.querySelector('.loading');
+        loadingDiv.style.display = 'flex'; // 로딩 창 표시
+      }
+      function closeLoading() {
+        const loadingDiv = document.querySelector('.loading');
+        loadingDiv.style.display = 'none'; // 로딩 창 제거
+      }
+
+      // Call the greeting function when the page loads
+      sendGreeting();
+    </script>
+  </body>
+</html>

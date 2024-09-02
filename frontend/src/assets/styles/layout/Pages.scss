@@ -21,6 +21,7 @@
       margin: 0;
       text-align: center;
       flex-grow: 1;
+      @include font(bold, 24, 30);
     }
   }
   section {
@@ -30,5 +31,23 @@
   footer {
     min-height: dp(50);
     background-color: steelblue;
+    .KakaoAdd {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      min-width: 300px;
+      min-height: 100px;
+      margin-top: 20px;
+      text-align: right;
+    }
+    .KakaoAdd a {
+      display: none;
+      padding: 10px;
+      font-weight: bold;
+      color: rgb(110, 110, 115);
+      text-decoration: none;
+    }
   }
 }
