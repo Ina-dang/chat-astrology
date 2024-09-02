@@ -1,1 +1,1 @@
-import './Main.Page.scss';
+import './Main.page.scss';
