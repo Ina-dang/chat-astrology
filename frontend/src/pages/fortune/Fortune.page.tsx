@@ -28,7 +28,8 @@ const FortunePage = () => {
     setAnimationOn((prev) => !prev);
 
     axios
-      .get('http://localhost:3000/fortune')
+      // .get('http://localhost:3000/fortune')
+      .get('https://chat-astrology-6c51.vercel.app/api/fortune')
       .then((response) => {
         console.log(response);
         if (!response?.data) {

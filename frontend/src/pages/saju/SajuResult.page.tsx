@@ -33,7 +33,8 @@ const SajuResultPage = () => {
       birthTime,
     };
     axios
-      .post('http://localhost:3000/saju/result', values)
+      // .post('http://localhost:3000/saju/result', values)
+      .post('https://chat-astrology-6c51.vercel.app/api/saju/result', values)
       .then((response) => {
         console.log(response);
         if (!response?.data) {

@@ -11,3 +11,38 @@
 ## 운영주소
 
 - [운세보는 유우리](https://chat-astrology-cjp.pages.dev/)
+
+## 프로젝트 구조
+
+```
+📦chat-astrology
+ ┣ 📂api
+ ┃ ┣ 📜.env
+ ┃ ┣ 📜.gitignore
+ ┃ ┣ 📜datas.js
+ ┃ ┣ 📜index.js
+ ┃ ┣ 📜package-lock.json
+ ┃ ┣ 📜package.json
+ ┃ ┗ 📜tools.js
+ ┣ 📂frontend
+ ┃ ┣ 📂public
+ ┃ ┣ 📂src
+ ┃ ┃ ┣ 📂assets
+ ┃ ┃ ┃ ┣ 📂images
+ ┃ ┃ ┃ ┣ 📂locales
+ ┃ ┃ ┃ ┣ 📂styles
+ ┃ ┃ ┣ 📂components
+ ┃ ┃ ┃ ┣ 📂features
+ ┃ ┃ ┃ ┣ 📂layout
+ ┃ ┃ ┣ 📂pages
+ ┃ ┃ ┃ ┣ 📂common
+ ┃ ┃ ┃ ┣ 📂fortune
+ ┃ ┃ ┃ ┣ 📂saju
+ ┃ ┃ ┣ 📂types
+ ┃ ┃ ┣ 📜App.tsx
+ ┃ ┃ ┣ 📜global.d.ts
+ ┃ ┃ ┣ 📜main.tsx
+ ┃ ┃ ┣ 📜Router.tsx
+ ┃ ┃ ┗ 📜vite-env.d.ts
+ ┗ 📜README.md
+```

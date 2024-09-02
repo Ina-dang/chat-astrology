@@ -17,7 +17,8 @@ const FortuneResultPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/fortune/result/${id}`)
+      // .get(`http://localhost:3000/fortune/result/${id}`)
+      .get(`https://chat-astrology-6c51.vercel.app/api/fortune/result/${id}`)
       .then((response) => {
         console.log(response);
         if (!response?.data) {
