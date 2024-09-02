@@ -10,7 +10,7 @@ const app = express();
 
 let corsOptions = {
   // origin: 'https://chat-astrology-cjp.pages.dev',
-  origin: 'https://chat-astrology-6c51.vercel.app/',
+  origin: 'https://chat-astrology-6c51.vercel.app',
   // credentials: true,
   // origin: 'http://localhost:5173',
 };
