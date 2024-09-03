@@ -28,8 +28,8 @@ const FortunePage = () => {
     setAnimationOn((prev) => !prev);
 
     axios
-      // .get('http://localhost:3000/fortune')
-      .get('/api/fortune')
+      // .get('http://localhost:3000/fortune/result')
+      .get('/api/fortune/result')
       .then((response) => {
         if (!response?.data) {
           throw new Error('axios error');
