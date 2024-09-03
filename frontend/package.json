@@ -36,7 +36,6 @@
   },
   "name": "frontend",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "tsc && vite build",
     "dev": "pm2 restart saju-taro-with-gpt-front-dev || pm2 start --name saju-taro-with-gpt-front-dev npm -- run local",
