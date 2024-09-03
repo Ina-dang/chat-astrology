@@ -4,14 +4,4 @@ import react from '@vitejs/plugin-react-swc';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  root: '.',
-  build: {
-    outDir: './dist',
-    rollupOptions: {
-      input: {
-        main: './index.html',
-      },
-    },
-  },
-  base: './',
 });

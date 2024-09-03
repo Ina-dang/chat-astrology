@@ -1,4 +1,4 @@
-import { sajuDetails, fortuneDatas } from './datas.js';
+import { sajuDetails, fortuneDatas } from './_datas.ts';
 
 const timeRanges = {
   자: [0, 1], // 자시: 23:00 ~ 01:00
@@ -48,9 +48,7 @@ function getSajuAnalysis(year, month, day, hours) {
   const { yinYang, fiveElements } = calculateYinYangAndFiveElements(year);
 
   // 생년월일과 출생시간을 키로 사용하여 사주 분석 결과를 가져옵니다.
-  const dateKey = `${year}-${month.toString().padStart(2, '0')}-${day
-    .toString()
-    .padStart(2, '0')}`;
+  const dateKey = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
   const timeKey = getTimeRange(hours);
 
   // 시간에 따라 시주 결정
