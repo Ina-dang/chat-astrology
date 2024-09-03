@@ -1,7 +1,6 @@
-import { handleSajuRequest } from '../_tools.ts';
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { handleSajuRequest } from '../_tools.js';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req, res) {
   try {
     await handleSajuRequest(req, res);
   } catch (error) {

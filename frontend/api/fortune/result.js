@@ -1,7 +1,6 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
-import { handleFortuneRequest } from '../_tools.ts';
+import { handleFortuneRequest } from '../_tools.js';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req, res) {
   try {
     await handleFortuneRequest(res);
   } catch (error) {

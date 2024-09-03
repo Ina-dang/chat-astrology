@@ -1,4 +1,4 @@
-import { sajuDetails, fortuneDatas } from './_datas.ts';
+import { sajuDetails, fortuneDatas } from './_datas.js';
 
 const timeRanges = {
   자: [0, 1], // 자시: 23:00 ~ 01:00
