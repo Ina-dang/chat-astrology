@@ -145,6 +145,7 @@ app.get('/api/fortune/result', async (req, res) => {
     });
   }
 });
+
 app.get('/api/fortune/result/:id', async (req, res) => {
   try {
     const id = req.params.id;
