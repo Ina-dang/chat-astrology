@@ -1,0 +1,53 @@
+@import '../../commonness.scss';
+
+.TarotPage {
+  .Sections {
+    overflow-x: auto;
+    padding: 20px;
+    white-space: nowrap;
+
+    article {
+      &:first-child {
+        background-color: red;
+      }
+      &:last-child {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 60%;
+        .CardContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform: rotate(-90deg);
+          transform-origin: left left;
+          .card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 17%;
+            left: 0;
+            width: 80px;
+            height: 120px;
+            opacity: 1;
+            border: 1px solid #000;
+            background: #fff;
+            transform-origin: bottom center;
+            transition: opacity 0.5s, transform 0.5s;
+
+            /* 카드가 반원 형태로 배열되도록 설정 */
+            &:nth-child(n) {
+              transform: rotate(calc(var(--i) * 12deg)) translateY(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -33,7 +33,7 @@ const routing = [
   },
   {
     label: STR_COM.TARO,
-    href: '/taro',
+    href: '/tarot',
   },
   {
     label: '오늘의 포춘쿠키',
