@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Headers, Sections } from '../../components';
-import { offProcess, onProcess } from '../../tools';
+import { getApiEndpoint, offProcess, onProcess } from '../../tools';
 
 interface SajuAnalysisItem {
   key: string;
@@ -35,8 +35,7 @@ const SajuResultPage = () => {
       birthTime,
     };
     axios
-      // .post('http://localhost:3000/saju/result', values)
-      .post('/api/saju/result', values)
+      .post(getApiEndpoint('saju/result'), values)
       .then((response) => {
         console.log(response);
         if (!response?.data) {

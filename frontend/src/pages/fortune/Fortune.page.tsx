@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Footer, Headers, Sections } from '../../components';
 import { IMAGES } from '../../assets';
+import { getApiEndpoint } from '../../tools';
 
 /**
  * FortunePage 컴포넌트
@@ -26,10 +27,10 @@ const FortunePage = () => {
 
   const handleGetFortune = () => {
     setAnimationOn((prev) => !prev);
+    console.log(import.meta.env['PROD']);
 
     axios
-      // .get('http://localhost:3000/fortune/result')
-      .get('/api/fortune/result')
+      .get(getApiEndpoint('fortune/result'))
       .then((response) => {
         if (!response?.data) {
           throw new Error('axios error');

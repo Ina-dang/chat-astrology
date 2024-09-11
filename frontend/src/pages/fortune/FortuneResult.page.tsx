@@ -9,6 +9,7 @@ import {
   TwitterShareButton,
 } from '../../components';
 import { IMAGES } from '../../assets';
+import { getApiEndpoint } from '../../tools';
 
 const FortuneResultPage = () => {
   const query = new URLSearchParams(location.search);
@@ -17,8 +18,7 @@ const FortuneResultPage = () => {
 
   useEffect(() => {
     axios
-      // .get(`http://localhost:3000/fortune/result/${id}`)
-      .get(`/api/fortune/result/${id}`)
+      .get(getApiEndpoint(`fortune/result/${id}`))
       .then((response) => {
         console.log(response);
         if (!response?.data) {

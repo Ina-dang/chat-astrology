@@ -122,7 +122,7 @@ app.post('/askQuestion', async function (req, res) {
 //     });
 //   }
 // });
-app.post('/saju/result', async (req, res) => {
+app.post('/api/saju/result', async (req, res) => {
   try {
     await handleSajuRequest(req, res);
   } catch (error) {
@@ -134,7 +134,7 @@ app.post('/saju/result', async (req, res) => {
   }
 });
 
-app.get('/fortune', async (req, res) => {
+app.get('/api/fortune/result', async (req, res) => {
   try {
     await handleFortuneRequest(res);
   } catch (error) {
@@ -145,7 +145,7 @@ app.get('/fortune', async (req, res) => {
     });
   }
 });
-app.get('/fortune/result/:id', async (req, res) => {
+app.get('/api/fortune/result/:id', async (req, res) => {
   try {
     const id = req.params.id;
     await handleGetFortuneRequest(id, res);
