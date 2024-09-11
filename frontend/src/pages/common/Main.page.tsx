@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { LOCALES } from '../../assets';
+import { Footer, Headers } from '../../components';
 
 const STR_COM = LOCALES.COMMON;
 const MainPage: React.FC = () => {
@@ -15,12 +16,12 @@ const MainPage: React.FC = () => {
       </header>
       <section>
         {routing.map((item) => (
-          <button onClick={handleRoute(item.href)} key={item.label}>
-            <span>{item.label}</span>
+          <button onClick={handleRoute(item.href)} key={item.label} className="Button">
+            <p>{item.label}</p>
           </button>
         ))}
       </section>
-      <footer>광고자리</footer>
+      <Footer />
     </main>
   );
 };

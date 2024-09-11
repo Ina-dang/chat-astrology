@@ -7,11 +7,17 @@
   padding: dp(10) dp(15);
   border: dp(1) solid $c-a;
   border-radius: dp(8);
+  width: 100%;
+  flex-wrap: wrap;
   label {
-    width: 30%;
-    @include font(600, 18, 24);
+    width: 40%;
+    span {
+      @include font(600, 18, 24);
+      word-break: keep-all;
+    }
   }
   input {
+    width: 60%;
     @include font(500, 16, 24);
     border: none;
     background-color: inherit;

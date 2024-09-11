@@ -9,7 +9,7 @@
   @return calc($sp / 16) + rem;
 }
 
-@mixin font($weight, $size, $line-height) {
+@mixin font($weight: 500, $size: 16, $line-height: 20) {
   font-family: $font-family-default;
   font-size: sp($size);
   font-weight: $weight;
@@ -23,3 +23,5 @@ $bg-page: #f5f5fd;
 $c-3: #333;
 $c-2: #222;
 $c-a: #aaa;
+$c-b: #4169e1;
+$c-db: #365bb3;

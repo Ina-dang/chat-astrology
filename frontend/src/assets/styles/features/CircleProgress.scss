@@ -1,0 +1,31 @@
+@import '../commonness.scss';
+
+.CircleProgressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  .CircleProgress {
+    width: dp(80);
+    height: dp(80);
+    border: dp(8) solid $c-b;
+    border-top: dp(8) solid #dfdfdf;
+    border-radius: 50%;
+    animation: spinner 2s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

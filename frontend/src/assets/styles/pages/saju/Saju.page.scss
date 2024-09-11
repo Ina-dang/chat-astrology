@@ -20,3 +20,26 @@
     }
   }
 }
+
+.SajuResultPage {
+  .Sections {
+    overflow: auto;
+    > h2,
+    > p {
+      margin: 0;
+    }
+    article {
+      &:nth-of-type(1) {
+        display: flex;
+        justify-content: space-evenly;
+        p {
+          padding: dp(15);
+          border: dp(1) solid $c-b;
+          background-color: $c-b;
+          color: #fff;
+          border-radius: dp(12);
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Headers, Sections } from '../../components';
-import axios from 'axios';
+import { offProcess, onProcess } from '../../tools';
 
 interface SajuAnalysisItem {
   key: string;
@@ -27,6 +28,7 @@ const SajuResultPage = () => {
   const [result, setResult] = useState<SajuResult>();
 
   useEffect(() => {
+    onProcess();
     const values = {
       name,
       birth,
@@ -53,7 +55,10 @@ const SajuResultPage = () => {
           throw new Error(message);
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        offProcess();
+      });
   }, [birth]);
 
   return (
@@ -61,12 +66,19 @@ const SajuResultPage = () => {
       <Headers title={'사주 결과'} />
       <Sections>
         {result && (
-          <section>
-            <h2>나의 오행</h2>
+          <>
+            <h2>나의 음양오행</h2>
+            <p>
+              음양오행은 음과 양, 그리고 다섯 가지의 원소(물, 불, 흙, 나무, 쇠)로 구성된 동양 철학의
+              기본 원리입니다. 내 사주에 포함된 8개의 오행은 각각 물, 불, 흙, 나무, 쇠를 나타내며,
+              이들 원소는 서로 상생(서로 돕는 관계)과 상극(서로 상반되는 관계)으로 상호작용하여 삶의
+              에너지를 형성합니다.
+            </p>
             <article>
               <p>{result?.yinYang}</p>
               <p>{result?.fiveElements}</p>
             </article>
+            <hr />
             <table>
               <thead>
                 <tr>
@@ -100,7 +112,7 @@ const SajuResultPage = () => {
                 <p key={item.key}>{item.value.description}</p>
               ))}
             </article>
-          </section>
+          </>
         )}
       </Sections>
     </main>
