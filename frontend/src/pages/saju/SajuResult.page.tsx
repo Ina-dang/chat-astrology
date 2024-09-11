@@ -77,7 +77,6 @@ const SajuResultPage = () => {
               <p>{result?.yinYang}</p>
               <p>{result?.fiveElements}</p>
             </article>
-            <hr />
             <table>
               <thead>
                 <tr>
@@ -91,16 +90,20 @@ const SajuResultPage = () => {
                 <tr>
                   {result?.sajuAnalysis?.map((item) => (
                     <td key={item.key}>
-                      <p>{item.value.pre.first.title}</p>
-                      <em>{item.value.pre.first.type}</em>
+                      <div>
+                        <p>{item.value.pre.first.title}</p>
+                        <small>{item.value.pre.first.type}</small>
+                      </div>
                     </td>
                   ))}
                 </tr>
                 <tr>
                   {result?.sajuAnalysis?.map((item) => (
                     <td key={item.key}>
-                      <p> {item.value.pre.second.title}</p>
-                      <em>{item.value.pre.second.type}</em>
+                      <div>
+                        <p> {item.value.pre.second.title}</p>
+                        <small>{item.value.pre.second.type}</small>
+                      </div>
                     </td>
                   ))}
                 </tr>

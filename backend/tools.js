@@ -1,4 +1,4 @@
-import { sajuDetails, fortuneDatas } from './datas.js';
+import { sajuDetails, fortuneDatas, defaultSajuData } from './datas.js';
 
 const timeRanges = {
   자: [0, 1], // 자시: 23:00 ~ 01:00
@@ -54,44 +54,7 @@ function getSajuAnalysis(year, month, day, hours) {
   const timeKey = getTimeRange(hours);
 
   // 시간에 따라 시주 결정
-  const sajuAnalysis = sajuDetails[dateKey] || {
-    day: {
-      title: '을축',
-      pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '축', type: '토' },
-      },
-      description:
-        '을축 (乙丑): 을(乙)의 나무와 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 노력하는 것을 중시하는 성향을 나타냅니다. 축(丑)은 지혜와 근면성을 상징하며, 을(乙)은 부드러움과 협력을 중시합니다.',
-    },
-    month: {
-      title: '갑오',
-      pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '오', type: '화' },
-      },
-      description:
-        '갑오 (甲午): 갑(甲)의 나무와 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 대담하고 활동적이며, 오(午)는 열정과 에너지를 상징합니다. 갑(甲)은 적극적이고 강한 성격을 나타냅니다.',
-    },
-    year: {
-      title: '을해',
-      pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '해', type: '수' },
-      },
-      description:
-        '을해 (乙亥): 을(乙)의 나무와 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 섬세하고 직관적이며, 해(亥)는 감정의 깊이를 상징합니다. 을(乙)은 부드러움과 협력을 중시합니다.',
-    },
-    time: {
-      title: '정미',
-      pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '미', type: '토' },
-      },
-      description:
-        '정미 (丁未): 정(丁)의 불과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 미(未)는 풍부한 상상력과 안정성을 상징합니다.',
-    },
-  };
+  const sajuAnalysis = sajuDetails[dateKey] || defaultSajuData;
 
   return {
     yinYang,
