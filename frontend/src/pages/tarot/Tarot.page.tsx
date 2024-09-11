@@ -1,38 +1,46 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Headers, Sections } from '../../components';
 
 const TarotPage = () => {
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
+
   useEffect(() => {
     const cards = document.querySelectorAll('.card') as NodeListOf<HTMLElement>;
 
-    const handleClick = (index: number) => {
-      alert(`Card ${index + 1} clicked`);
-    };
-
     cards.forEach((card, index) => {
       card.style.setProperty('--i', index.toString());
-
-      card.removeEventListener('click', () => handleClick(index));
-      card.addEventListener('click', () => handleClick(index));
     });
-
-    return () => {
-      cards.forEach((card, index) => {
-        card.removeEventListener('click', () => handleClick(index));
-      });
-    };
   }, []);
+
+  const handleCardClick = (index: number) => () => {
+    if (selectedCards.includes(index)) {
+      setSelectedCards((prev) => prev.filter((card) => card !== index));
+    } else {
+      if (selectedCards.length < 3) {
+        setSelectedCards([...selectedCards, index]);
+      }
+    }
+  };
 
   return (
     <main className="Pages TarotPage">
       <Headers title={'타로카드'} />
       <Sections>
         <h2>원하는 카드를 3장 선택하세요.</h2>
-        <article></article>
+        <article>
+          {selectedCards.map((cardIndex) => (
+            <div
+              key={cardIndex}
+              className={`Selected ${selectedCards.includes(cardIndex) ? 'animate' : ''}`}
+            >
+              카드{cardIndex + 1}
+            </div>
+          ))}
+        </article>
         <article>
           <div className="CardContainer">
             {[...Array(16)].map((_, index) => (
-              <div key={index} className="card">
+              <div key={index} className="card" onClick={handleCardClick(index)}>
                 {index + 1}
               </div>
             ))}
