@@ -29,6 +29,10 @@
             width: 100%;
             height: dp(25);
             background-color: #3a1c1a;
+            color: #fff;
+            text-align: center;
+            @include font(400, 12, 22);
+            letter-spacing: dp(-0.75);
           }
           &.animate {
             animation: moveToPosition 0.5s ease-out forwards;

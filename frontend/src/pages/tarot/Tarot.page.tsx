@@ -139,7 +139,7 @@ const TarotPage = () => {
                     className={'Selected'}
                     style={{ '--card-src': `url(${IMAGES[cardName]})` } as ExtendedCSSProperties}
                   ></div>
-                  <div></div>
+                  <div>{cardName}</div>
                 </div>
               )
             );
