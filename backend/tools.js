@@ -82,6 +82,31 @@ async function handleSajuRequest(req, res) {
   });
 }
 
+async function handleTarotRequest(req, res) {
+  const { past, present, future } = req.body;
+
+  const tarotMap = tarotDetails.reduce((acc, card) => {
+    const [key, value] = Object.entries(card)[0];
+    acc[value.ko] = value;
+    return acc;
+  }, {});
+
+  const getCardInfo = (cardName) =>
+    tarotMap[cardName] || { past: '', present: '', future: '' };
+
+  const responseData = {
+    past: getCardInfo(past),
+    present: getCardInfo(present),
+    future: getCardInfo(future),
+  };
+
+  res.json({
+    code: 'OK',
+    message: '타로카드 분석에 성공하였습니다',
+    data: responseData,
+  });
+}
+
 async function handleFortuneRequest(res) {
   const data = getRandomData(fortuneDatas);
   res.json({
@@ -104,4 +129,9 @@ function getRandomData(datas) {
   const randomIndex = Math.floor(Math.random() * datas.length);
   return datas[randomIndex];
 }
-export { handleSajuRequest, handleFortuneRequest, handleGetFortuneRequest };
+export {
+  handleSajuRequest,
+  handleFortuneRequest,
+  handleGetFortuneRequest,
+  handleTarotRequest,
+};

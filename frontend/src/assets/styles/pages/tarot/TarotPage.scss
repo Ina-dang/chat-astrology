@@ -2,6 +2,8 @@
 
 .TarotPage {
   .Sections {
+    display: flex;
+    flex-direction: column;
     overflow-x: auto;
     padding: dp(20);
     white-space: nowrap;
@@ -11,11 +13,23 @@
         display: flex;
         justify-content: space-evenly;
         min-height: dp(120);
-        padding: dp(30) dp(10);
-        .Selected {
-          width: dp(80);
-          height: dp(120);
-          border: dp(2) solid #000;
+        padding: dp(30) 0 dp(10);
+        .CardWrap {
+          --card-src: '';
+          .Selected {
+            width: dp(95);
+            height: dp(130);
+            border: dp(4) solid #3a1c1a;
+            background-image: var(--card-src);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+          }
+          div:last-child {
+            width: 100%;
+            height: dp(25);
+            background-color: #3a1c1a;
+          }
           &.animate {
             animation: moveToPosition 0.5s ease-out forwards;
           }
@@ -23,11 +37,11 @@
       }
       &:last-child {
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         justify-content: center;
-        position: relative;
         width: 100%;
-        height: 60%;
+        flex-grow: 1;
+        transform: rotate(-90deg);
         .CardContainer {
           display: flex;
           align-items: center;
@@ -35,27 +49,29 @@
           position: relative;
           width: 100%;
           height: 100%;
-          transform: rotate(-90deg);
-          transform-origin: left left;
+          transform-origin: left center;
+
           .card {
             display: flex;
             align-items: center;
             justify-content: center;
             position: absolute;
-            top: 17%;
+            top: 15%;
             left: 0;
             width: dp(80);
             height: dp(120);
             opacity: 1;
             border: dp(1) solid #000;
-            background: #fff;
+            background-image: url('../../../images/main.png');
+            background-repeat: no-repeat;
+            background-size: cover;
             transform-origin: bottom center;
             transition: opacity 0.5s, transform 0.5s;
 
             /* 카드가 반원 형태로 배열되도록 설정 */
             &:nth-child(n) {
               animation: unfold 0.8s ease-out forwards;
-              transform: rotate(calc(var(--i) * 12deg)) translateY(-50%);
+              // transform: rotate(calc(var(--i))) translateX(0%);
               // animation-delay: calc(var(--i) * 0.05s);
             }
           }

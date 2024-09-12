@@ -2,37 +2,37 @@
 const sajuDetails = {
   '1985-02-14': {
     day: {
-      title: '을축',
+      title: '을축 (乙丑)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '축', type: '토' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '丑', type: '토: 土' },
       },
       description:
         '을축 (乙丑): 을(乙)의 나무와 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 노력하는 것을 중시하는 성향을 나타냅니다. 축(丑)은 지혜와 근면성을 상징하며, 을(乙)은 부드러움과 협력을 중시합니다.',
     },
     month: {
-      title: '갑오',
+      title: '갑오 (甲午)',
       pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '오', type: '화' },
+        first: { title: '甲', type: '목: 木' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '갑오 (甲午): 갑(甲)의 나무와 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 대담하고 활동적이며, 오(午)는 열정과 에너지를 상징합니다. 갑(甲)은 적극적이고 강한 성격을 나타냅니다.',
     },
     year: {
-      title: '을해',
+      title: '을해 (乙亥)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '해', type: '수' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '亥', type: '수: 水' },
       },
       description:
         '을해 (乙亥): 을(乙)의 나무와 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 섬세하고 직관적이며, 해(亥)는 감정의 깊이를 상징합니다. 을(乙)은 부드러움과 협력을 중시합니다.',
     },
     time: {
-      title: '정미',
+      title: '정미 (丁未)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '미', type: '토' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '정미 (丁未): 정(丁)의 불과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 미(未)는 풍부한 상상력과 안정성을 상징합니다.',
@@ -40,227 +40,153 @@ const sajuDetails = {
   },
   '1992-06-21': {
     day: {
-      title: '임자',
+      title: '임자 (壬子)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '자', type: '수' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '子', type: '수: 水' },
       },
       description:
-        '임자 (壬子): 임(壬)의 물과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 지혜롭으며, 자(子)는 직관과 인내를 상징합니다.',
+        '임자 (壬子): 임(壬)의 물과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 지혜롭습니다. 자(子)는 직관과 인내를 상징합니다.',
     },
     month: {
-      title: '계축',
+      title: '계축 (癸丑)',
       pre: {
-        first: { title: '계', type: '수' },
-        second: { title: '축', type: '토' },
+        first: { title: '癸', type: '수: 水' },
+        second: { title: '丑', type: '토: 土' },
       },
       description:
         '계축 (癸丑): 계(癸)의 물과 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 축(丑)은 근면성과 지혜를 상징합니다.',
     },
     year: {
-      title: '신유',
+      title: '신유 (辛酉)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '유', type: '수' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '酉', type: '금: 金' },
       },
       description:
         '신유 (辛酉): 신(辛)의 금과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 분석적이고 섬세하며, 유(酉)는 세심함과 정확성을 상징합니다.',
     },
     time: {
-      title: '정해',
+      title: '정해 (丁亥)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '해', type: '수' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '亥', type: '수: 水' },
       },
       description:
         '정해 (丁亥): 정(丁)의 불과 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 창의적이고 감정이 풍부하며, 해(亥)는 깊은 감정을 상징합니다.',
-    },
-  },
-  '2000-03-10': {
-    day: {
-      title: '임자',
-      pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '자', type: '수' },
-      },
-      description:
-        '임자 (壬子): 임(壬)의 물과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 지혜롭으며, 자(子)는 직관과 인내를 상징합니다.',
-    },
-    month: {
-      title: '계축',
-      pre: {
-        first: { title: '계', type: '수' },
-        second: { title: '축', type: '토' },
-      },
-      description:
-        '계축 (癸丑): 계(癸)의 물과 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 축(丑)은 근면성과 지혜를 상징합니다.',
-    },
-    year: {
-      title: '신유',
-      pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '유', type: '수' },
-      },
-      description:
-        '신유 (辛酉): 신(辛)의 금과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 분석적이고 섬세하며, 유(酉)는 세심함과 정확성을 상징합니다.',
-    },
-    time: {
-      title: '정해',
-      pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '해', type: '수' },
-      },
-      description:
-        '정해 (丁亥): 정(丁)의 불과 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 창의적이고 감정이 풍부하며, 해(亥)는 깊은 감정을 상징합니다.',
-    },
-  },
-  '1978-11-30': {
-    day: {
-      title: '갑인',
-      pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '인', type: '목' },
-      },
-      description:
-        '갑인 (甲寅): 갑(甲)의 나무와 인(寅)의 나무가 조화를 이루는 조합입니다. 이 조합은 대담하고 진취적이며, 인(寭)은 열정과 의지를 상징합니다.',
-    },
-    month: {
-      title: '을유',
-      pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '유', type: '수' },
-      },
-      description:
-        '을유 (乙酉): 을(乙)의 나무와 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 지혜롭고 섬세하며, 세심한 성격을 나타냅니다.',
-    },
-    year: {
-      title: '병술',
-      pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '술', type: '토' },
-      },
-      description:
-        '병술 (丙戌): 병(丙)의 불과 술(戌)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 술(戌)은 인내와 지혜를 상징합니다.',
-    },
-    time: {
-      title: '경오',
-      pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '오', type: '화' },
-      },
-      description:
-        '경오 (庚午): 경(庚)의 금과 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 강한 의지와 열정을 가지며, 오(午)는 활동성과 에너지를 상징합니다.',
     },
   },
   '1995-05-15': {
     day: {
-      title: '신미',
+      title: '신미 (辛未)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '미', type: '토' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '신미 (辛未): 신(辛)의 금과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 세심하고 신중하며, 미(未)는 풍부한 상상력과 안정성을 상징합니다.',
     },
     month: {
-      title: '임자',
+      title: '임자 (壬子)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '자', type: '수' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '子', type: '수: 水' },
       },
       description:
-        '임자 (壬子): 임(壬)의 물과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 지혜롭습니다.',
+        '임자 (壬子): 임(壬)의 물과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 지혜롭습니다. 자(子)는 직관과 인내를 상징합니다.',
     },
     year: {
-      title: '을해',
+      title: '을해 (乙亥)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '해', type: '수' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '亥', type: '수: 水' },
       },
       description:
         '을해 (乙亥): 을(乙)의 나무와 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 섬세하고 직관적이며, 해(亥)는 감정의 깊이를 상징합니다.',
     },
     time: {
-      title: '병술',
+      title: '병술 (丙戌)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '술', type: '토' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '戌', type: '토: 土' },
       },
       description:
         '병술 (丙戌): 병(丙)의 불과 술(戌)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 술(戌)은 인내와 지혜를 상징합니다.',
     },
   },
+
   '2001-12-01': {
     day: {
-      title: '경인',
+      title: '경인 (庚寅)',
       pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '인', type: '목' },
+        first: { title: '庚', type: '금: 金' },
+        second: { title: '寅', type: '목: 木' },
       },
       description:
-        '경인 (庚寅): 경(庚)의 금과 인(寅)의 나무가 조화를 이루는 조합입니다. 이 조합은 강한 의지와 대담성을 가지며, 인(寭)은 열정과 의지를 상징합니다.',
+        '경인 (庚寅): 경(庚)의 금과 인(寅)의 나무가 조화를 이루는 조합입니다. 이 조합은 강한 의지와 대담성을 가지며, 인(寅)은 열정과 의지를 상징합니다.',
     },
     month: {
-      title: '갑오',
+      title: '갑오 (甲午)',
       pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '오', type: '화' },
+        first: { title: '甲', type: '목: 木' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '갑오 (甲午): 갑(甲)의 나무와 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 대담하고 활동적이며, 오(午)는 열정과 에너지를 상징합니다.',
     },
     year: {
-      title: '계축',
+      title: '계축 (癸丑)',
       pre: {
-        first: { title: '계', type: '수' },
-        second: { title: '축', type: '토' },
+        first: { title: '癸', type: '수: 水' },
+        second: { title: '丑', type: '토: 土' },
       },
       description:
         '계축 (癸丑): 계(癸)의 물과 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 축(丑)은 근면성과 지혜를 상징합니다.',
     },
     time: {
-      title: '을미',
+      title: '을미 (乙未)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '미', type: '토' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '을미 (乙未): 을(乙)의 나무와 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 창의적이고 실용적이며, 미(未)는 풍부한 상상력과 안정성을 상징합니다.',
     },
   },
+
   '1964-07-28': {
     day: {
-      title: '을미',
+      title: '을미 (乙未)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '미', type: '토' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '을미 (乙未): 을(乙)의 나무와 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 미(未)는 상상력과 안정성을 상징합니다.',
     },
     month: {
-      title: '병자',
+      title: '병자 (丙子)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '자', type: '수' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '子', type: '수: 水' },
       },
       description:
         '병자 (丙子): 병(丙)의 불과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 열정적이고 직관적이며, 자(子)는 감정의 깊이를 상징합니다.',
     },
     year: {
-      title: '임술',
+      title: '임술 (壬戌)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '술', type: '토' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '戌', type: '토: 土' },
       },
       description:
         '임술 (壬戌): 임(壬)의 물과 술(戌)의 흙이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 실용적이며, 술(戌)은 인내와 지혜를 상징합니다.',
     },
     time: {
-      title: '정오',
+      title: '정오 (丁午)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '오', type: '화' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '정오 (丁午): 정(丁)의 불과 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 열정적이고 활동적이며, 오(午)는 에너지와 열정을 상징합니다.',
@@ -268,75 +194,76 @@ const sajuDetails = {
   },
   '1988-04-19': {
     day: {
-      title: '병진',
+      title: '병진 (丙辰)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '진', type: '토' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '辰', type: '토: 土' },
       },
       description:
         '병진 (丙辰): 병(丙)의 불과 진(辰)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 진(辰)은 창의력과 상상력을 상징합니다.',
     },
     month: {
-      title: '갑신',
+      title: '갑신 (甲申)',
       pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '신', type: '수' },
+        first: { title: '甲', type: '목: 木' },
+        second: { title: '申', type: '수: 水' },
       },
       description:
-        '갑신 (甲申): 갑(甲)의 나무와 신(申)의 금이 조화를 이루는 조합입니다. 이 조합은 대담하고 지혜롭으며, 신(申)은 분석력과 명확성을 상징합니다.',
+        '갑신 (甲申): 갑(甲)의 나무와 신(申)의 금이 조화를 이루는 조합입니다. 이 조합은 대담하고 지혜롭습니다. 신(申)은 분석력과 명확성을 상징합니다.',
     },
     year: {
-      title: '을미',
+      title: '을미 (乙未)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '미', type: '토' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '을미 (乙未): 을(乙)의 나무와 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 미(未)는 상상력과 안정성을 상징합니다.',
     },
     time: {
-      title: '경오',
+      title: '경오 (庚午)',
       pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '오', type: '화' },
+        first: { title: '庚', type: '금: 金' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '경오 (庚午): 경(庚)의 금과 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 강한 의지와 활동적이며, 오(午)는 열정과 에너지를 상징합니다.',
     },
   },
+
   '2005-09-15': {
     day: {
-      title: '임술',
+      title: '임술 (壬戌)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '술', type: '토' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '戌', type: '토: 土' },
       },
       description:
         '임술 (壬戌): 임(壬)의 물과 술(戌)의 흙이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 실용적이며, 술(戌)은 인내와 지혜를 상징합니다.',
     },
     month: {
-      title: '계유',
+      title: '계유 (癸酉)',
       pre: {
-        first: { title: '계', type: '수' },
-        second: { title: '유', type: '수' },
+        first: { title: '癸', type: '수: 水' },
+        second: { title: '酉', type: '금: 金' },
       },
       description:
         '계유 (癸酉): 계(癸)의 물과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 실용적이고 섬세하며, 유(酉)는 세심함과 정확성을 상징합니다.',
     },
     year: {
-      title: '병신',
+      title: '병신 (丙申)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '신', type: '수' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '申', type: '금: 金' },
       },
       description:
         '병신 (丙申): 병(丙)의 불과 신(申)의 금이 조화를 이루는 조합입니다. 이 조합은 열정적이고 지혜롭으며, 신(申)은 분석력과 명확성을 상징합니다.',
     },
     time: {
-      title: '정미',
+      title: '정미 (丁未)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '미', type: '토' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '정미 (丁未): 정(丁)의 불과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 미(未)는 상상력과 안정성을 상징합니다.',
@@ -344,37 +271,37 @@ const sajuDetails = {
   },
   '1999-10-02': {
     day: {
-      title: '경자',
+      title: '경자 (庚子)',
       pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '자', type: '수' },
+        first: { title: '庚', type: '금: 金' },
+        second: { title: '子', type: '수: 水' },
       },
       description:
         '경자 (庚子): 경(庚)의 금과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 강한 의지와 직관적이며, 자(子)는 감정의 깊이를 상징합니다.',
     },
     month: {
-      title: '을축',
+      title: '을축 (乙丑)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '축', type: '토' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '丑', type: '토: 土' },
       },
       description:
         '을축 (乙丑): 을(乙)의 나무와 축(丑)의 흙이 조화를 이루는 조합입니다. 이 조합은 실용적이고 신중하며, 축(丑)은 근면성과 지혜를 상징합니다.',
     },
     year: {
-      title: '임오',
+      title: '임오 (壬午)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '오', type: '화' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '임오 (壬午): 임(壬)의 물과 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 열정적이며, 오(午)는 에너지와 열정을 상징합니다.',
     },
     time: {
-      title: '경오',
+      title: '경오 (庚午)',
       pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '오', type: '화' },
+        first: { title: '庚', type: '금: 金' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '경오 (庚午): 경(庚)의 금과 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 강한 의지와 활동적이며, 오(午)는 열정과 에너지를 상징합니다.',
@@ -382,37 +309,37 @@ const sajuDetails = {
   },
   '1974-08-07': {
     day: {
-      title: '병술',
+      title: '병술 (丙戌)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '술', type: '토' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '戌', type: '토: 土' },
       },
       description:
         '병술 (丙戌): 병(丙)의 불과 술(戌)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 술(戌)은 인내와 지혜를 상징합니다.',
     },
     month: {
-      title: '정미',
+      title: '정미 (丁未)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '미', type: '토' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '정미 (丁未): 정(丁)의 불과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 열정적이고 실용적이며, 미(未)는 상상력과 안정성을 상징합니다.',
     },
     year: {
-      title: '경인',
+      title: '경인 (庚寅)',
       pre: {
-        first: { title: '경', type: '수' },
-        second: { title: '인', type: '목' },
+        first: { title: '庚', type: '금: 金' },
+        second: { title: '寅', type: '목: 木' },
       },
       description:
         '경인 (庚寅): 경(庚)의 금과 인(寅)의 나무가 조화를 이루는 조합입니다. 이 조합은 강한 의지와 대담성을 가지며, 인(寭)은 열정과 의지를 상징합니다.',
     },
     time: {
-      title: '신자',
+      title: '신자 (辛子)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '자', type: '수' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '子', type: '수: 水' },
       },
       description:
         '신자 (辛子): 신(辛)의 금과 자(子)의 물이 조화를 이루는 조합입니다. 이 조합은 세심하고 감정이 풍부하며, 자(子)는 직관과 인내를 상징합니다.',
@@ -420,37 +347,37 @@ const sajuDetails = {
   },
   '2008-02-29': {
     day: {
-      title: '을묘',
+      title: '을묘 (乙卯)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '묘', type: '목' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '卯', type: '목: 木' },
       },
       description:
         '을묘 (乙卯): 을(乙)의 나무와 묘(卯)의 나무가 조화를 이루는 조합입니다. 이 조합은 실용적이고 직관적이며, 묘(卯)는 창의력과 감수성을 상징합니다.',
     },
     month: {
-      title: '정유',
+      title: '정유 (丁酉)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '유', type: '수' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '酉', type: '수: 水' },
       },
       description:
         '정유 (丁酉): 정(丁)의 불과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 열정적이고 분석적이며, 유(酉)는 세심함과 정확성을 상징합니다.',
     },
     year: {
-      title: '신미',
+      title: '신미 (辛未)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '미', type: '토' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '未', type: '토: 土' },
       },
       description:
         '신미 (辛未): 신(辛)의 금과 미(未)의 흙이 조화를 이루는 조합입니다. 이 조합은 분석적이고 실용적이며, 미(未)는 상상력과 안정성을 상징합니다.',
     },
     time: {
-      title: '임인',
+      title: '임인 (壬寅)',
       pre: {
-        first: { title: '임', type: '수' },
-        second: { title: '인', type: '목' },
+        first: { title: '壬', type: '수: 水' },
+        second: { title: '寅', type: '목: 木' },
       },
       description:
         '임인 (壬寅): 임(壬)의 물과 인(寅)의 나무가 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 대담하며, 인(寭)은 열정과 의지를 상징합니다.',
@@ -458,37 +385,37 @@ const sajuDetails = {
   },
   '1971-03-08': {
     day: {
-      title: '갑진',
+      title: '갑진 (甲辰)',
       pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '진', type: '토' },
+        first: { title: '甲', type: '목: 木' },
+        second: { title: '辰', type: '토: 土' },
       },
       description:
         '갑진 (甲辰): 갑(甲)의 나무와 진(辰)의 흙이 조화를 이루는 조합입니다. 이 조합은 대담하고 실용적이며, 진(辰)은 창의력과 상상력을 상징합니다.',
     },
     month: {
-      title: '을사',
+      title: '을사 (乙巳)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '사', type: '화' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '巳', type: '화: 火' },
       },
       description:
         '을사 (乙巳): 을(乙)의 나무와 사(巳)의 불이 조화를 이루는 조합입니다. 이 조합은 실용적이고 열정적이며, 사(巳)는 감정의 깊이와 열정을 상징합니다.',
     },
     year: {
-      title: '정유',
+      title: '정유 (丁酉)',
       pre: {
-        first: { title: '정', type: '화' },
-        second: { title: '유', type: '수' },
+        first: { title: '丁', type: '화: 火' },
+        second: { title: '酉', type: '수: 水' },
       },
       description:
         '정유 (丁酉): 정(丁)의 불과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 열정적이고 분석적이며, 유(酉)는 세심함과 정확성을 상징합니다.',
     },
     time: {
-      title: '신묘',
+      title: '신묘 (辛卯)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '묘', type: '목' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '卯', type: '목: 木' },
       },
       description:
         '신묘 (辛卯): 신(辛)의 금과 묘(卯)의 나무가 조화를 이루는 조합입니다. 이 조합은 세심하고 창의적이며, 묘(卯)는 감수성과 직관력을 상징합니다.',
@@ -496,37 +423,37 @@ const sajuDetails = {
   },
   '1993-07-07': {
     day: {
-      title: '갑오',
+      title: '갑오 (甲午)',
       pre: {
-        first: { title: '갑', type: '목' },
-        second: { title: '오', type: '화' },
+        first: { title: '甲', type: '목: 木' },
+        second: { title: '午', type: '화: 火' },
       },
       description:
         '갑오 (甲午): 갑(甲)의 나무와 오(午)의 불이 조화를 이루는 조합입니다. 이 조합은 대담하고 열정적이며, 오(午)는 에너지와 활력을 상징합니다.',
     },
     month: {
-      title: '병진',
+      title: '병진 (丙辰)',
       pre: {
-        first: { title: '병', type: '화' },
-        second: { title: '진', type: '토' },
+        first: { title: '丙', type: '화: 火' },
+        second: { title: '辰', type: '토: 土' },
       },
       description:
         '병진 (丙辰): 병(丙)의 불과 진(辰)의 흙이 조화를 이루는 조합입니다. 이 조합은 창의적이고 추진력이 강하며, 진(辰)은 안정성과 지혜를 상징합니다.',
     },
     year: {
-      title: '신유',
+      title: '신유 (辛酉)',
       pre: {
-        first: { title: '신', type: '수' },
-        second: { title: '유', type: '수' },
+        first: { title: '辛', type: '금: 金' },
+        second: { title: '酉', type: '수: 水' },
       },
       description:
         '신유 (辛酉): 신(辛)의 금과 유(酉)의 금이 조화를 이루는 조합입니다. 이 조합은 분석적이고 세심하며, 유(酉)는 정확성과 철저함을 상징합니다.',
     },
     time: {
-      title: '을해',
+      title: '을해 (乙亥)',
       pre: {
-        first: { title: '을', type: '목' },
-        second: { title: '해', type: '수' },
+        first: { title: '乙', type: '목: 木' },
+        second: { title: '亥', type: '수: 水' },
       },
       description:
         '을해 (乙亥): 을(乙)의 나무와 해(亥)의 물이 조화를 이루는 조합입니다. 이 조합은 감정이 풍부하고 직관적이며, 해(亥)는 감정의 깊이와 직관력을 상징합니다.',
@@ -697,4 +624,160 @@ const fortuneDatas = [
   },
 ];
 
-export { fortuneDatas, sajuDetails };
+const tarotDetails = {
+  theFool: {
+    past: '과거에 무모한 결정을 내렸던 경험이 있음을 나타냅니다. 새로운 시작을 두려워하지 않고 도전했을 가능성이 큽니다.',
+    present:
+      '현재는 새로운 기회나 모험이 눈앞에 있으며, 그 기회를 잡아야 할 시기입니다. 자유롭고 열린 마음이 필요합니다.',
+    future:
+      '미래에는 새로운 여정이나 모험이 다가올 것입니다. 모험심과 호기심이 성공의 열쇠가 될 수 있습니다.',
+    ko: '바보',
+  },
+  theMagician: {
+    past: '과거에 자신의 능력과 자원을 잘 활용하여 성공적인 결과를 이끌어냈음을 나타냅니다.',
+    present:
+      '현재는 목표를 달성할 수 있는 능력과 자원이 충분히 갖춰져 있습니다. 집중과 의지가 필요합니다.',
+    future:
+      '미래에는 목표를 향해 전진할 수 있는 능력이 크게 향상될 것입니다. 창의성과 결단력이 중요합니다.',
+    ko: '마법사',
+  },
+  theHighPriestess: {
+    past: '과거에 직관에 의존해 중요한 결정을 내렸을 가능성이 큽니다. 내면의 목소리를 잘 따랐습니다.',
+    present:
+      '현재는 직관에 귀 기울여야 할 시기입니다. 감정과 내면의 지혜가 중요한 역할을 할 것입니다.',
+    future: '미래에는 더 깊은 직관과 영적 깨달음이 찾아올 것입니다. 감정과 직관을 신뢰하세요.',
+    ko: '여사제',
+  },
+
+  theEmpress: {
+    past: '과거에 풍요로움과 창의력이 중요한 역할을 했으며, 인생의 중요한 결실을 맺었을 가능성이 큽니다.',
+    present: '현재는 풍요로운 시기로, 창의적 프로젝트나 개인적 성장에 투자할 때입니다.',
+    future: '미래에는 풍요와 번영이 예상됩니다. 창의력과 돌봄의 에너지가 성공을 이끌 것입니다.',
+    ko: '여제',
+  },
+  theEmperor: {
+    past: '과거에는 규칙과 질서를 따르며 강력한 권위자가 있었을 가능성이 큽니다.',
+    present:
+      '현재는 구조와 통제가 필요한 상황입니다. 안정감과 권위를 가져오는 결정을 내려야 합니다.',
+    future: '미래에는 안정성과 권위 있는 위치에서 결정을 내릴 기회가 생길 것입니다.',
+    ko: '황제',
+  },
+  theHierophant: {
+    past: '과거에 전통적인 가치나 믿음을 따랐음을 나타냅니다.',
+    present: '현재는 지식이나 가르침을 받아들이는 시기로, 전통적인 길을 따를 필요가 있습니다.',
+    future: '미래에는 가르침을 전수하거나 전통을 이어받을 기회가 있을 것입니다.',
+    ko: '교황',
+  },
+  theLovers: {
+    past: '과거에는 중요한 관계나 선택이 당신의 삶에 큰 영향을 미쳤습니다.',
+    present: '현재는 관계나 결정을 할 때 중요한 시기입니다. 사랑과 조화를 추구하세요.',
+    future: '미래에는 중요한 관계가 더욱 깊어지거나, 사랑과 조화가 찾아올 것입니다.',
+    ko: '연인',
+  },
+  theChariot: {
+    past: '과거에는 목표를 향해 강한 의지로 전진했던 경험이 있었습니다.',
+    present: '현재는 승리와 성공을 위해 인내와 결단력이 필요한 시기입니다.',
+    future: '미래에는 성공과 승리를 거머쥘 기회가 찾아올 것입니다.',
+    ko: '전차',
+  },
+  strength: {
+    past: '과거에는 역경을 이겨내고 강인함을 발휘한 경험이 있었습니다.',
+    present: '현재는 내면의 힘을 발휘하여 문제를 해결할 시기입니다.',
+    future: '미래에는 강인한 마음과 용기가 필요할 상황이 다가올 것입니다.',
+    ko: '힘',
+  },
+  theHermit: {
+    past: '과거에는 자신만의 시간을 가지며 깊은 성찰의 시기를 가졌습니다.',
+    present: '현재는 고독 속에서 자신의 내면을 돌아봐야 할 시기입니다.',
+    future: '미래에는 더 깊은 성찰과 내적 탐구가 필요할 것입니다.',
+    ko: '은둔자',
+  },
+  wheelOfFortune: {
+    past: '과거에는 운명의 변화를 경험한 적이 있습니다. 좋은 기회나 나쁜 운이 있었을 것입니다.',
+    present: '현재는 운명의 변화가 일어나고 있습니다. 상황이 예기치 않게 변할 수 있습니다.',
+    future: '미래에는 중요한 운명의 변화가 있을 것입니다. 긍정적인 흐름을 따르세요.',
+    ko: '운명의 수레바퀴',
+  },
+  justice: {
+    past: '과거에 공정한 결정을 내리거나, 법적인 문제와 연관된 경험이 있었습니다.',
+    present: '현재는 정의와 균형을 중시해야 할 시기입니다. 공정한 결정을 내리세요.',
+    future: '미래에는 공정성과 책임이 중요한 역할을 하게 될 것입니다.',
+    ko: '정의',
+  },
+  theHangedMan: {
+    past: '과거에 희생이나 포기의 결단을 내려 상황을 변화시켰을 가능성이 큽니다.',
+    present: '현재는 새로운 관점에서 상황을 바라볼 필요가 있습니다. 잠시 멈춰야 할 때입니다.',
+    future: '미래에는 새로운 관점이나 희생이 요구될 가능성이 있습니다.',
+    ko: '매달린 남자',
+  },
+  death: {
+    past: '과거에는 중요한 변화나 끝맺음을 경험했습니다. 무언가를 놓아야 했던 시기입니다.',
+    present: '현재는 끝맺음과 새로운 시작을 받아들여야 할 시기입니다.',
+    future: '미래에는 큰 변화가 다가올 것입니다. 변화를 두려워하지 마세요.',
+    ko: '죽음',
+  },
+  temperance: {
+    past: '과거에는 균형과 조화를 이뤘던 시기입니다.',
+    present: '현재는 절제와 균형을 유지해야 할 때입니다. 조화로운 접근이 필요합니다.',
+    future: '미래에는 균형과 조화가 중요한 역할을 할 것입니다.',
+    ko: '절제',
+  },
+  theDevil: {
+    past: '과거에는 유혹이나 억압적인 상황에 직면했을 가능성이 큽니다.',
+    present: '현재는 자신을 속박하는 것에서 벗어나야 할 시기입니다.',
+    future: '미래에는 자신을 제한하는 상황이나 사람을 직면하게 될 수 있습니다.',
+    ko: '악마',
+  },
+  theTower: {
+    past: '과거에는 갑작스러운 변화나 붕괴를 경험했을 수 있습니다.',
+    present: '현재는 예상치 못한 변화가 일어날 수 있으며, 혼란스러울 수 있습니다.',
+    future: '미래에는 갑작스러운 변화가 다가올 것입니다. 그 변화를 받아들이세요.',
+    ko: '탑',
+  },
+  theStar: {
+    past: '과거에는 희망과 영감이 중요한 역할을 했던 시기입니다.',
+    present: '현재는 희망을 유지하며 영감을 받을 수 있는 시기입니다.',
+    future: '미래에는 새로운 영감과 희망이 찾아올 것입니다.',
+    ko: '별',
+  },
+  theMoon: {
+    past: '과거에는 혼란스러운 상황이나 불확실한 시기를 겪었을 가능성이 큽니다.',
+    present: '현재는 직관과 감정을 믿어야 할 때입니다. 모든 것이 명확하지 않을 수 있습니다.',
+    future: '미래에는 더 깊은 내면의 탐구와 감정적인 깨달음이 있을 것입니다.',
+    ko: '달',
+  },
+  theSun: {
+    past: '과거에는 성공과 행복을 누렸던 시기입니다.',
+    present: '현재는 긍정적인 에너지가 넘치는 시기입니다. 성공과 기쁨이 곧 찾아올 것입니다.',
+    future: '미래에는 밝고 긍정적인 결과가 예상됩니다. 기쁨과 성공이 따를 것입니다.',
+    ko: '태양',
+  },
+  judgement: {
+    past: '과거에는 중요한 평가나 심판을 받은 경험이 있었습니다.',
+    present: '현재는 과거의 행동에 대한 결과를 마주할 때입니다.',
+    future: '미래에는 중요한 결정을 내려야 할 시기가 다가올 것입니다.',
+    ko: '심판',
+  },
+  theWorld: {
+    past: '과거에는 완성과 성취를 이루었던 시기입니다.',
+    present: '현재는 인생의 한 주기가 완성되어 새로운 시작을 준비하고 있습니다.',
+    future: '미래에는 중요한 목표를 달성하고 완성감을 느끼게 될 것입니다.',
+    ko: '세계',
+  },
+};
+
+const timeRanges = {
+  자: [0, 1], // 자시: 23:00 ~ 01:00
+  축: [1, 3], // 축시: 01:00 ~ 03:00
+  인: [3, 5], // 인시: 03:00 ~ 05:00
+  묘: [5, 7], // 묘시: 05:00 ~ 07:00
+  진: [7, 9], // 진시: 07:00 ~ 09:00
+  사: [9, 11], // 사시: 09:00 ~ 11:00
+  오: [11, 13], // 오시: 11:00 ~ 13:00
+  미: [13, 15], // 미시: 13:00 ~ 15:00
+  신: [15, 17], // 신시: 15:00 ~ 17:00
+  유: [17, 19], // 유시: 17:00 ~ 19:00
+  술: [19, 21], // 술시: 19:00 ~ 21:00
+  해: [21, 23], // 해시: 21:00 ~ 23:00
+};
+export { fortuneDatas, sajuDetails, tarotDetails, timeRanges };

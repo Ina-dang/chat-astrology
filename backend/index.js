@@ -6,6 +6,7 @@ import {
   handleFortuneRequest,
   handleGetFortuneRequest,
   handleSajuRequest,
+  handleTarotRequest,
 } from './tools.js';
 
 dotenv.config();
@@ -125,6 +126,18 @@ app.post('/askQuestion', async function (req, res) {
 app.post('/api/saju/result', async (req, res) => {
   try {
     await handleSajuRequest(req, res);
+  } catch (error) {
+    console.error(error);
+    res.status(200).send({
+      code: 'ERROR',
+      message: '서버에서 오류가 발생했습니다.',
+    });
+  }
+});
+
+app.post('/api/tarot/result', async (req, res) => {
+  try {
+    await handleTarotRequest(req, res);
   } catch (error) {
     console.error(error);
     res.status(200).send({

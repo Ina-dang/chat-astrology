@@ -1,19 +1,4 @@
-import { sajuDetails, fortuneDatas } from './_datas.js';
-
-const timeRanges = {
-  자: [0, 1], // 자시: 23:00 ~ 01:00
-  축: [1, 3], // 축시: 01:00 ~ 03:00
-  인: [3, 5], // 인시: 03:00 ~ 05:00
-  묘: [5, 7], // 묘시: 05:00 ~ 07:00
-  진: [7, 9], // 진시: 07:00 ~ 09:00
-  사: [9, 11], // 사시: 09:00 ~ 11:00
-  오: [11, 13], // 오시: 11:00 ~ 13:00
-  미: [13, 15], // 미시: 13:00 ~ 15:00
-  신: [15, 17], // 신시: 15:00 ~ 17:00
-  유: [17, 19], // 유시: 17:00 ~ 19:00
-  술: [19, 21], // 술시: 19:00 ~ 21:00
-  해: [21, 23], // 해시: 21:00 ~ 23:00
-};
+import { sajuDetails, fortuneDatas, timeRanges, tarotDetails } from './_datas.js';
 
 function getTimeRange(hour) {
   for (const [key, [start, end]] of Object.entries(timeRanges)) {
@@ -117,6 +102,30 @@ async function handleSajuRequest(req, res) {
   });
 }
 
+async function handleTarotRequest(req, res) {
+  const { past, present, future } = req.body;
+
+  const tarotMap = tarotDetails.reduce((acc, card) => {
+    const [key, value] = Object.entries(card)[0];
+    acc[value.ko] = value;
+    return acc;
+  }, {});
+
+  const getCardInfo = (cardName) => tarotMap[cardName] || { past: '', present: '', future: '' };
+
+  const responseData = {
+    past: getCardInfo(past),
+    present: getCardInfo(present),
+    future: getCardInfo(future),
+  };
+
+  res.json({
+    code: 'OK',
+    message: '타로카드 분석에 성공하였습니다',
+    data: responseData,
+  });
+}
+
 async function handleFortuneRequest(res) {
   const data = getRandomData(fortuneDatas);
   res.json({
@@ -139,4 +148,4 @@ function getRandomData(datas) {
   const randomIndex = Math.floor(Math.random() * datas.length);
   return datas[randomIndex];
 }
-export { handleSajuRequest, handleFortuneRequest, handleGetFortuneRequest };
+export { handleSajuRequest, handleFortuneRequest, handleGetFortuneRequest, handleTarotRequest };
