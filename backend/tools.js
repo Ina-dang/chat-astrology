@@ -1,4 +1,9 @@
-import { sajuDetails, fortuneDatas, defaultSajuData } from './datas.js';
+import {
+  sajuDetails,
+  fortuneDatas,
+  defaultSajuData,
+  tarotDetails,
+} from "./datas.js";
 
 const timeRanges = {
   자: [0, 1], // 자시: 23:00 ~ 01:00
@@ -25,8 +30,8 @@ function getTimeRange(hour) {
 }
 
 function calculateYinYangAndFiveElements(year) {
-  const yinYang = ['양', '음'];
-  const fiveElements = ['목', '화', '토', '금', '수'];
+  const yinYang = ["양", "음"];
+  const fiveElements = ["목", "화", "토", "금", "수"];
 
   // 음양 계산
   const yearLastDigit = year % 10;
@@ -48,9 +53,9 @@ function getSajuAnalysis(year, month, day, hours) {
   const { yinYang, fiveElements } = calculateYinYangAndFiveElements(year);
 
   // 생년월일과 출생시간을 키로 사용하여 사주 분석 결과를 가져옵니다.
-  const dateKey = `${year}-${month.toString().padStart(2, '0')}-${day
+  const dateKey = `${year}-${month.toString().padStart(2, "0")}-${day
     .toString()
-    .padStart(2, '0')}`;
+    .padStart(2, "0")}`;
   const timeKey = getTimeRange(hours);
 
   // 시간에 따라 시주 결정
@@ -68,16 +73,16 @@ async function handleSajuRequest(req, res) {
   const { name, birth, birthTime } = req.body;
 
   // 생년월일 및 출생시간을 Date 객체로 변환
-  const [year, month, day] = birth.split('-').map(Number);
-  const [hours] = birthTime.split(':').map(Number);
+  const [year, month, day] = birth.split("-").map(Number);
+  const [hours] = birthTime.split(":").map(Number);
 
   // 사주 분석
   const analysis = getSajuAnalysis(year, month, day, hours);
 
   // 응답 반환
   res.json({
-    code: 'OK',
-    message: '음양오행분석에 성공하였습니다',
+    code: "OK",
+    message: "음양오행분석에 성공하였습니다",
     data: analysis,
   });
 }
@@ -92,7 +97,7 @@ async function handleTarotRequest(req, res) {
   }, {});
 
   const getCardInfo = (cardName) =>
-    tarotMap[cardName] || { past: '', present: '', future: '' };
+    tarotMap[cardName] || { past: "", present: "", future: "" };
 
   const responseData = {
     past: getCardInfo(past),
@@ -101,8 +106,8 @@ async function handleTarotRequest(req, res) {
   };
 
   res.json({
-    code: 'OK',
-    message: '타로카드 분석에 성공하였습니다',
+    code: "OK",
+    message: "타로카드 분석에 성공하였습니다",
     data: responseData,
   });
 }
@@ -110,8 +115,8 @@ async function handleTarotRequest(req, res) {
 async function handleFortuneRequest(res) {
   const data = getRandomData(fortuneDatas);
   res.json({
-    code: 'OK',
-    message: '오늘의 포춘쿠키 조회에 성공하였습니다',
+    code: "OK",
+    message: "오늘의 포춘쿠키 조회에 성공하였습니다",
     data,
   });
 }
@@ -119,8 +124,8 @@ async function handleFortuneRequest(res) {
 async function handleGetFortuneRequest(id, res) {
   const data = fortuneDatas.find((item) => item.id === parseInt(id));
   res.json({
-    code: 'OK',
-    message: '오늘의 포춘쿠키 조회에 성공하였습니다',
+    code: "OK",
+    message: "오늘의 포춘쿠키 조회에 성공하였습니다",
     data,
   });
 }

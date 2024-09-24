@@ -1,6 +1,8 @@
-import { CSSProperties, Fragment, useEffect, useState } from 'react';
-import { Headers, Sections } from '../../components';
+import { CSSProperties, useEffect, useState } from 'react';
 import { IMAGES } from '../../assets';
+import { Headers, Sections } from '../../components';
+import { getApiEndpoint } from '../../tools';
+import axios from 'axios';
 
 interface ExtendedCSSProperties extends CSSProperties {
   '--card-src'?: string;
@@ -87,9 +89,10 @@ const TarotPage = () => {
   useEffect(() => {
     const { past, present, future } = selectedCards;
     if (past !== null && present !== null && future !== null) {
-      console.log(selectedCards);
-      // axios
-      // .post(getApiEndpoint(`tarot/result`), selectedCards)
+      console.log('마지막장 선택완료::', selectedCards);
+      axios.post(getApiEndpoint(`tarot/result`), selectedCards).then((result) => {
+        console.log(result);
+      });
     }
   }, [selectedCards]);
 
