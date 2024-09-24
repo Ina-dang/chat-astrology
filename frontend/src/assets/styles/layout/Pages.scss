@@ -10,7 +10,8 @@
     align-items: center;
     position: relative;
     padding: dp(16);
-    background-color: #fff;
+    background-color: $bg-header;
+    color: #fff;
     button {
       position: absolute;
       min-width: dp(30);
@@ -30,7 +31,7 @@
   }
   footer {
     min-height: dp(50);
-    background-color: steelblue;
+    background-color: $bg-footer;
     .KakaoAdd {
       display: flex;
       flex-direction: column;
