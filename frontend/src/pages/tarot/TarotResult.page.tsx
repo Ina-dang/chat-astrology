@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Footer, Headers, Sections } from '../../components';
 import axios from 'axios';
 import { getApiEndpoint } from '../../tools';
@@ -51,19 +51,60 @@ const TarotResultPage = () => {
       });
   };
 
+  // TODO 결과 뜨는 효과 자연스럽게
   useEffect(() => {
     if (past && present && future) {
       sendResult({ past, present, future });
+      console.log(IMAGES[past ?? '']);
     }
   }, [past, present, future]);
+
+  const tarotResultItemProps = [
+    {
+      classes: 'Past',
+      item: {
+        title: '과거',
+        subTitle:
+          '타로 카드에서 "과거"는 질문자가 과거에 겪었던 경험이나 사건을 나타내며, 현재 상황에 대한 배경을 제공합니다.',
+        origin: tarots?.past.origin ?? '',
+        ko: tarots?.past.ko ?? '',
+        img: past ?? undefined,
+        result: tarots?.past.result ?? '',
+      },
+    },
+    {
+      classes: 'Present',
+      item: {
+        title: '현재',
+        subTitle:
+          '타로 카드에서 "현재"는 질문자가 현재 겪고 있는 상황을 나타내며, 현재의 감정이나 행동이 미래에 미치는 영향을 설명합니다.',
+        origin: tarots?.present.origin ?? '',
+        ko: tarots?.present.ko ?? '',
+        img: present ?? undefined,
+        result: tarots?.present.result ?? '',
+      },
+    },
+    {
+      classes: 'Future',
+      item: {
+        title: '미래',
+        subTitle:
+          '타로 카드에서 "미래"는 질문자가 앞으로 경험하게 될 가능성을 나타내며, 현재 행동이 미래에 미치는 영향을 설명합니다.',
+        origin: tarots?.future.origin ?? '',
+        ko: tarots?.future.ko ?? '',
+        img: future ?? undefined,
+        result: tarots?.future.result ?? '',
+      },
+    },
+  ];
 
   return (
     <main className="Pages TarotResultPage">
       <Headers title={'타로카드 결과'} />
       <Sections>
-        {tarots ? (
+        {/* {tarots ? (
           <div className="PastWrap">
-            <div className="divider">
+            <div className="Divider">
               <span>과거</span>
             </div>
             <p>
@@ -72,15 +113,17 @@ const TarotResultPage = () => {
               설명하고, 경험에서 얻은 교훈이나 성장을 강조합니다. 또한, 과거의 선택이 현재 문제
               해결에 어떤 역할을 했는지를 보여줍니다.
             </p>
-            <h2>{`${tarots.past.origin}(${tarots.past.ko})`}</h2>
-            <div>
-              <div
-                style={{ '--card-src': `url(${IMAGES[past ?? '']})` } as ExtendedCSSProperties}
-              ></div>
-            </div>
+            <h2>{`${tarots.past.origin} (${tarots.past.ko})`}</h2>
+            <div
+              className="Images"
+              style={{ '--card-src': `url(${IMAGES[past ?? '']})` } as ExtendedCSSProperties}
+            ></div>
             <p>{tarots.past.result}</p>
           </div>
-        ) : null}
+        ) : null} */}
+        {tarots
+          ? tarotResultItemProps.map((props, index) => <TarotResultItem key={index} {...props} />)
+          : null}
       </Sections>
       <Footer />
     </main>
@@ -88,3 +131,33 @@ const TarotResultPage = () => {
 };
 
 export { TarotResultPage };
+
+interface TarotItem {
+  title: string;
+  subTitle: string;
+  origin: string;
+  ko: string;
+  img?: string;
+  result: string;
+}
+interface TarotResult {
+  classes: string;
+  item: TarotItem;
+}
+
+const TarotResultItem: React.FC<TarotResult> = ({ classes, item }) => {
+  return (
+    <div className={`ResultWrap ${classes}`}>
+      <div className="Divider">
+        <span>{item.title}</span>
+      </div>
+      <p>{item.subTitle}</p>
+      <h2>{`${item.origin} (${item.ko})`}</h2>
+      <div
+        className="Images"
+        style={{ '--card-src': `url(${IMAGES[item.img ?? '']})` } as ExtendedCSSProperties}
+      ></div>
+      <p>{item.result}</p>
+    </div>
+  );
+};

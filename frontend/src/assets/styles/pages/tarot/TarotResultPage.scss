@@ -1,25 +1,47 @@
 @import '../../commonness.scss';
 
 .TarotResultPage {
-  .PastWrap {
-    .divider {
+  .Sections {
+    overflow-y: auto;
+    .ResultWrap {
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      margin: 20px 0; /* 위아래 여백 조정 */
-    }
 
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1; /* 양쪽 구분선의 비율을 동일하게 유지 */
-      border-top: 1px solid #ccc; /* 구분선의 스타일 */
-      margin: 0 10px; /* 텍스트와 구분선 간격 */
-    }
+      .Divider {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: dp(20) 0;
+        text-align: center;
+      }
 
-    .divider span {
-      padding: 0 10px; /* 텍스트와 구분선 간격 */
-      font-weight: bold; /* 텍스트 굵기 */
+      .Divider::before,
+      .Divider::after {
+        flex: 1;
+        margin: 0 dp(10);
+        border-top: dp(1) solid $bg-header;
+        content: '';
+      }
+
+      .Divider span {
+        padding: 0 dp(10);
+        font-weight: bold;
+      }
+
+      --card-src: '';
+      .Images {
+        width: dp(190);
+        height: dp(260);
+        margin: dp(20) 0;
+        border: dp(4) solid #3a1c1a;
+        background-image: var(--card-src);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
     }
   }
 }

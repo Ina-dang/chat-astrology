@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { IMAGES } from '../../assets';
 import { Headers, Sections } from '../../components';
 import { cardNames, ExtendedCSSProperties, initialTarotData, SelectedCards } from './types';
+import { useNavigate } from 'react-router-dom';
 
 const getRandomizedCards = () => {
   const shuffled = [...cardNames].sort(() => 0.5 - Math.random());
@@ -11,6 +12,7 @@ const getRandomizedCards = () => {
 const TarotPage = () => {
   const cards = getRandomizedCards();
   const [selectedCards, setSelectedCards] = useState<SelectedCards>(initialTarotData);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cardCss = document.querySelectorAll('.card') as NodeListOf<HTMLElement>;
@@ -24,6 +26,9 @@ const TarotPage = () => {
     const { past, present, future } = selectedCards;
     if (past !== null && present !== null && future !== null) {
       console.log('마지막장 선택완료::', selectedCards);
+      const { past, present, future } = selectedCards;
+      navigate(`/tarot/result?past=${past}&present=${present}&future=${future}`);
+      // TODO 다음페이지로 넘어가는 효과 자연스럽게
     }
   }, [selectedCards]);
 
