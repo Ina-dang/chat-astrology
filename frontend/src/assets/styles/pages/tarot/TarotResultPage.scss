@@ -1,0 +1,25 @@
+@import '../../commonness.scss';
+
+.TarotResultPage {
+  .PastWrap {
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0; /* 위아래 여백 조정 */
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1; /* 양쪽 구분선의 비율을 동일하게 유지 */
+      border-top: 1px solid #ccc; /* 구분선의 스타일 */
+      margin: 0 10px; /* 텍스트와 구분선 간격 */
+    }
+
+    .divider span {
+      padding: 0 10px; /* 텍스트와 구분선 간격 */
+      font-weight: bold; /* 텍스트 굵기 */
+    }
+  }
+}

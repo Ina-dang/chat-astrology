@@ -104,19 +104,14 @@ async function handleSajuRequest(req, res) {
 
 async function handleTarotRequest(req, res) {
   const { past, present, future } = req.body;
+  console.log(req.body);
 
-  const tarotMap = tarotDetails.reduce((acc, card) => {
-    const [key, value] = Object.entries(card)[0];
-    acc[value.ko] = value;
-    return acc;
-  }, {});
-
-  const getCardInfo = (cardName) => tarotMap[cardName] || { past: '', present: '', future: '' };
+  const getCardInfo = (cardName, timeFrame) => tarotDetails[cardName]?.[timeFrame] || '';
 
   const responseData = {
-    past: getCardInfo(past),
-    present: getCardInfo(present),
-    future: getCardInfo(future),
+    past: getCardInfo(past, 'past'),
+    present: getCardInfo(present, 'present'),
+    future: getCardInfo(future, 'future'),
   };
 
   res.json({

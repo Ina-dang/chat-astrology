@@ -12,6 +12,7 @@ import {
   SajuPage,
   SajuResultPage,
   TarotPage,
+  TarotResultPage,
 } from './pages';
 
 const router = createBrowserRouter(
@@ -28,7 +29,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="tarot">
         <Route index element={<TarotPage />} />
-        <Route path="result" element={<FortuneResultPage />} />
+        <Route path="result" element={<TarotResultPage />} />
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Route>,
