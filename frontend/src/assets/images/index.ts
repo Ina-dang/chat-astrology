@@ -22,7 +22,7 @@ import TEMPERANCE from './Temperance.png';
 import DEVIL from './Devil.png';
 import TOWER from './Tower.png';
 import STAR from './Star.png';
-import Moon from './Moon.png';
+import MOON from './Moon.png';
 import SUN from './Sun.png';
 import JUDGEMENT from './Judgement.png';
 import WORLD from './world.png';
@@ -49,7 +49,7 @@ const IMAGES: Record<string, string> = {
   DEVIL,
   TOWER,
   STAR,
-  Moon,
+  MOON,
   SUN,
   JUDGEMENT,
   WORLD,
