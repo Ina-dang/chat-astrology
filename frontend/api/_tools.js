@@ -149,4 +149,5 @@ function getRandomData(datas) {
   const randomIndex = Math.floor(Math.random() * datas.length);
   return datas[randomIndex];
 }
+
 export { handleSajuRequest, handleFortuneRequest, handleGetFortuneRequest, handleTarotRequest };
