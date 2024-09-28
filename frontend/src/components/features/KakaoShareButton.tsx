@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const KakaoShareButton: React.FC = () => {
+const KakaoShareButton = () => {
   useEffect(() => {
     // 카카오톡 SDK 초기화
     if (window.Kakao && !window.Kakao.isInitialized()) {
@@ -29,7 +29,7 @@ const KakaoShareButton: React.FC = () => {
     }
   };
 
-  return <button className="KakaoShareButton ShareButton" onClick={handleShare}></button>;
+  return <button className="KakaoShareButton ShareButton" onClick={handleShare} />;
 };
 
 export { KakaoShareButton };

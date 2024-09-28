@@ -10,7 +10,8 @@
 
 ## 운영주소
 
-- [운세보는 유우리](https://chat-astrology-cjp.pages.dev/)
+- [운세보는 유우리 (구버전-api통신불가)](https://chat-astrology-cjp.pages.dev/)
+- [🔮 GPT가 말아주는 사주&타로 🔮 (모바일사용권장)](https://chat-astrology.vercel.app)
 
 ## 프로젝트 구조
 

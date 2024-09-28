@@ -108,10 +108,16 @@ async function handleTarotRequest(req, res) {
 
   const getCardInfo = (cardName, timeFrame) => tarotDetails[cardName]?.[timeFrame] || '';
 
+  const createCardResponse = (cardName, timeFrame) => ({
+    result: getCardInfo(cardName, timeFrame),
+    ko: getCardInfo(cardName, 'ko'),
+    origin: getCardInfo(cardName, 'origin'),
+  });
+
   const responseData = {
-    past: getCardInfo(past, 'past'),
-    present: getCardInfo(present, 'present'),
-    future: getCardInfo(future, 'future'),
+    past: createCardResponse(past, 'past'),
+    present: createCardResponse(present, 'present'),
+    future: createCardResponse(future, 'future'),
   };
 
   res.json({

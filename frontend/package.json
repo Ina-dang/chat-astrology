@@ -49,5 +49,6 @@
     "test:ui": "vitest --ui",
     "test": "vitest"
   },
+  "type": "module",
   "version": "0.0.0"
 }
