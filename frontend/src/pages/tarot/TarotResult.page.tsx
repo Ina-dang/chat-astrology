@@ -102,25 +102,6 @@ const TarotResultPage = () => {
     <main className="Pages TarotResultPage">
       <Headers title={'타로카드 결과'} />
       <Sections>
-        {/* {tarots ? (
-          <div className="PastWrap">
-            <div className="Divider">
-              <span>과거</span>
-            </div>
-            <p>
-              타로 카드에서 "과거"는 질문자가 과거에 겪었던 경험이나 사건을 나타내며, 현재 상황에
-              대한 배경을 제공합니다. 이는 과거의 사건이 현재의 감정이나 갈등에 미친 영향을
-              설명하고, 경험에서 얻은 교훈이나 성장을 강조합니다. 또한, 과거의 선택이 현재 문제
-              해결에 어떤 역할을 했는지를 보여줍니다.
-            </p>
-            <h2>{`${tarots.past.origin} (${tarots.past.ko})`}</h2>
-            <div
-              className="Images"
-              style={{ '--card-src': `url(${IMAGES[past ?? '']})` } as ExtendedCSSProperties}
-            ></div>
-            <p>{tarots.past.result}</p>
-          </div>
-        ) : null} */}
         {tarots
           ? tarotResultItemProps.map((props, index) => <TarotResultItem key={index} {...props} />)
           : null}
