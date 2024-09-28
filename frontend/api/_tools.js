@@ -104,7 +104,6 @@ async function handleSajuRequest(req, res) {
 
 async function handleTarotRequest(req, res) {
   const { past, present, future } = req.body;
-  console.log(req.body);
 
   const getCardInfo = (cardName, timeFrame) => tarotDetails[cardName]?.[timeFrame] || '';
 

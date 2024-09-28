@@ -2,7 +2,7 @@ import { handleTarotRequest } from '../_tools';
 
 export default async function handler(req, res) {
   try {
-    await handleTarotRequest(res);
+    await handleTarotRequest(req, res);
   } catch (error) {
     console.error(error);
     res.status(200).send({
