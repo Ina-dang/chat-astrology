@@ -20,6 +20,43 @@ interface SajuResult {
   sajuAnalysis: SajuAnalysisItem[];
 }
 
+// 오행별 스타일 매핑 객체
+const elementStyles = {
+  water: { '--bg-color': '#556B2F', '--color': '#E9D5C0' }, // 물: 딥 모스 그린 배경, 라이트 베이지 글씨
+  fire: { '--bg-color': '#A64B2A', '--color': '#F9E2D2' }, // 불: 딥 오렌지 배경, 아이보리 글씨
+  earth: { '--bg-color': '#8B4513', '--color': '#E4C580' }, // 흙: 다크 브라운 배경, 라이트 골드 글씨
+  wood: { '--bg-color': '#3B5323', '--color': '#FAEBD7' }, // 나무: 포레스트 그린 배경, 크림색 글씨
+  metal: { '--bg-color': '#4B4B4B', '--color': '#C0C0C0' }, // 쇠: 다크 그레이 배경, 라이트 실버 글씨
+};
+
+const yinYangStyles = {
+  yin: { '--bg-color': '#1E3D59', '--color': '#F4E3D7' }, // 음: 다크 블루 배경, 아이보리 글씨
+  yang: { '--bg-color': '#D4A017', '--color': '#5A3A31' }, // 양: 딥 골드 배경, 다크 브라운 글씨
+};
+
+const getElementStyle = (type: string) => {
+  console.log(type);
+  switch (type) {
+    case '수: 水':
+    case '수':
+      return elementStyles.water;
+    case '화: 火':
+      return elementStyles.fire;
+    case '토: 土':
+      return elementStyles.earth;
+    case '목: 木':
+      return elementStyles.wood;
+    case '금: 金':
+      return elementStyles.metal;
+    case '음':
+      return yinYangStyles.yin;
+    case '양':
+      return yinYangStyles.yang;
+    default:
+      return {};
+  }
+};
+
 const SajuResultPage = () => {
   const query = new URLSearchParams(location.search);
   const name = query.get('name');
@@ -74,8 +111,8 @@ const SajuResultPage = () => {
               에너지를 형성합니다.
             </p>
             <article>
-              <p>{result?.yinYang}</p>
-              <p>{result?.fiveElements}</p>
+              <p style={getElementStyle(result.yinYang)}> {result?.yinYang}</p>
+              <p style={getElementStyle(result.fiveElements)}>{result?.fiveElements}</p>
             </article>
             <table>
               <thead>
@@ -90,7 +127,7 @@ const SajuResultPage = () => {
                 <tr>
                   {result?.sajuAnalysis?.map((item) => (
                     <td key={item.key}>
-                      <div>
+                      <div style={getElementStyle(item.value.pre.first.type)}>
                         <p>{item.value.pre.first.title}</p>
                         <small>{item.value.pre.first.type}</small>
                       </div>
@@ -100,7 +137,7 @@ const SajuResultPage = () => {
                 <tr>
                   {result?.sajuAnalysis?.map((item) => (
                     <td key={item.key}>
-                      <div>
+                      <div style={getElementStyle(item.value.pre.second.type)}>
                         <p> {item.value.pre.second.title}</p>
                         <small>{item.value.pre.second.type}</small>
                       </div>
@@ -111,7 +148,9 @@ const SajuResultPage = () => {
             </table>
             <article>
               {result?.sajuAnalysis?.map((item) => (
-                <p key={item.key}>{item.value.description}</p>
+                <p style={getElementStyle(item.value.pre.first.type)} key={item.key}>
+                  {item.value.description}
+                </p>
               ))}
             </article>
           </>

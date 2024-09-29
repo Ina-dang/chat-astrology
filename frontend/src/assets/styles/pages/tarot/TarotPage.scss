@@ -19,7 +19,7 @@
           .Selected {
             width: dp(95);
             height: dp(130);
-            border: dp(4) solid #3a1c1a;
+            border: dp(4) solid $c-brown;
             background-image: var(--card-src);
             background-repeat: no-repeat;
             background-position: center;
@@ -28,7 +28,7 @@
           div:last-child {
             width: 100%;
             height: dp(25);
-            background-color: #3a1c1a;
+            background-color: $c-brown;
             color: #fff;
             text-align: center;
             @include font(400, 12, 22);
