@@ -104,14 +104,19 @@ async function handleSajuRequest(req, res) {
 
 async function handleTarotRequest(req, res) {
   const { past, present, future } = req.body;
-  console.log(req.body);
 
   const getCardInfo = (cardName, timeFrame) => tarotDetails[cardName]?.[timeFrame] || '';
 
+  const createCardResponse = (cardName, timeFrame) => ({
+    result: getCardInfo(cardName, timeFrame),
+    ko: getCardInfo(cardName, 'ko'),
+    origin: getCardInfo(cardName, 'origin'),
+  });
+
   const responseData = {
-    past: getCardInfo(past, 'past'),
-    present: getCardInfo(present, 'present'),
-    future: getCardInfo(future, 'future'),
+    past: createCardResponse(past, 'past'),
+    present: createCardResponse(present, 'present'),
+    future: createCardResponse(future, 'future'),
   };
 
   res.json({
@@ -143,4 +148,4 @@ function getRandomData(datas) {
   const randomIndex = Math.floor(Math.random() * datas.length);
   return datas[randomIndex];
 }
-export { handleSajuRequest, handleFortuneRequest, handleGetFortuneRequest, handleTarotRequest };
+export { handleFortuneRequest, handleGetFortuneRequest, handleSajuRequest, handleTarotRequest };
