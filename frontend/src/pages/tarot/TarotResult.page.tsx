@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Footer, Headers, Sections } from '../../components';
+import { Footer, Headers, Sections, SharedButtons } from '../../components';
 import axios from 'axios';
 import { getApiEndpoint } from '../../tools';
 import { useSearchParams } from 'react-router-dom';
@@ -105,6 +105,7 @@ const TarotResultPage = () => {
         {tarots
           ? tarotResultItemProps.map((props, index) => <TarotResultItem key={index} {...props} />)
           : null}
+        <SharedButtons />
       </Sections>
       <Footer />
     </main>

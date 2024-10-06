@@ -12,6 +12,7 @@
   .Sections {
     article {
       &:first-child {
+        box-shadow: 0 0 dp(3) dp(1) rgba($color: #000000, $alpha: 0.1);
         margin-bottom: dp(30);
         padding: dp(30) dp(20);
         border-radius: dp(8);
@@ -23,18 +24,6 @@
           margin: dp(30) auto;
           text-wrap: pretty;
           @include font(bold, 20, 30);
-        }
-      }
-      &:last-child {
-        width: 100%;
-        text-align: center;
-        h4 {
-          @include font(bold, 20, 30);
-        }
-        .ShareButtons {
-          padding: dp(30);
-          display: flex;
-          justify-content: space-around;
         }
       }
     }

@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Headers, Sections } from '../../components';
+import {
+  ClipboardShareButton,
+  Headers,
+  KakaoShareButton,
+  Sections,
+  SharedButtons,
+  TwitterShareButton,
+} from '../../components';
 import { getApiEndpoint, offProcess, onProcess } from '../../tools';
 
 interface SajuAnalysisItem {
@@ -153,6 +160,7 @@ const SajuResultPage = () => {
                 </p>
               ))}
             </article>
+            <SharedButtons />
           </>
         )}
       </Sections>

@@ -6,6 +6,7 @@ import {
   Headers,
   KakaoShareButton,
   Sections,
+  SharedButtons,
   TwitterShareButton,
 } from '../../components';
 import { IMAGES } from '../../assets';
@@ -34,10 +35,6 @@ const FortuneResultPage = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
-  const propsTwitterShareButton = {
-    url: location.href,
-    text: 'GPT가 말아주는 사주🍶&타로🍺',
-  };
   return (
     <main className="Pages FortuneResultPage">
       <Headers title={'포춘쿠키 결과'} />
@@ -49,14 +46,7 @@ const FortuneResultPage = () => {
           </div>
           <p>{result}</p>
         </article>
-        <article>
-          <h4>결과를 공유하고싶다면?</h4>
-          <div className="ShareButtons">
-            <KakaoShareButton />
-            <TwitterShareButton {...propsTwitterShareButton} />
-            <ClipboardShareButton />
-          </div>
-        </article>
+        <SharedButtons />
       </Sections>
       <Footer />
     </main>
