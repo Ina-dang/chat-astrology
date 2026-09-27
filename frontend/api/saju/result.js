@@ -2,10 +2,10 @@ import { handleSajuRequest } from '../_tools.js';
 
 export default async function handler(req, res) {
   try {
-    await handleSajuRequest(req, res);
+    return await handleSajuRequest(req, res);
   } catch (error) {
     console.error(error);
-    res.status(200).send({
+    return res.status(500).json({
       code: 'ERROR',
       message: '서버에서 오류가 발생했습니다.',
     });

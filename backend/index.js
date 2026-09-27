@@ -10,7 +10,6 @@ import {
 } from './tools.js';
 
 dotenv.config();
-const openai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
 const app = express();
 
 let corsOptions = {
@@ -76,6 +75,7 @@ app.post('/askQuestion', async function (req, res) {
   }
 
   try {
+    const openai = new OpenAI({ apiKey: process.env['OPENAI_API_KEY'] });
     const completion = await openai.chat.completions.create({
       messages,
       model: 'gpt-3.5-turbo',
@@ -123,24 +123,24 @@ app.post('/askQuestion', async function (req, res) {
 //     });
 //   }
 // });
-app.post('/api/saju/result', async (req, res) => {
+app.all('/api/saju/result', async (req, res) => {
   try {
-    await handleSajuRequest(req, res);
+    return await handleSajuRequest(req, res);
   } catch (error) {
     console.error(error);
-    res.status(200).send({
+    res.status(500).send({
       code: 'ERROR',
       message: '서버에서 오류가 발생했습니다.',
     });
   }
 });
 
-app.post('/api/tarot/result', async (req, res) => {
+app.all('/api/tarot/result', async (req, res) => {
   try {
-    await handleTarotRequest(req, res);
+    return await handleTarotRequest(req, res);
   } catch (error) {
     console.error(error);
-    res.status(200).send({
+    res.status(500).send({
       code: 'ERROR',
       message: '서버에서 오류가 발생했습니다.',
     });
@@ -174,6 +174,7 @@ app.get('/api/fortune/result/:id', async (req, res) => {
 //aws Lambda에서 서버리스로 사용하도록
 // module.exports.handler = serverless(app);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

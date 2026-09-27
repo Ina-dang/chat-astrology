@@ -1,0 +1,39 @@
+# Third-party notices
+
+## lunar-typescript
+
+Copyright (c) 2020 6tail. Licensed under the MIT License.
+Source: https://github.com/6tail/lunar-typescript
+
+## Fortune Platform tarot keywords
+
+Copyright (c) 2026 Park Sung-mo (박성모) and Fortune Platform contributors.
+The Korean upright and reversed tarot keyword data is adapted under the MIT License.
+Source: https://github.com/fortune-org/fortune-platform
+
+For both MIT-licensed works:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notices and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Rider-Waite-Smith card images
+
+The 78 image URLs point to Wikimedia Commons and were normalized from the
+MIT-described rider-waite-smith-deck-api dataset. Its README identifies the
+1909 Rider-Waite-Smith images as public domain and links the Commons sources.
+Source: https://github.com/ariesGitterHub/rider-waite-smith-deck-api
