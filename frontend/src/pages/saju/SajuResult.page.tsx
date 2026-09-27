@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Headers, Sections } from '../../components';
+import { Headers, Sections, SharedButtons } from '../../components';
 import { getApiEndpoint } from '../../tools';
 const sajuStorageKey = 'saju.input.v1';
 
@@ -136,6 +136,7 @@ const SajuResultPage = () => {
               <p>{result.engine.name} {result.engine.version} · {result.engine.basis}</p>
               <p>현재 결과는 명식 계산값이며, 전문가 감수를 거친 종합 해석은 다음 단계에서 추가합니다.</p>
             </details>
+            <SharedButtons />
           </>
         )}
         <Link to="/saju">출생 정보 수정하기</Link>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Headers, Sections } from '../../components';
+import { Headers, Sections, SharedButtons } from '../../components';
 import { IMAGES } from '../../assets';
 import { getApiEndpoint } from '../../tools';
 import {
@@ -113,12 +113,15 @@ const TarotResultPage = () => {
               </article>
             ))}
             {result && (
-              <details>
-                <summary>카드 데이터 출처</summary>
-                <p>{result.source.deck}</p>
-                <p>키워드: {result.source.keywords}</p>
-                <p>이미지: {result.source.images}</p>
-              </details>
+              <>
+                <details>
+                  <summary>카드 데이터 출처</summary>
+                  <p>{result.source.deck}</p>
+                  <p>키워드: {result.source.keywords}</p>
+                  <p>이미지: {result.source.images}</p>
+                </details>
+                <SharedButtons />
+              </>
             )}
             <p>타로 해석은 자기 성찰을 위한 참고이며 의료·법률·재정 판단을 대신하지 않습니다.</p>
           </>

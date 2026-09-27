@@ -1,0 +1,21 @@
+@import '../commonness.scss';
+.SharedButtons {
+  width: 100%;
+  margin-top: dp(24);
+  padding: dp(20);
+  border: 1px solid $line;
+  border-radius: dp(12);
+  background: $surface;
+  text-align: center;
+  h4 {
+    margin: 0;
+    color: $paper;
+    @include font(bold, 20, 30);
+  }
+  .ShareButtons {
+    display: flex;
+    justify-content: center;
+    gap: dp(16);
+    padding-top: dp(16);
+  }
+}

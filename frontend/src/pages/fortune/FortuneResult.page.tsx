@@ -1,13 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {
-  ClipboardShareButton,
-  Footer,
-  Headers,
-  KakaoShareButton,
-  Sections,
-  TwitterShareButton,
-} from '../../components';
+import { Footer, Headers, Sections, SharedButtons } from '../../components';
 import { IMAGES } from '../../assets';
 import { getApiEndpoint } from '../../tools';
 
@@ -34,10 +27,6 @@ const FortuneResultPage = () => {
       .catch((error) => console.error(error));
   }, [id]);
 
-  const propsTwitterShareButton = {
-    url: location.href,
-    text: '월담 | 사주·타로·포춘쿠키',
-  };
   return (
     <main className="Pages FortuneResultPage">
       <Headers title={'포춘쿠키 결과'} />
@@ -49,14 +38,7 @@ const FortuneResultPage = () => {
           </div>
           <p>{result}</p>
         </article>
-        <article>
-          <h4>결과를 공유하고싶다면?</h4>
-          <div className="ShareButtons">
-            <KakaoShareButton />
-            <TwitterShareButton {...propsTwitterShareButton} />
-            <ClipboardShareButton />
-          </div>
-        </article>
+        <SharedButtons />
       </Sections>
       <Footer />
     </main>

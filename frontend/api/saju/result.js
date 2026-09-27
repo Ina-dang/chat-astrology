@@ -1,4 +1,4 @@
-import { handleSajuRequest } from '../_tools.js';
+import { handleSajuRequest } from '../_tools';
 
 export default async function handler(req, res) {
   try {

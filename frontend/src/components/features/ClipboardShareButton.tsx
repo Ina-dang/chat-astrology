@@ -7,7 +7,12 @@ const ClipboardShareButton = () => {
   };
 
   return (
-    <button className="ShareButton ClipboardShareButton" onClick={handleCopyToClipboard}></button>
+    <button
+      aria-label="결과 링크 복사"
+      className="ShareButton ClipboardShareButton"
+      type="button"
+      onClick={handleCopyToClipboard}
+    />
   );
 };
 

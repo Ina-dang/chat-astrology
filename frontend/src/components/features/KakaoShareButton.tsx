@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 
-const KakaoShareButton: React.FC = () => {
+const KakaoShareButton = () => {
   useEffect(() => {
     // 카카오톡 SDK 초기화
     if (window.Kakao && !window.Kakao.isInitialized()) {
       window.Kakao.cleanup();
-      console.log(import.meta.env.VITE_KAKAO_APP_KEY);
       window.Kakao.init(import.meta.env.VITE_KAKAO_APP_KEY);
     }
   }, []);
@@ -29,7 +28,14 @@ const KakaoShareButton: React.FC = () => {
     }
   };
 
-  return <button className="KakaoShareButton ShareButton" onClick={handleShare}></button>;
+  return (
+    <button
+      aria-label="카카오톡으로 결과 공유"
+      className="KakaoShareButton ShareButton"
+      type="button"
+      onClick={handleShare}
+    />
+  );
 };
 
 export { KakaoShareButton };
