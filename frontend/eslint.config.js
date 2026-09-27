@@ -1,17 +1,18 @@
+import js from '@eslint/js';
 import globals from 'globals';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import noRelativeImportPaths from 'eslint-plugin-no-relative-import-paths';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config({
-  extends: [
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:@tanstack/eslint-plugin-query/recommended',
-    '@rushstack/eslint-config/profile/node',
-    // "@rushstack/eslint-config/mixins/friendly-locals" // <----https://www.npmjs.com/package/@rushstack/eslint-config
-  ],
+export default tseslint.config(
+  { ignores: ['dist'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
   files: ['**/*.{ts,tsx}'],
-  ignores: ['dist'],
   languageOptions: {
     ecmaVersion: 2022,
     globals: globals.browser,
@@ -24,8 +25,17 @@ export default tseslint.config({
   // https://www.npmjs.com/package/eslint-plugin-react
   // https://github.com/ArnaudBarre/eslint-plugin-react-refresh
   // https://www.npmjs.com/package/eslint-plugin-jsx-a11y
-  plugins: ['react', 'react-hooks', 'react-refresh', 'jsx-a11y'],
+  plugins: {
+    'jsx-a11y': jsxA11y,
+    'no-relative-import-paths': noRelativeImportPaths,
+    react,
+    'react-hooks': reactHooks,
+    'react-refresh': reactRefresh,
+  },
   rules: {
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+    ...reactHooks.configs.recommended.rules,
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     // <img> 엘리먼트에 유의미한 대체 텍스트가 있는지 체크
     'jsx-a11y/alt-text': [
@@ -120,4 +130,5 @@ export default tseslint.config({
       version: '18.3',
     },
   },
-});
+  },
+);

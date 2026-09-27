@@ -1,0 +1,1217 @@
+{
+  "FOOL": {
+    "name": "광대",
+    "nameEn": "The Fool",
+    "arcana": "major",
+    "upright": [
+      "새로운 시작",
+      "자유",
+      "모험",
+      "순수"
+    ],
+    "reversed": [
+      "무모함",
+      "경솔",
+      "방향 상실"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg"
+  },
+  "MAGICIAN": {
+    "name": "마법사",
+    "nameEn": "The Magician",
+    "arcana": "major",
+    "upright": [
+      "의지",
+      "창조력",
+      "집중",
+      "실행"
+    ],
+    "reversed": [
+      "재능 낭비",
+      "속임수",
+      "준비 부족"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg"
+  },
+  "PRIESTESS": {
+    "name": "여사제",
+    "nameEn": "The High Priestess",
+    "arcana": "major",
+    "upright": [
+      "직관",
+      "내면의 지혜",
+      "신비",
+      "침묵"
+    ],
+    "reversed": [
+      "비밀",
+      "단절된 직관",
+      "표면적 판단"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg"
+  },
+  "EMPRESS": {
+    "name": "여황제",
+    "nameEn": "The Empress",
+    "arcana": "major",
+    "upright": [
+      "풍요",
+      "돌봄",
+      "성장",
+      "아름다움"
+    ],
+    "reversed": [
+      "과보호",
+      "정체",
+      "자기 돌봄 부족"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg"
+  },
+  "EMPEROR": {
+    "name": "황제",
+    "nameEn": "The Emperor",
+    "arcana": "major",
+    "upright": [
+      "질서",
+      "권위",
+      "안정",
+      "책임"
+    ],
+    "reversed": [
+      "경직",
+      "독단",
+      "통제 과잉"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg"
+  },
+  "HIEROPHANT": {
+    "name": "교황",
+    "nameEn": "The Hierophant",
+    "arcana": "major",
+    "upright": [
+      "전통",
+      "가르침",
+      "제도",
+      "신념"
+    ],
+    "reversed": [
+      "형식주의",
+      "관습에 대한 저항"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg"
+  },
+  "LOVERS": {
+    "name": "연인",
+    "nameEn": "The Lovers",
+    "arcana": "major",
+    "upright": [
+      "사랑",
+      "조화",
+      "선택",
+      "가치의 일치"
+    ],
+    "reversed": [
+      "불화",
+      "가치관 충돌",
+      "망설임"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_06_Lovers.jpg"
+  },
+  "CHARIOT": {
+    "name": "전차",
+    "nameEn": "The Chariot",
+    "arcana": "major",
+    "upright": [
+      "추진력",
+      "승리",
+      "자기 통제",
+      "결단"
+    ],
+    "reversed": [
+      "방향 상실",
+      "폭주",
+      "통제 불능"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg"
+  },
+  "STRENGTH": {
+    "name": "힘",
+    "nameEn": "Strength",
+    "arcana": "major",
+    "upright": [
+      "용기",
+      "인내",
+      "부드러운 힘",
+      "자신감"
+    ],
+    "reversed": [
+      "자기 의심",
+      "무기력",
+      "조급함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg"
+  },
+  "HERMIT": {
+    "name": "은둔자",
+    "nameEn": "The Hermit",
+    "arcana": "major",
+    "upright": [
+      "성찰",
+      "고독",
+      "내면 탐구",
+      "지혜"
+    ],
+    "reversed": [
+      "고립",
+      "외로움",
+      "회피"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg"
+  },
+  "WHEEL_OF_FORTUNE": {
+    "name": "운명의 수레바퀴",
+    "nameEn": "Wheel of Fortune",
+    "arcana": "major",
+    "upright": [
+      "전환점",
+      "순환",
+      "기회",
+      "운명"
+    ],
+    "reversed": [
+      "역행",
+      "통제 밖의 변화",
+      "불운의 순환"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg"
+  },
+  "JUSTICE": {
+    "name": "정의",
+    "nameEn": "Justice",
+    "arcana": "major",
+    "upright": [
+      "공정",
+      "진실",
+      "인과",
+      "균형"
+    ],
+    "reversed": [
+      "불공정",
+      "책임 회피",
+      "편향"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg"
+  },
+  "HANGED_MAN": {
+    "name": "매달린 사람",
+    "nameEn": "The Hanged Man",
+    "arcana": "major",
+    "upright": [
+      "관점 전환",
+      "내려놓음",
+      "기다림",
+      "희생"
+    ],
+    "reversed": [
+      "정체",
+      "무의미한 희생",
+      "지연"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg"
+  },
+  "DEATH": {
+    "name": "죽음",
+    "nameEn": "Death",
+    "arcana": "major",
+    "upright": [
+      "끝과 시작",
+      "변화",
+      "이별",
+      "재생"
+    ],
+    "reversed": [
+      "변화에 대한 저항",
+      "집착",
+      "정체"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg"
+  },
+  "TEMPERANCE": {
+    "name": "절제",
+    "nameEn": "Temperance",
+    "arcana": "major",
+    "upright": [
+      "균형",
+      "조화",
+      "중용",
+      "치유"
+    ],
+    "reversed": [
+      "과잉",
+      "불균형",
+      "조급함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg"
+  },
+  "DEVIL": {
+    "name": "악마",
+    "nameEn": "The Devil",
+    "arcana": "major",
+    "upright": [
+      "집착",
+      "유혹",
+      "속박",
+      "물질주의"
+    ],
+    "reversed": [
+      "해방",
+      "속박에서 벗어남",
+      "자각"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg"
+  },
+  "TOWER": {
+    "name": "탑",
+    "nameEn": "The Tower",
+    "arcana": "major",
+    "upright": [
+      "급변",
+      "붕괴",
+      "충격",
+      "각성"
+    ],
+    "reversed": [
+      "임박한 변화의 지연",
+      "재난 회피",
+      "두려움"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg"
+  },
+  "STAR": {
+    "name": "별",
+    "nameEn": "The Star",
+    "arcana": "major",
+    "upright": [
+      "희망",
+      "치유",
+      "영감",
+      "평온"
+    ],
+    "reversed": [
+      "실망",
+      "희망 상실",
+      "단절감"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg"
+  },
+  "MOON": {
+    "name": "달",
+    "nameEn": "The Moon",
+    "arcana": "major",
+    "upright": [
+      "불확실성",
+      "무의식",
+      "환상",
+      "직감"
+    ],
+    "reversed": [
+      "혼란 해소",
+      "진실 드러남",
+      "불안 완화"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg"
+  },
+  "SUN": {
+    "name": "태양",
+    "nameEn": "The Sun",
+    "arcana": "major",
+    "upright": [
+      "성공",
+      "활력",
+      "기쁨",
+      "긍정"
+    ],
+    "reversed": [
+      "일시적 침체",
+      "과신",
+      "지연된 성공"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg"
+  },
+  "JUDGEMENT": {
+    "name": "심판",
+    "nameEn": "Judgement",
+    "arcana": "major",
+    "upright": [
+      "부활",
+      "평가",
+      "소명",
+      "용서"
+    ],
+    "reversed": [
+      "자기 비판",
+      "과거에 매임",
+      "결정 회피"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/RWS_Tarot_20_Judgement.jpg"
+  },
+  "WORLD": {
+    "name": "세계",
+    "nameEn": "The World",
+    "arcana": "major",
+    "upright": [
+      "완성",
+      "성취",
+      "통합",
+      "여정의 끝"
+    ],
+    "reversed": [
+      "미완성",
+      "마무리 부족",
+      "지연된 성취"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg"
+  },
+  "WANDS_1": {
+    "name": "완드 에이스",
+    "nameEn": "Ace of Wands",
+    "arcana": "minor",
+    "upright": [
+      "영감의 불씨",
+      "새 기회",
+      "잠재력"
+    ],
+    "reversed": [
+      "지연된 시작",
+      "동기 저하"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/11/Wands01.jpg"
+  },
+  "WANDS_2": {
+    "name": "완드 2",
+    "nameEn": "Two of Wands",
+    "arcana": "minor",
+    "upright": [
+      "계획",
+      "미래 구상",
+      "갈림길의 선택"
+    ],
+    "reversed": [
+      "좁은 시야",
+      "계획 부재"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wands02.jpg"
+  },
+  "WANDS_3": {
+    "name": "완드 3",
+    "nameEn": "Three of Wands",
+    "arcana": "minor",
+    "upright": [
+      "확장",
+      "전망",
+      "진행 중인 성과"
+    ],
+    "reversed": [
+      "지연",
+      "장애물",
+      "좌절된 확장"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Wands03.jpg"
+  },
+  "WANDS_4": {
+    "name": "완드 4",
+    "nameEn": "Four of Wands",
+    "arcana": "minor",
+    "upright": [
+      "축하",
+      "안정된 기반",
+      "화합"
+    ],
+    "reversed": [
+      "불안정한 기반",
+      "미뤄진 축하"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Wands04.jpg"
+  },
+  "WANDS_5": {
+    "name": "완드 5",
+    "nameEn": "Five of Wands",
+    "arcana": "minor",
+    "upright": [
+      "경쟁",
+      "갈등",
+      "의견 충돌"
+    ],
+    "reversed": [
+      "갈등 회피",
+      "내부 긴장 완화"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Wands05.jpg"
+  },
+  "WANDS_6": {
+    "name": "완드 6",
+    "nameEn": "Six of Wands",
+    "arcana": "minor",
+    "upright": [
+      "승리",
+      "인정",
+      "자신감"
+    ],
+    "reversed": [
+      "자만",
+      "인정받지 못함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Wands06.jpg"
+  },
+  "WANDS_7": {
+    "name": "완드 7",
+    "nameEn": "Seven of Wands",
+    "arcana": "minor",
+    "upright": [
+      "방어",
+      "입장 고수",
+      "도전 대응"
+    ],
+    "reversed": [
+      "압도됨",
+      "수세 몰림"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Wands07.jpg"
+  },
+  "WANDS_8": {
+    "name": "완드 8",
+    "nameEn": "Eight of Wands",
+    "arcana": "minor",
+    "upright": [
+      "빠른 전개",
+      "소식",
+      "추진"
+    ],
+    "reversed": [
+      "지연",
+      "성급함",
+      "엇갈린 소식"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Wands08.jpg"
+  },
+  "WANDS_9": {
+    "name": "완드 9",
+    "nameEn": "Nine of Wands",
+    "arcana": "minor",
+    "upright": [
+      "끈기",
+      "마지막 고비",
+      "경계"
+    ],
+    "reversed": [
+      "소진",
+      "방어적 태도"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Tarot_Nine_of_Wands.jpg"
+  },
+  "WANDS_10": {
+    "name": "완드 10",
+    "nameEn": "Ten of Wands",
+    "arcana": "minor",
+    "upright": [
+      "과중한 책임",
+      "부담",
+      "완수 직전"
+    ],
+    "reversed": [
+      "짐 내려놓기",
+      "위임 필요"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Wands10.jpg"
+  },
+  "WANDS_11": {
+    "name": "완드 시종",
+    "nameEn": "Page of Wands",
+    "arcana": "minor",
+    "upright": [
+      "열정적 탐색",
+      "새 아이디어",
+      "호기심"
+    ],
+    "reversed": [
+      "산만함",
+      "미숙한 열정"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Wands11.jpg"
+  },
+  "WANDS_12": {
+    "name": "완드 기사",
+    "nameEn": "Knight of Wands",
+    "arcana": "minor",
+    "upright": [
+      "모험",
+      "대담한 행동",
+      "추진력"
+    ],
+    "reversed": [
+      "충동",
+      "무모한 질주"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/16/Wands12.jpg"
+  },
+  "WANDS_13": {
+    "name": "완드 여왕",
+    "nameEn": "Queen of Wands",
+    "arcana": "minor",
+    "upright": [
+      "카리스마",
+      "독립심",
+      "따뜻한 리더십"
+    ],
+    "reversed": [
+      "질투",
+      "요구 과다"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Wands13.jpg"
+  },
+  "WANDS_14": {
+    "name": "완드 왕",
+    "nameEn": "King of Wands",
+    "arcana": "minor",
+    "upright": [
+      "비전 리더십",
+      "기업가 정신",
+      "결단력"
+    ],
+    "reversed": [
+      "독선",
+      "성급한 결정"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Wands14.jpg"
+  },
+  "CUPS_1": {
+    "name": "컵 에이스",
+    "nameEn": "Ace of Cups",
+    "arcana": "minor",
+    "upright": [
+      "감정의 시작",
+      "사랑의 씨앗",
+      "직관의 열림"
+    ],
+    "reversed": [
+      "감정 억압",
+      "공허함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/36/Cups01.jpg"
+  },
+  "CUPS_2": {
+    "name": "컵 2",
+    "nameEn": "Two of Cups",
+    "arcana": "minor",
+    "upright": [
+      "상호 끌림",
+      "파트너십",
+      "조화"
+    ],
+    "reversed": [
+      "불균형한 관계",
+      "오해"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Cups02.jpg"
+  },
+  "CUPS_3": {
+    "name": "컵 3",
+    "nameEn": "Three of Cups",
+    "arcana": "minor",
+    "upright": [
+      "우정",
+      "축하",
+      "공동체의 기쁨"
+    ],
+    "reversed": [
+      "과잉",
+      "겉도는 모임"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cups03.jpg"
+  },
+  "CUPS_4": {
+    "name": "컵 4",
+    "nameEn": "Four of Cups",
+    "arcana": "minor",
+    "upright": [
+      "권태",
+      "재평가",
+      "무관심"
+    ],
+    "reversed": [
+      "새 관점 수용",
+      "동기 회복"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Cups04.jpg"
+  },
+  "CUPS_5": {
+    "name": "컵 5",
+    "nameEn": "Five of Cups",
+    "arcana": "minor",
+    "upright": [
+      "상실감",
+      "후회",
+      "남은 것 바라보기"
+    ],
+    "reversed": [
+      "수용",
+      "회복의 시작",
+      "용서"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Cups05.jpg"
+  },
+  "CUPS_6": {
+    "name": "컵 6",
+    "nameEn": "Six of Cups",
+    "arcana": "minor",
+    "upright": [
+      "추억",
+      "순수함",
+      "재회"
+    ],
+    "reversed": [
+      "과거에 매임",
+      "이상화"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Cups06.jpg"
+  },
+  "CUPS_7": {
+    "name": "컵 7",
+    "nameEn": "Seven of Cups",
+    "arcana": "minor",
+    "upright": [
+      "선택지 과다",
+      "상상",
+      "가능성 탐색"
+    ],
+    "reversed": [
+      "환상 정리",
+      "명확한 선택"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cups07.jpg"
+  },
+  "CUPS_8": {
+    "name": "컵 8",
+    "nameEn": "Eight of Cups",
+    "arcana": "minor",
+    "upright": [
+      "떠남",
+      "더 깊은 의미 찾기",
+      "전환"
+    ],
+    "reversed": [
+      "머무름과 방황 사이",
+      "회피"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/60/Cups08.jpg"
+  },
+  "CUPS_9": {
+    "name": "컵 9",
+    "nameEn": "Nine of Cups",
+    "arcana": "minor",
+    "upright": [
+      "만족",
+      "소원 성취",
+      "풍족함"
+    ],
+    "reversed": [
+      "과욕",
+      "겉치레 만족"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Cups09.jpg"
+  },
+  "CUPS_10": {
+    "name": "컵 10",
+    "nameEn": "Ten of Cups",
+    "arcana": "minor",
+    "upright": [
+      "정서적 충만",
+      "가정의 화목",
+      "완성된 행복"
+    ],
+    "reversed": [
+      "가정 불화",
+      "깨진 이상"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/84/Cups10.jpg"
+  },
+  "CUPS_11": {
+    "name": "컵 시종",
+    "nameEn": "Page of Cups",
+    "arcana": "minor",
+    "upright": [
+      "감성적 메시지",
+      "창의적 시작",
+      "순수한 마음"
+    ],
+    "reversed": [
+      "감정 미성숙",
+      "현실 도피"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Cups11.jpg"
+  },
+  "CUPS_12": {
+    "name": "컵 기사",
+    "nameEn": "Knight of Cups",
+    "arcana": "minor",
+    "upright": [
+      "로맨틱한 제안",
+      "매력",
+      "이상 추구"
+    ],
+    "reversed": [
+      "비현실적 약속",
+      "변덕"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Cups12.jpg"
+  },
+  "CUPS_13": {
+    "name": "컵 여왕",
+    "nameEn": "Queen of Cups",
+    "arcana": "minor",
+    "upright": [
+      "공감",
+      "정서적 안정",
+      "배려"
+    ],
+    "reversed": [
+      "감정 과몰입",
+      "정서적 소진"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/62/Cups13.jpg"
+  },
+  "CUPS_14": {
+    "name": "컵 왕",
+    "nameEn": "King of Cups",
+    "arcana": "minor",
+    "upright": [
+      "감정의 절제",
+      "포용",
+      "지혜로운 조언"
+    ],
+    "reversed": [
+      "감정 조작",
+      "억눌린 감정"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/04/Cups14.jpg"
+  },
+  "SWORDS_1": {
+    "name": "소드 에이스",
+    "nameEn": "Ace of Swords",
+    "arcana": "minor",
+    "upright": [
+      "명료함",
+      "돌파구",
+      "진실"
+    ],
+    "reversed": [
+      "혼란",
+      "왜곡된 정보"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Swords01.jpg"
+  },
+  "SWORDS_2": {
+    "name": "소드 2",
+    "nameEn": "Two of Swords",
+    "arcana": "minor",
+    "upright": [
+      "교착",
+      "결정 보류",
+      "균형 잡기"
+    ],
+    "reversed": [
+      "정보 과부하",
+      "결정 강요"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg"
+  },
+  "SWORDS_3": {
+    "name": "소드 3",
+    "nameEn": "Three of Swords",
+    "arcana": "minor",
+    "upright": [
+      "상심",
+      "아픈 진실",
+      "슬픔"
+    ],
+    "reversed": [
+      "치유의 시작",
+      "상처 회복"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Swords03.jpg"
+  },
+  "SWORDS_4": {
+    "name": "소드 4",
+    "nameEn": "Four of Swords",
+    "arcana": "minor",
+    "upright": [
+      "휴식",
+      "재충전",
+      "심리적 정리"
+    ],
+    "reversed": [
+      "소진",
+      "강요된 휴식"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Swords04.jpg"
+  },
+  "SWORDS_5": {
+    "name": "소드 5",
+    "nameEn": "Five of Swords",
+    "arcana": "minor",
+    "upright": [
+      "이기고도 잃는 싸움",
+      "갈등의 대가"
+    ],
+    "reversed": [
+      "화해",
+      "오랜 갈등의 종료"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Swords05.jpg"
+  },
+  "SWORDS_6": {
+    "name": "소드 6",
+    "nameEn": "Six of Swords",
+    "arcana": "minor",
+    "upright": [
+      "이행",
+      "회복으로의 이동",
+      "떠나는 용기"
+    ],
+    "reversed": [
+      "미련",
+      "벗어나지 못함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Swords06.jpg"
+  },
+  "SWORDS_7": {
+    "name": "소드 7",
+    "nameEn": "Seven of Swords",
+    "arcana": "minor",
+    "upright": [
+      "전략",
+      "독자 행동",
+      "기민함"
+    ],
+    "reversed": [
+      "기만 드러남",
+      "양심의 소리"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/34/Swords07.jpg"
+  },
+  "SWORDS_8": {
+    "name": "소드 8",
+    "nameEn": "Eight of Swords",
+    "arcana": "minor",
+    "upright": [
+      "자기 제한",
+      "갇힌 느낌",
+      "관점의 감옥"
+    ],
+    "reversed": [
+      "속박 해제",
+      "자율 회복"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Swords08.jpg"
+  },
+  "SWORDS_9": {
+    "name": "소드 9",
+    "nameEn": "Nine of Swords",
+    "arcana": "minor",
+    "upright": [
+      "불안",
+      "걱정",
+      "불면"
+    ],
+    "reversed": [
+      "불안의 완화",
+      "두려움 직면"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Swords09.jpg"
+  },
+  "SWORDS_10": {
+    "name": "소드 10",
+    "nameEn": "Ten of Swords",
+    "arcana": "minor",
+    "upright": [
+      "바닥",
+      "끝맺음",
+      "아픈 종료"
+    ],
+    "reversed": [
+      "회복의 시작",
+      "최악의 종료"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords10.jpg"
+  },
+  "SWORDS_11": {
+    "name": "소드 시종",
+    "nameEn": "Page of Swords",
+    "arcana": "minor",
+    "upright": [
+      "호기심",
+      "새로운 사고",
+      "관찰"
+    ],
+    "reversed": [
+      "험담",
+      "설익은 판단"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Swords11.jpg"
+  },
+  "SWORDS_12": {
+    "name": "소드 기사",
+    "nameEn": "Knight of Swords",
+    "arcana": "minor",
+    "upright": [
+      "직진",
+      "결단력",
+      "빠른 사고"
+    ],
+    "reversed": [
+      "성급함",
+      "방향 없는 돌진"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Swords12.jpg"
+  },
+  "SWORDS_13": {
+    "name": "소드 여왕",
+    "nameEn": "Queen of Swords",
+    "arcana": "minor",
+    "upright": [
+      "통찰",
+      "독립적 판단",
+      "경계 설정"
+    ],
+    "reversed": [
+      "냉소",
+      "지나친 비판"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Swords13.jpg"
+  },
+  "SWORDS_14": {
+    "name": "소드 왕",
+    "nameEn": "King of Swords",
+    "arcana": "minor",
+    "upright": [
+      "논리",
+      "권위 있는 판단",
+      "원칙"
+    ],
+    "reversed": [
+      "독단적 판단",
+      "권력 남용"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Swords14.jpg"
+  },
+  "PENTACLES_1": {
+    "name": "펜타클 에이스",
+    "nameEn": "Ace of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "물질적 기회",
+      "실질적 시작",
+      "풍요의 씨앗"
+    ],
+    "reversed": [
+      "놓친 기회",
+      "불안정한 출발"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Pents01.jpg"
+  },
+  "PENTACLES_2": {
+    "name": "펜타클 2",
+    "nameEn": "Two of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "균형 잡기",
+      "유연한 대응",
+      "우선순위 조율"
+    ],
+    "reversed": [
+      "과부하",
+      "재정 불균형"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Pents02.jpg"
+  },
+  "PENTACLES_3": {
+    "name": "펜타클 3",
+    "nameEn": "Three of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "협업",
+      "숙련",
+      "인정받는 실력"
+    ],
+    "reversed": [
+      "협력 부족",
+      "어긋난 역할"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents03.jpg"
+  },
+  "PENTACLES_4": {
+    "name": "펜타클 4",
+    "nameEn": "Four of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "절약",
+      "소유",
+      "안정 추구"
+    ],
+    "reversed": [
+      "인색함",
+      "지나친 방어"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Pents04.jpg"
+  },
+  "PENTACLES_5": {
+    "name": "펜타클 5",
+    "nameEn": "Five of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "궁핍",
+      "소외감",
+      "어려운 시기"
+    ],
+    "reversed": [
+      "회복",
+      "도움의 수용"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Pents05.jpg"
+  },
+  "PENTACLES_6": {
+    "name": "펜타클 6",
+    "nameEn": "Six of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "나눔",
+      "관대함",
+      "주고받음의 균형"
+    ],
+    "reversed": [
+      "부채감",
+      "조건 있는 호의"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Pents06.jpg"
+  },
+  "PENTACLES_7": {
+    "name": "펜타클 7",
+    "nameEn": "Seven of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "기다림",
+      "장기 투자",
+      "성과 점검"
+    ],
+    "reversed": [
+      "조급함",
+      "노력 대비 낮은 성과"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Pents07.jpg"
+  },
+  "PENTACLES_8": {
+    "name": "펜타클 8",
+    "nameEn": "Eight of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "숙달",
+      "성실한 연마",
+      "디테일"
+    ],
+    "reversed": [
+      "기계적 반복",
+      "완벽주의"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Pents08.jpg"
+  },
+  "PENTACLES_9": {
+    "name": "펜타클 9",
+    "nameEn": "Nine of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "자립",
+      "여유",
+      "노력의 결실"
+    ],
+    "reversed": [
+      "과시",
+      "홀로 남은 성취"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Pents09.jpg"
+  },
+  "PENTACLES_10": {
+    "name": "펜타클 10",
+    "nameEn": "Ten of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "유산",
+      "가족의 번영",
+      "장기적 안정"
+    ],
+    "reversed": [
+      "가족 갈등",
+      "불안정한 기반"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pents10.jpg"
+  },
+  "PENTACLES_11": {
+    "name": "펜타클 시종",
+    "nameEn": "Page of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "배움",
+      "실용적 목표",
+      "꾸준한 시작"
+    ],
+    "reversed": [
+      "산만한 학습",
+      "미루기"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Pents11.jpg"
+  },
+  "PENTACLES_12": {
+    "name": "펜타클 기사",
+    "nameEn": "Knight of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "근면",
+      "신뢰성",
+      "착실한 전진"
+    ],
+    "reversed": [
+      "정체",
+      "융통성 부족"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Pents12.jpg"
+  },
+  "PENTACLES_13": {
+    "name": "펜타클 여왕",
+    "nameEn": "Queen of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "실용적 돌봄",
+      "풍요로운 살림",
+      "현실 감각"
+    ],
+    "reversed": [
+      "일과 삶의 불균형",
+      "자기 돌봄 소홀"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/88/Pents13.jpg"
+  },
+  "PENTACLES_14": {
+    "name": "펜타클 왕",
+    "nameEn": "King of Pentacles",
+    "arcana": "minor",
+    "upright": [
+      "성공",
+      "안정된 부",
+      "믿음직함"
+    ],
+    "reversed": [
+      "물질 집착",
+      "완고함"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Pents14.jpg"
+  }
+}

@@ -22,9 +22,9 @@ const onProcess = () => {
 const offProcess = () => {
   if (!d || !rootProgress) return;
 
-  let elementContainer = d.querySelector(`.${className}`);
+  const elementContainer = d.querySelector(`.${className}`);
   if (elementContainer) {
-    rootProgress.unmount && rootProgress.unmount();
+    rootProgress.unmount();
     rootProgress = null;
     elementContainer.parentNode?.removeChild(elementContainer);
   }

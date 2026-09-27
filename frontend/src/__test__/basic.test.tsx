@@ -1,6 +1,5 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { userEvent } from '@testing-library/user-event';
 import Link from '../components/Link';
 

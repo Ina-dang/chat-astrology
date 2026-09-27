@@ -14,6 +14,7 @@
     "jsx": "react-jsx",
     "moduleDetection": "force",
     "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "noEmit": true,
 
     /* Linting */
@@ -25,7 +26,7 @@
     "strictNullChecks": true,
     "strict": true
   },
-  "include": ["src", "./jest-setup.ts"]
+  "include": ["src", "./vitest.setup.ts"]
 }
 
 // {
