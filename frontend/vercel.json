@@ -5,8 +5,6 @@
       "source": "/api/fortune/result/:id",
       "destination": "/api/fortune/result/[id]"
     },
-    { "source": "/fortune/result?id=:id", "destination": "/src/pages/fortune/FortuneResult" },
     { "source": "/(.*)", "destination": "/index.html" }
-    
   ]
 }
