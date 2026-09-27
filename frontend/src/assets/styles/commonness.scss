@@ -1,5 +1,7 @@
 /* Pretendard (https://github.com/orioncactus/pretendard) */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+/* Hahmlet (SIL Open Font License 1.1) */
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;600&display=swap');
 
 @function dp($dp) {
   @return calc($dp / 16) + rem;
@@ -18,10 +20,22 @@
 
 $font-family-default: 'Pretendard Variable', Pretendard, -apple-system, 'Apple SD Gothic Neo',
   'Roboto', 'Helvetica Neue', sans-serif;
+$font-family-display: 'Hahmlet', 'Batang', serif;
 
-$bg-page: #f5f5fd;
-$c-3: #333;
-$c-2: #222;
-$c-a: #aaa;
-$c-b: #4169e1;
-$c-db: #365bb3;
+$bg-page: #080a0d;
+$surface: #101518;
+$surface-warm: #18170f;
+$paper: #f4efe5;
+$muted: #b8bbb9;
+$jade: #b9e2ca;
+$shell: #efcbd8;
+$violet: #c8b7dc;
+$gold: #d2b06d;
+$blue: #b7d9df;
+$line: rgba(185, 226, 202, 0.28);
+$nacre: linear-gradient(125deg, #e8e2b8 0%, #b9e2ca 24%, #b7d9df 47%, #efcbd8 71%, #c8b7dc 100%);
+$c-3: #ded8cd;
+$c-2: $paper;
+$c-a: #9da3a0;
+$c-b: $gold;
+$c-db: #e2c47f;

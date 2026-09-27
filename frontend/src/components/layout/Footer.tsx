@@ -2,7 +2,6 @@ const Footer = () => {
   return (
     <footer>
       <div className="kakaoAdd">
-        {/* <a href="https://toss.me/inadang"> 운세가 마음에 들었다면? 복채보내기🍀 </a> */}
         <ins
           className="kakaoAdArea"
           style={{ display: 'none' }}

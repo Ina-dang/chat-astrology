@@ -11,14 +11,28 @@
     }
   }
   .Sections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     .FortuneCookie {
-      display: block;
-      margin: 0 auto;
-      width: dp(150);
-      padding-bottom: dp(50);
+      display: grid;
+      width: dp(210);
+      height: dp(210);
+      margin: 0 auto dp(32);
+      place-items: center;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      background: linear-gradient($bg-page, $bg-page) padding-box, $nacre border-box;
+
+      img { width: dp(150); }
+
       &.Active {
-        animation: shake-up-down 0.5s infinite;
+        animation: shake-up-down 0.55s ease-in-out 2;
       }
     }
+
+    .Button { max-width: dp(360); }
   }
 }

@@ -1,94 +1,112 @@
 @import '../../commonness.scss';
 
-.SajuPage {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100%;
-  section {
-    flex-grow: 1;
-    form {
-      margin-bottom: dp(30);
-      padding: dp(30) dp(20);
-      border-radius: dp(8);
-      background-color: #fff;
+.SajuPage,
+.SajuResultPage {
+  .Sections {
+    min-height: 0;
+    overflow-y: auto;
+  }
 
-      h3 {
-        margin: 0 0 dp(30) 0;
-        text-align: center;
-      }
-    }
+  h2,
+  h3,
+  h4 { font-family: $font-family-display; }
+
+  a { color: $jade; }
+
+  .Button {
+    width: 100%;
+    min-height: dp(48);
+    margin-top: dp(16);
   }
 }
 
-.SajuResultPage {
-  .Sections {
-    overflow: auto;
-    > h2,
-    > p {
-      margin: 0;
-    }
-    article {
-      &:nth-of-type(1) {
-        display: flex;
-        justify-content: space-evenly;
-        p {
-          padding: dp(15);
-          border: dp(1) solid $c-b;
-          border-radius: dp(12);
-          background-color: $c-b;
-          color: #fff;
-        }
-      }
-    }
-    table {
-      width: 100%;
-      padding-top: dp(30);
-      border-spacing: 0;
-      thead {
-        background-color: #fff;
-        tr {
-          th {
-            padding: dp(10);
-            border-top: dp(1) inset $c-b;
-            border-bottom: dp(1) inset $c-b;
-            &:first-child {
-              border-left: dp(1) inset $c-b;
-              border-top-left-radius: dp(12);
-              border-bottom-left-radius: dp(12);
-            }
-            &:last-child {
-              border-right: dp(1) inset $c-b;
-              border-top-right-radius: dp(12);
-              border-bottom-right-radius: dp(12);
-            }
-          }
-        }
-      }
-      tbody {
-        tr {
-          td {
-            padding-top: dp(10);
-            div {
-              padding: dp(10) dp(5) dp(5);
-              text-align: center;
-              margin: 0 auto;
-              background-color: #fff;
-              border-radius: dp(10);
-              border: dp(1) solid $c-b;
-              width: 80%;
-              p {
-                @include font(800, 26, 30);
-                margin: 0;
-              }
-              small {
-                @include font(500, 12, 20);
-                text-decoration: none;
-              }
-            }
-          }
-        }
-      }
-    }
+.SajuPage {
+  form {
+    padding: dp(24) dp(20);
+    border: 1px solid $line;
+    border-radius: dp(14);
+    background: $surface;
   }
+
+  fieldset {
+    margin: 0 0 dp(20);
+    padding: dp(14);
+    border: 1px solid $line;
+    border-radius: dp(8);
+  }
+
+  legend { font-weight: 700; }
+  label { display: inline-flex; align-items: center; min-height: dp(44); gap: dp(8); margin-right: dp(18); }
+
+  .BirthDateFields {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: dp(8);
+    margin-bottom: dp(12);
+
+    label { display: grid; gap: dp(6); margin: 0; }
+  }
+
+  input[type='number'],
+  input[type='time'] {
+    width: 100%;
+    min-height: dp(44);
+    padding: dp(8);
+    border: 1px solid $line;
+    border-radius: dp(6);
+    background: #0d1113;
+    color: $paper;
+    color-scheme: dark;
+  }
+
+  .TimeField { display: grid; gap: dp(8); margin: 0 0 dp(14); }
+  .FormGuide { color: $muted; line-height: 1.6; }
+}
+
+.SajuResultPage {
+  .PillarsTable {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: dp(6);
+
+    th { padding: dp(8) dp(2); }
+    td {
+      padding: dp(12) dp(4);
+      border: 1px solid rgba(210, 176, 109, 0.65);
+      border-radius: dp(8);
+      background: $surface;
+      text-align: center;
+    }
+    strong,
+    small { display: block; }
+    strong { font-size: sp(24); }
+  }
+
+  section {
+    margin: dp(24) 0;
+    padding: dp(16);
+    border: 1px solid $line;
+    border-radius: dp(10);
+    background: $surface;
+  }
+
+  .ElementList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: dp(6);
+    padding: 0;
+    list-style: none;
+
+    li { padding: dp(10) dp(4); border: 1px solid $line; border-radius: dp(8); text-align: center; }
+    span,
+    strong { display: block; }
+  }
+
+  article { margin-top: dp(14); }
+  details { margin: dp(24) 0; }
+  p { line-height: 1.6; }
+}
+
+@media (max-width: 359px) {
+  .SajuPage .BirthDateFields { grid-template-columns: 1fr; }
 }

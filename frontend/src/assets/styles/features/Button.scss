@@ -2,23 +2,34 @@
 
 .Button {
   width: 100%;
-  padding: dp(12);
-  border: none;
-  border-radius: dp(8);
-  background-color: $c-b;
-  box-shadow: 0 dp(4) dp(6) rgba(0, 0, 0, 0.2);
+  min-height: dp(48);
+  padding: dp(12) dp(16);
+  border: 1px solid $gold;
+  border-radius: dp(12);
+  background: $surface-warm;
+  color: $paper;
+  font-family: $font-family-display;
+  font-size: sp(16);
+  font-weight: 600;
+  cursor: pointer;
+
   p {
     margin: 0;
-    color: #ffffff;
-    @include font(bold, 20, 24);
+    color: inherit;
+    font: inherit;
   }
+
   &:hover,
   &:focus {
-    background-color: $c-db;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: #242014;
   }
+
   &:active {
-    background-color: $c-db;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: #2b2516;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
   }
 }

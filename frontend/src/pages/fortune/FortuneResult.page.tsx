@@ -36,7 +36,7 @@ const FortuneResultPage = () => {
 
   const propsTwitterShareButton = {
     url: location.href,
-    text: 'GPT가 말아주는 사주🍶&타로🍺',
+    text: '월담 | 사주·타로·포춘쿠키',
   };
   return (
     <main className="Pages FortuneResultPage">

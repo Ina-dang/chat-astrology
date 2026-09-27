@@ -3,51 +3,88 @@
 .Pages {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  background-color: $bg-page;
-  header {
-    display: flex;
-    align-items: center;
+  width: min(100%, dp(720));
+  height: 100dvh;
+  min-height: dp(640);
+  margin: 0 auto;
+  overflow: hidden;
+  background: $bg-page;
+  color: $paper;
+
+  > header {
     position: relative;
-    padding: dp(16);
-    background-color: #fff;
+    display: flex;
+    flex: none;
+    align-items: center;
+    min-height: dp(64);
+    padding: dp(10) dp(16);
+    border-bottom: 1px solid $line;
+    background: $bg-page;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: dp(52);
+      left: dp(52);
+      height: dp(3);
+      background: $nacre;
+      content: '';
+    }
+
     button {
       position: absolute;
-      min-width: dp(30);
-      border: none;
-      background-color: inherit;
+      left: dp(12);
+      min-width: dp(44);
+      min-height: dp(44);
+      padding: 0 dp(8);
+      border: 0;
+      background: transparent;
+      color: $paper;
+      cursor: pointer;
+      @include font(600, 14, 20);
     }
+
     h1 {
-      margin: 0;
-      text-align: center;
       flex-grow: 1;
-      @include font(bold, 24, 30);
+      margin: 0;
+      font-family: $font-family-display;
+      font-size: sp(20);
+      font-weight: 600;
+      line-height: 1.4;
+      text-align: center;
     }
   }
-  section {
-    padding: dp(16);
-    flex-grow: 1;
+
+  > .Sections {
+    width: 100%;
+    max-width: dp(640);
+    min-height: 0;
+    margin: 0 auto;
+    padding: dp(24);
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    scrollbar-color: #59605d transparent;
+    scrollbar-width: thin;
   }
-  footer {
-    min-height: dp(50);
-    background-color: steelblue;
-    .KakaoAdd {
+
+  > footer {
+    min-height: env(safe-area-inset-bottom, 0);
+    background: $bg-page;
+
+    .kakaoAdd {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
       justify-content: center;
       width: 100%;
-      min-width: 300px;
-      min-height: 100px;
-      margin-top: 20px;
-      text-align: right;
     }
-    .KakaoAdd a {
-      display: none;
-      padding: 10px;
-      font-weight: bold;
-      color: rgb(110, 110, 115);
-      text-decoration: none;
-    }
+  }
+}
+
+@media (min-width: dp(840)) {
+  .Pages {
+    height: calc(100dvh - dp(48));
+    min-height: 0;
+    margin-block: dp(24);
+    border: 1px solid rgba(239, 203, 216, 0.3);
+    border-radius: dp(28);
   }
 }

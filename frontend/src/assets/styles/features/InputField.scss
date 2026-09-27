@@ -5,7 +5,7 @@
   align-items: center;
   margin-bottom: dp(10);
   padding: dp(10) dp(15);
-  border: dp(1) solid $c-a;
+  border: dp(1) solid $line;
   border-radius: dp(8);
   width: 100%;
   flex-wrap: wrap;
@@ -21,6 +21,7 @@
     @include font(500, 16, 24);
     border: none;
     background-color: inherit;
+    color: $paper;
     text-align: right;
     flex-grow: 1;
     &:focus {

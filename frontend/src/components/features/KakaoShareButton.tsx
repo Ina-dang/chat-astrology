@@ -16,7 +16,7 @@ const KakaoShareButton: React.FC = () => {
       window.Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: 'GPT가 말아주는 사주🍶&타로🍺',
+          title: '월담 | 사주·타로·포춘쿠키',
           description: '내 포춘쿠키 결과 공유',
           imageUrl:
             'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',

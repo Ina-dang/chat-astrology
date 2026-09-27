@@ -3,7 +3,7 @@ const ErrorPage: React.FC = () => {
     <main>
       <section>
         <h1>This Page Does Not Exist</h1>
-        <p>We're sorry, but it appears the website address you entered was incorrect</p>
+        <p>We&apos;re sorry, but it appears the website address you entered was incorrect</p>
         <button
           onClick={() => {
             location.replace('/');

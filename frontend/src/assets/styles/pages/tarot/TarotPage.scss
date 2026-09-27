@@ -1,105 +1,159 @@
 @import '../../commonness.scss';
 
-.TarotPage {
-  .Sections {
+.TarotPage,
+.TarotResultPage {
+  h2,
+  h3 { font-family: $font-family-display; }
+
+  h2 {
+    margin-top: 0;
+    font-size: sp(26);
+    line-height: 1.45;
+
+    &::after {
+      display: block;
+      width: dp(54);
+      height: dp(2);
+      margin-top: dp(10);
+      background: $nacre;
+      content: '';
+    }
+  }
+
+  p { color: $muted; line-height: 1.65; }
+  a { color: $jade; }
+
+  .TarotSlots {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: dp(12);
+    margin: dp(20) 0;
+
+    &.is-one { grid-template-columns: minmax(0, dp(180)); justify-content: center; }
+
+    figure {
+      margin: 0;
+      text-align: center;
+      min-width: 0;
+
+      &:has(img) { animation: slot-arrive 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+    }
+
+    figcaption { margin-bottom: dp(8); color: $gold; font-weight: 600; }
+
+    img,
+    .EmptyCard {
+      width: 100%;
+      max-width: dp(120);
+      aspect-ratio: 2 / 3;
+      margin: auto;
+      border: 1px solid rgba(210, 176, 109, 0.5);
+      border-radius: dp(8);
+      object-fit: contain;
+      background: $surface;
+    }
+
+    img.is-reversed { transform: rotate(180deg); }
+
+    .EmptyCard {
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(210, 176, 109, 0.58);
+      color: $muted;
+    }
+
+    p { margin-top: dp(8); font-size: sp(13); }
+  }
+
+  .SpreadPicker {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: dp(10);
+    margin: dp(16) 0;
+    padding: 0;
+    border: 0;
+
+    legend { grid-column: 1 / -1; margin-bottom: dp(4); color: $gold; font-weight: 600; }
+
+    label {
+      display: flex;
+      align-items: center;
+      min-height: dp(48);
+      gap: dp(8);
+      padding: dp(10) dp(12);
+      border: 1px solid $line;
+      border-radius: dp(10);
+      background: $surface;
+      line-height: 1.4;
+    }
+
+    label:has(input:checked) {
+      border-color: transparent;
+      background: linear-gradient(#191711, #191711) padding-box, $nacre border-box;
+    }
+
+    input { accent-color: $gold; }
+  }
+
+  .TarotDeck {
     display: flex;
-    flex-direction: column;
+    gap: dp(12);
     overflow-x: auto;
-    padding: dp(20);
-    white-space: nowrap;
+    padding: dp(18);
+    margin: dp(16) 0;
+    border: 1px solid $line;
+    border-radius: dp(16);
+    background: repeating-linear-gradient(45deg, transparent 0 dp(20), rgba(185, 226, 202, 0.055) dp(20) dp(21)),
+      repeating-linear-gradient(-45deg, transparent 0 dp(20), rgba(239, 203, 216, 0.045) dp(20) dp(21));
+    scroll-snap-type: x proximity;
 
-    article {
-      &:nth-of-type(1) {
-        display: flex;
-        justify-content: space-evenly;
-        min-height: dp(120);
-        padding: dp(30) 0 dp(10);
-        .CardWrap {
-          --card-src: '';
-          .Selected {
-            width: dp(95);
-            height: dp(130);
-            border: dp(4) solid #3a1c1a;
-            background-image: var(--card-src);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-          }
-          div:last-child {
-            width: 100%;
-            height: dp(25);
-            background-color: #3a1c1a;
-            color: #fff;
-            text-align: center;
-            @include font(400, 12, 22);
-            letter-spacing: dp(-0.75);
-          }
-          &.animate {
-            animation: moveToPosition 0.5s ease-out forwards;
-          }
-        }
-      }
-      &:last-child {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        flex-grow: 1;
-        transform: rotate(-90deg);
-        .CardContainer {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transform-origin: left center;
+    .card {
+      flex: 0 0 dp(80);
+      border: 2px solid transparent;
+      padding: 0;
+      border-radius: dp(8);
+      background: $surface;
+      scroll-snap-align: start;
+      cursor: pointer;
+      animation: deck-spread 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      animation-delay: min(calc(var(--card-index) * 10ms), 420ms);
 
-          .card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 15%;
-            left: 0;
-            width: dp(80);
-            height: dp(120);
-            opacity: 1;
-            border: dp(1) solid #000;
-            background-image: url('../../../images/main.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            transform-origin: bottom center;
-            transition: opacity 0.5s, transform 0.5s;
-
-            /* 카드가 반원 형태로 배열되도록 설정 */
-            &:nth-child(n) {
-              animation: unfold 0.8s ease-out forwards;
-              // transform: rotate(calc(var(--i))) translateX(0%);
-              // animation-delay: calc(var(--i) * 0.05s);
-            }
-          }
-        }
-      }
-    }
-  }
-  @keyframes unfold {
-    0% {
-      opacity: 0;
-      transform: rotate(0deg) translateY(0);
-    }
-    100% {
-      opacity: 1;
-      transform: rotate(calc(var(--i) * 12deg)) translateY(-50%);
+      img { width: 100%; aspect-ratio: 2 / 3; border-radius: dp(6); }
+      &[aria-pressed='true'] { border-color: $jade; opacity: 0.45; }
     }
   }
 
-  @keyframes moveToPosition {
-    from {
-      transform: scale(0.8) translateY(50%);
-    }
-    to {
-      transform: scale(1) translateY(0);
-    }
+  button:disabled { cursor: default; }
+  .Button { display: block; width: 100%; margin: dp(12) 0; min-height: dp(48); }
+  .Button:disabled { opacity: 0.5; }
+
+  article {
+    margin: dp(20) 0;
+    padding: dp(18);
+    border: 1px solid $line;
+    border-radius: dp(12);
+    background: $surface;
+  }
+
+  .Keywords { color: $jade; font-weight: 600; }
+  details { margin: dp(22) 0; color: $muted; }
+  summary { min-height: dp(44); color: $gold; cursor: pointer; }
+}
+
+@keyframes deck-spread {
+  from { opacity: 0; transform: translateX(dp(24)) rotate(3deg); }
+  to { opacity: 1; transform: translateX(0) rotate(0); }
+}
+
+@keyframes slot-arrive {
+  from { opacity: 0; transform: translateY(dp(18)) scale(0.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .TarotPage,
+  .TarotResultPage {
+    .TarotDeck .card,
+    .TarotSlots figure:has(img) { animation: none; }
   }
 }

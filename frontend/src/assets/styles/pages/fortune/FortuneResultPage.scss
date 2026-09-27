@@ -14,14 +14,19 @@
       &:first-child {
         margin-bottom: dp(30);
         padding: dp(30) dp(20);
-        border-radius: dp(8);
-        background-color: #fff;
+        border: 1px solid $line;
+        border-radius: dp(12);
+        background: $surface;
         text-align: center;
         animation: fortune-result-on 1.5s ease-in;
+
+        h2 { font-family: $font-family-display; }
+
         p {
           width: 80%;
           margin: dp(30) auto;
           text-wrap: pretty;
+          color: $paper;
           @include font(bold, 20, 30);
         }
       }
@@ -29,6 +34,7 @@
         width: 100%;
         text-align: center;
         h4 {
+          font-family: $font-family-display;
           @include font(bold, 20, 30);
         }
         .ShareButtons {
