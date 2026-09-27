@@ -1,4 +1,7 @@
 {
+  "functions": {
+    "api/**/*.js": { "includeFiles": "src/data/tarot-cards.json" }
+  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     {
