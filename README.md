@@ -13,6 +13,11 @@
 - [운세보는 유우리 (구버전-api통신불가)](https://chat-astrology-cjp.pages.dev/)
 - [🔮 GPT가 말아주는 사주&타로 🔮 (모바일사용권장)](https://chat-astrology.vercel.app)
 
+## 앞으로 해야 할 일
+
+- [ ] 포춘쿠키 결과 공유 URL이 배포 환경과 모바일·SNS에서 정상적으로 열리는지 점검
+- [ ] 계산된 사주 명식을 OpenAI API와 연동해 근거 기반 종합 해석 제공
+
 ## 프로젝트 구조
 
 ```
