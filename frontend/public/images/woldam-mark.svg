@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="월담 초승달 문양">
+  <defs><linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9e2ca"/><stop offset=".34" stop-color="#efcbd8"/><stop offset=".67" stop-color="#b8cde8"/><stop offset="1" stop-color="#d2b06d"/></linearGradient></defs>
+  <rect width="512" height="512" rx="112" fill="#080a0d"/>
+  <circle cx="256" cy="256" r="166" fill="none" stroke="url(#n)" stroke-width="10"/>
+  <path d="M325 112a155 155 0 1 0 75 270 174 174 0 1 1-75-270Z" fill="url(#n)"/>
+  <circle cx="364" cy="155" r="13" fill="#d2b06d"/>
+</svg>

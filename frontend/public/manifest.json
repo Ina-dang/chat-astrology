@@ -1,18 +1,18 @@
 {
-  "author": "Ina <inadang77@gmail.com>",
-  "background_color": "#ffffff",
+  "background_color": "#080a0d",
   "default_locale": "ko",
   "display": "standalone",
   "icons": [
     {
       "sizes": "any",
-      "src": "images/vite.svg",
-      "type": "image/svg+xml"
+      "src": "/images/woldam-mark.svg",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
-  "manifest_version": 2,
-  "name": "GPT가 말아주는 사주🍶&타로🍺",
-  "short_name": "GPT가 말아주는 사주🍶&타로🍺",
-  "start_url": ".",
-  "theme_color": "#ffffff"
+  "name": "월담 | 사주·타로·포춘쿠키",
+  "short_name": "월담",
+  "start_url": "/",
+  "scope": "/",
+  "theme_color": "#080a0d"
 }

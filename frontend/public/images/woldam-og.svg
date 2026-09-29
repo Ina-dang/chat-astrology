@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9e2ca"/><stop offset=".33" stop-color="#efcbd8"/><stop offset=".66" stop-color="#b8cde8"/><stop offset="1" stop-color="#d2b06d"/></linearGradient>
+    <radialGradient id="g"><stop stop-color="#26312d"/><stop offset="1" stop-color="#080a0d"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <path d="M106 70h988M106 560h988" stroke="url(#n)" stroke-width="3" opacity=".75"/>
+  <circle cx="286" cy="315" r="145" fill="none" stroke="url(#n)" stroke-width="7"/>
+  <path d="M342 185a135 135 0 1 0 65 235 151 151 0 1 1-65-235Z" fill="url(#n)"/>
+  <text x="510" y="290" fill="#f3eee3" font-size="110" font-family="serif" font-weight="600">月談</text>
+  <text x="515" y="368" fill="#d2b06d" font-size="38" font-family="sans-serif">사주 · 타로 · 포춘쿠키</text>
+  <text x="515" y="424" fill="#aeb5b1" font-size="27" font-family="sans-serif">명식을 확인하고 질문의 카드를 펼쳐보세요</text>
+</svg>
