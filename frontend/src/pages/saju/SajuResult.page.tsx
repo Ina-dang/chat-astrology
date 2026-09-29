@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Headers, Sections, SharedButtons } from '../../components';
 import { getApiEndpoint } from '../../tools';
 const sajuStorageKey = 'saju.input.v1';
+const interpretationStoragePrefix = 'saju.interpretation.v1';
 
 interface SajuInput {
   calendarType: 'solar' | 'lunar';
@@ -40,12 +41,28 @@ interface SajuResult {
   engine: { name: string; version: string; basis: string };
 }
 
+interface SajuInterpretation {
+  overview: string;
+  strengths: string;
+  balance: string;
+  guidance: string;
+  limitation: string;
+}
+
 function readInput(value: unknown): SajuInput | null {
   if (!value || typeof value !== 'object') return null;
   const input = value as Partial<SajuInput>;
   return ['solar', 'lunar'].includes(input.calendarType ?? '') && typeof input.birth === 'string' &&
     typeof input.birthTime === 'string' && typeof input.timeUnknown === 'boolean' && typeof input.leapMonth === 'boolean'
     ? input as SajuInput : null;
+}
+
+function readInterpretation(value: unknown): SajuInterpretation | null {
+  if (!value || typeof value !== 'object') return null;
+  const interpretation = value as Partial<SajuInterpretation>;
+  return ['overview', 'strengths', 'balance', 'guidance', 'limitation']
+    .every((key) => typeof interpretation[key as keyof SajuInterpretation] === 'string')
+    ? interpretation as SajuInterpretation : null;
 }
 
 const SajuResultPage = () => {
@@ -58,6 +75,9 @@ const SajuResultPage = () => {
   const [result, setResult] = useState<SajuResult | null>(null);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
+  const [interpretation, setInterpretation] = useState<SajuInterpretation | null>(null);
+  const [interpretationError, setInterpretationError] = useState('');
+  const [isInterpreting, setIsInterpreting] = useState(false);
 
   useEffect(() => {
     if (!input) return;
@@ -78,6 +98,46 @@ const SajuResultPage = () => {
       });
     return () => controller.abort();
   }, [input, attempt]);
+
+  useEffect(() => {
+    if (!result) return;
+    const key = `${interpretationStoragePrefix}:${result.pillars.map((pillar) => pillar.hanja).join('-')}`;
+    try {
+      setInterpretation(readInterpretation(JSON.parse(sessionStorage.getItem(key) || 'null')));
+    } catch {
+      sessionStorage.removeItem(key);
+    }
+  }, [result]);
+
+  const handleInterpretation = async () => {
+    if (!input || !result || isInterpreting) return;
+    const key = `${interpretationStoragePrefix}:${result.pillars.map((pillar) => pillar.hanja).join('-')}`;
+    setIsInterpreting(true);
+    setInterpretationError('');
+
+    try {
+      const { data: response } = await axios.post(
+        getApiEndpoint('saju/interpretation'),
+        input,
+        { timeout: 30000 },
+      );
+      const nextInterpretation = readInterpretation(response?.data);
+      if (response?.code !== 'OK' || !nextInterpretation) {
+        throw new Error(response?.message || 'AI 해석을 생성하지 못했습니다.');
+      }
+      sessionStorage.setItem(key, JSON.stringify(nextInterpretation));
+      setInterpretation(nextInterpretation);
+    } catch (requestError: unknown) {
+      const fallback = requestError instanceof Error ? requestError.message : 'AI 해석을 생성하지 못했습니다.';
+      if (axios.isAxiosError(requestError)) {
+        setInterpretationError(requestError.response?.data?.message || fallback);
+      } else {
+        setInterpretationError(fallback);
+      }
+    } finally {
+      setIsInterpreting(false);
+    }
+  };
 
   const pillars = result ? [...result.pillars].reverse() : [];
 
@@ -131,10 +191,37 @@ const SajuResultPage = () => {
               ))}
             </section>
 
+            <section className="AiInterpretation" aria-labelledby="ai-interpretation-title">
+              <h3 id="ai-interpretation-title">AI 종합 해석</h3>
+              <p>계산된 명식 정보만 OpenAI에 전달합니다. 생년월일 원문은 전달하지 않습니다.</p>
+              {!interpretation && (
+                <button
+                  className="Button"
+                  type="button"
+                  disabled={isInterpreting}
+                  aria-busy={isInterpreting}
+                  onClick={handleInterpretation}
+                >
+                  {isInterpreting ? '해석을 생성하고 있습니다' : 'AI 종합 해석 보기'}
+                </button>
+              )}
+              {isInterpreting && <p role="status">명식의 흐름을 정리하고 있습니다.</p>}
+              {interpretationError && <p role="alert">{interpretationError}</p>}
+              {interpretation && (
+                <div className="InterpretationResult">
+                  <article><h4>전체 흐름</h4><p>{interpretation.overview}</p></article>
+                  <article><h4>강점</h4><p>{interpretation.strengths}</p></article>
+                  <article><h4>오행 균형</h4><p>{interpretation.balance}</p></article>
+                  <article><h4>생활 조언</h4><p>{interpretation.guidance}</p></article>
+                  <p className="InterpretationNotice">{interpretation.limitation}</p>
+                </div>
+              )}
+            </section>
+
             <details>
               <summary>계산 기준</summary>
               <p>{result.engine.name} {result.engine.version} · {result.engine.basis}</p>
-              <p>현재 결과는 명식 계산값이며, 전문가 감수를 거친 종합 해석은 다음 단계에서 추가합니다.</p>
+              <p>AI 종합 해석은 전통 명리의 상징 체계를 바탕으로 한 참고 정보이며 전문가 상담을 대신하지 않습니다.</p>
             </details>
             <SharedButtons />
           </>

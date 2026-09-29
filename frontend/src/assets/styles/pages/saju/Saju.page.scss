@@ -103,6 +103,11 @@
   }
 
   article { margin-top: dp(14); }
+  .InterpretationResult article + article {
+    padding-top: dp(14);
+    border-top: 1px solid $line;
+  }
+  .InterpretationNotice { color: $muted; }
   details { margin: dp(24) 0; }
   p { line-height: 1.6; }
 }

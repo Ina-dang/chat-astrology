@@ -96,3 +96,36 @@ test('result reload recovers the input but malformed storage does not call the A
   expect(screen.getByRole('alert')).toHaveTextContent('출생 정보가 없습니다');
   expect(post).not.toHaveBeenCalled();
 });
+
+test('generates one AI interpretation and reuses it from session storage', async () => {
+  const input = {
+    calendarType: 'solar', birth: '1986-05-29', birthTime: '10:00', timeUnknown: false, leapMonth: false,
+  };
+  sessionStorage.setItem('saju.input.v1', JSON.stringify(input));
+  const post = vi.spyOn(axios, 'post').mockImplementation(async (url, body) => {
+    if (url.endsWith('/api/saju/interpretation')) {
+      return { data: { code: 'OK', data: {
+        overview: '차분한 전체 흐름', strengths: '정리하는 강점', balance: '수 기운의 균형',
+        guidance: '속도를 조절하세요.', limitation: '전통적 해석에 기반한 참고 정보입니다.',
+      } } };
+    }
+    let data;
+    await handler({ method: 'POST', body }, {
+      status() { return this; },
+      json(value) { data = value; return this; },
+    });
+    return { data };
+  });
+  const user = userEvent.setup();
+  const view = render(flow('/saju/result'));
+
+  await screen.findByRole('heading', { name: '나의 명식' });
+  await user.click(screen.getByRole('button', { name: 'AI 종합 해석 보기' }));
+  expect(await screen.findByText('차분한 전체 흐름')).toBeInTheDocument();
+  expect(post).toHaveBeenCalledTimes(2);
+
+  view.unmount();
+  render(flow('/saju/result'));
+  expect(await screen.findByText('차분한 전체 흐름')).toBeInTheDocument();
+  expect(post).toHaveBeenCalledTimes(3);
+});
