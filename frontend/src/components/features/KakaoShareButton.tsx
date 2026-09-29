@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 
-const KakaoShareButton = () => {
+interface KakaoShareButtonProps {
+  text: string;
+  title: string;
+  url: string;
+}
+
+const KakaoShareButton: React.FC<KakaoShareButtonProps> = ({ text, title, url }) => {
   useEffect(() => {
     const appKey = import.meta.env.VITE_KAKAO_APP_KEY;
     if (window.Kakao && appKey && !window.Kakao.isInitialized()) {
@@ -13,13 +19,13 @@ const KakaoShareButton = () => {
       window.Kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '월담 | 사주·타로·포춘쿠키',
-          description: '내 포춘쿠키 결과 공유',
+          title,
+          description: text,
           imageUrl:
             'https://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
           link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
+            mobileWebUrl: url,
+            webUrl: url,
           },
         },
       });

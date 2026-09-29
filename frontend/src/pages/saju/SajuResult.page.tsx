@@ -223,7 +223,15 @@ const SajuResultPage = () => {
               <p>{result.engine.name} {result.engine.version} · {result.engine.basis}</p>
               <p>AI 종합 해석은 전통 명리의 상징 체계를 바탕으로 한 참고 정보이며 전문가 상담을 대신하지 않습니다.</p>
             </details>
-            <SharedButtons />
+            <SharedButtons
+              title="월담 사주 요약"
+              text={[
+                `일간 ${result.dayMaster.name}(${result.dayMaster.hanja}) · ${result.dayMaster.yinYang} ${result.dayMaster.element}`,
+                `오행 ${Object.entries(result.elements).map(([element, count]) => `${element} ${count}`).join(' · ')}`,
+                interpretation ? `전체 흐름: ${interpretation.overview}` : '',
+              ].filter(Boolean).join('\n')}
+              url={new URL('/saju', window.location.origin).toString()}
+            />
           </>
         )}
         <Link to="/saju">출생 정보 수정하기</Link>

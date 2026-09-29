@@ -12,6 +12,11 @@
     color: $paper;
     @include font(bold, 20, 30);
   }
+  > p {
+    margin: dp(8) 0 0;
+    color: $muted;
+    @include font(regular, 14, 22);
+  }
   .ShareButtons {
     display: flex;
     justify-content: center;

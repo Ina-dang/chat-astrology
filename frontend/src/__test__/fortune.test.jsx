@@ -1,5 +1,6 @@
 import { beforeEach, expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import axios from 'axios';
 import { FortuneResultPage } from '../pages/fortune';
@@ -16,8 +17,11 @@ const renderResult = () => render(
   </MemoryRouter>,
 );
 
-test('a shared result URL reloads the fortune and exposes share actions', async () => {
+test('a shared result URL reloads the fortune and copies its summary', async () => {
   window.history.replaceState({}, '', '/fortune/result?id=1');
+  vi.stubGlobal('alert', vi.fn());
+  const writeText = vi.fn().mockResolvedValue(undefined);
+  Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } });
   vi.spyOn(axios, 'get').mockResolvedValue({
     data: { code: 'OK', data: { id: 1, message: '공유된 포춘쿠키' } },
   });
@@ -26,7 +30,9 @@ test('a shared result URL reloads the fortune and exposes share actions', async 
 
   expect(screen.getByRole('status')).toHaveTextContent('불러오고 있습니다');
   expect(await screen.findByText('공유된 포춘쿠키')).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: '결과 링크 복사' })).toBeInTheDocument();
+  await userEvent.click(screen.getByRole('button', { name: '결과 요약과 링크 복사' }));
+  expect(writeText).toHaveBeenCalledWith(expect.stringContaining('오늘의 포춘쿠키: 공유된 포춘쿠키'));
+  expect(writeText).toHaveBeenCalledWith(expect.stringContaining('/fortune/result?id=1'));
 });
 
 test('invalid shared IDs are rejected by the page and API', async () => {
@@ -36,7 +42,7 @@ test('invalid shared IDs are rejected by the page and API', async () => {
   renderResult();
 
   expect(screen.getByRole('alert')).toHaveTextContent('유효하지 않은');
-  expect(screen.queryByRole('button', { name: '결과 링크 복사' })).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: '결과 요약과 링크 복사' })).not.toBeInTheDocument();
   expect(get).not.toHaveBeenCalled();
 
   let statusCode = 200;

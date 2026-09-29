@@ -120,7 +120,13 @@ const TarotResultPage = () => {
                   <p>키워드: {result.source.keywords}</p>
                   <p>이미지: {result.source.images}</p>
                 </details>
-                <SharedButtons />
+                <SharedButtons
+                  title="월담 타로 리딩"
+                  text={result.cards.map((card) => (
+                    `${positionNames[card.position]}: ${card.name} · ${card.orientation === 'upright' ? '정방향' : '역방향'}\n${card.interpretation}`
+                  )).join('\n\n')}
+                  url={new URL('/tarot', window.location.origin).toString()}
+                />
               </>
             )}
             <p>타로 해석은 자기 성찰을 위한 참고이며 의료·법률·재정 판단을 대신하지 않습니다.</p>

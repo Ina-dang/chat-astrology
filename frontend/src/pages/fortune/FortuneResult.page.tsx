@@ -39,7 +39,7 @@ const FortuneResultPage = () => {
           {!result && !error && <p role="status">포춘쿠키 결과를 불러오고 있습니다.</p>}
           {error ? <p role="alert">{error}</p> : <p>{result}</p>}
         </article>
-        {result && <SharedButtons />}
+        {result && <SharedButtons text={`오늘의 포춘쿠키: ${result}`} />}
       </Sections>
       <Footer />
     </main>
