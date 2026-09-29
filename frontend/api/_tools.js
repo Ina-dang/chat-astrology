@@ -216,7 +216,18 @@ async function handleFortuneRequest(res) {
 }
 
 async function handleGetFortuneRequest(id, res) {
-  const data = fortuneDatas.find((item) => item.id === parseInt(id));
+  const parsedId = Number(id);
+  const data = Number.isInteger(parsedId)
+    ? fortuneDatas.find((item) => item.id === parsedId)
+    : undefined;
+
+  if (!data) {
+    return res.status(404).json({
+      code: 'NOT_FOUND',
+      message: '포춘쿠키 결과를 찾을 수 없습니다.',
+    });
+  }
+
   res.json({
     code: 'OK',
     message: '오늘의 포춘쿠키 조회에 성공하였습니다',

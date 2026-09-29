@@ -5,27 +5,27 @@ import { IMAGES } from '../../assets';
 import { getApiEndpoint } from '../../tools';
 
 const FortuneResultPage = () => {
-  const query = new URLSearchParams(location.search);
-  const id = query.get('id');
+  const id = new URLSearchParams(window.location.search).get('id');
+  const isValidId = Boolean(id && /^\d+$/.test(id));
   const [result, setResult] = useState<string>('');
+  const [error, setError] = useState(
+    isValidId ? '' : '유효하지 않은 포춘쿠키 링크입니다.',
+  );
 
   useEffect(() => {
+    if (!isValidId) return;
+
     axios
       .get(getApiEndpoint(`fortune/result/${id}`))
       .then((response) => {
-        console.log(response);
-        if (!response?.data) {
-          throw new Error('axios error');
-        }
+        if (!response?.data) throw new Error('포춘쿠키 결과를 불러오지 못했습니다.');
+
         const { code, message, data } = response.data;
-        if (code === 'OK') {
-          setResult(data.message ?? ' ');
-        } else {
-          throw new Error(message);
-        }
+        if (code !== 'OK' || !data?.message) throw new Error(message);
+        setResult(data.message);
       })
-      .catch((error) => console.error(error));
-  }, [id]);
+      .catch(() => setError('포춘쿠키 결과를 찾을 수 없습니다.'));
+  }, [id, isValidId]);
 
   return (
     <main className="Pages FortuneResultPage">
@@ -36,9 +36,10 @@ const FortuneResultPage = () => {
           <div className={'FortuneCookie'}>
             <img src={IMAGES.FORTUNE2} alt="포춘쿠키" />
           </div>
-          <p>{result}</p>
+          {!result && !error && <p role="status">포춘쿠키 결과를 불러오고 있습니다.</p>}
+          {error ? <p role="alert">{error}</p> : <p>{result}</p>}
         </article>
-        <SharedButtons />
+        {result && <SharedButtons />}
       </Sections>
       <Footer />
     </main>
