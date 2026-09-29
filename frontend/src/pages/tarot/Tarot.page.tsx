@@ -1,6 +1,6 @@
 import { type CSSProperties, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Headers, Sections } from '../../components';
+import { Footer, Headers, Sections } from '../../components';
 import { IMAGES } from '../../assets';
 import {
   cards,
@@ -100,6 +100,7 @@ const TarotPage = () => {
           새 리딩 시작
         </button>
       </Sections>
+      <Footer />
     </main>
   );
 };

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Headers, Sections, SharedButtons } from '../../components';
+import { Footer, Headers, Sections, SharedButtons } from '../../components';
 import { IMAGES } from '../../assets';
 import { getApiEndpoint } from '../../tools';
 import {
@@ -128,6 +128,7 @@ const TarotResultPage = () => {
         )}
         <Link to="/tarot">카드 선택으로 돌아가기</Link>
       </Sections>
+      <Footer />
     </main>
   );
 };

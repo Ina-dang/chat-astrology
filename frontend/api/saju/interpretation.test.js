@@ -26,6 +26,8 @@ afterEach(() => {
   vi.unstubAllGlobals();
   delete process.env.OPENAI_API_KEY;
   delete process.env.OPENAI_MODEL;
+  globalThis.__wolDamSajuRateLimits?.clear();
+  globalThis.__wolDamSajuInterpretationCache?.clear();
 });
 
 test('sends only calculated chart data and returns structured interpretation', async () => {
@@ -53,7 +55,9 @@ test('sends only calculated chart data and returns structured interpretation', a
 
   expect(response.statusCode).toBe(200);
   expect(response.body.data).toEqual(interpretation);
-  expect(response.body.usage).toEqual({ model: 'gpt-5-mini', inputTokens: 300, outputTokens: 200 });
+  expect(response.body.usage).toEqual({
+    model: 'gpt-5-mini', inputTokens: 300, outputTokens: 200, cached: false,
+  });
   expect(openaiBody).toMatchObject({
     model: 'gpt-5-mini',
     store: false,
@@ -62,6 +66,34 @@ test('sends only calculated chart data and returns structured interpretation', a
   });
   expect(openaiBody.input).toContain('丙寅');
   expect(openaiBody.input).not.toContain('1986-05-29');
+
+  const cached = await request();
+  expect(cached.body.usage.cached).toBe(true);
+  expect(fetchMock).toHaveBeenCalledTimes(1);
+});
+
+test('limits uncached AI calls per server instance', async () => {
+  process.env.OPENAI_API_KEY = 'test-key';
+  const interpretation = {
+    overview: '전체 흐름', strengths: '강점', balance: '균형', guidance: '조언', limitation: '참고 정보',
+  };
+  const fetchMock = vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      status: 'completed', model: 'gpt-5-mini',
+      output: [{ content: [{ type: 'output_text', text: JSON.stringify(interpretation) }] }],
+      usage: { input_tokens: 300, output_tokens: 200 },
+    }),
+  });
+  vi.stubGlobal('fetch', fetchMock);
+
+  for (const birth of ['2000-01-01', '2000-01-02', '2000-01-03', '2000-01-04', '2000-01-05']) {
+    expect((await request({ ...validInput, birth })).statusCode).toBe(200);
+  }
+  const limited = await request({ ...validInput, birth: '2000-01-06' });
+  expect(limited.statusCode).toBe(429);
+  expect(limited.body.code).toBe('RATE_LIMITED');
+  expect(fetchMock).toHaveBeenCalledTimes(5);
 });
 
 test('does not call OpenAI without configuration or valid birth data', async () => {

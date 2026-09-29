@@ -1,16 +1,12 @@
+import { Link } from 'react-router-dom';
+
 const ErrorPage: React.FC = () => {
   return (
-    <main>
-      <section>
-        <h1>This Page Does Not Exist</h1>
-        <p>We&apos;re sorry, but it appears the website address you entered was incorrect</p>
-        <button
-          onClick={() => {
-            location.replace('/');
-          }}
-        >
-          <span>Go Back Home</span>
-        </button>
+    <main className="Pages">
+      <section className="Sections" id="main-content">
+        <h1>페이지를 찾을 수 없습니다</h1>
+        <p>주소를 다시 확인하거나 첫 화면으로 돌아가 주세요.</p>
+        <Link className="Button" to="/">첫 화면으로 돌아가기</Link>
       </section>
     </main>
   );

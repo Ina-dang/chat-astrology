@@ -5,7 +5,7 @@ interface SectionsProps {
 }
 
 const Sections: React.FC<SectionsProps> = ({ children }) => {
-  return <section className="Sections">{children}</section>;
+  return <section className="Sections" id="main-content">{children}</section>;
 };
 
 export { Sections };

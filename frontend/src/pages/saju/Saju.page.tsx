@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Headers, Sections } from '../../components';
+import { Footer, Headers, Sections } from '../../components';
 
 const storageKey = 'saju.input.v1';
 
@@ -73,6 +73,7 @@ const SajuPage = () => {
           <button className="Button" type="submit">명식 계산하기</button>
         </form>
       </Sections>
+      <Footer />
     </main>
   );
 };

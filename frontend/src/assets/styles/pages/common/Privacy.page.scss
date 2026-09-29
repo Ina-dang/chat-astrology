@@ -1,0 +1,31 @@
+@import '../../commonness.scss';
+
+.PrivacyPage {
+  .Sections {
+    h2 {
+      margin-top: dp(32);
+      color: $gold;
+      font-family: $font-family-display;
+      font-size: sp(22);
+    }
+
+    p,
+    li,
+    a {
+      font-size: sp(16);
+      line-height: 1.75;
+    }
+
+    a { color: $blue; }
+
+    ul { padding-left: dp(22); }
+  }
+
+  .PrivacyUpdated { color: $muted; }
+
+  .PrivacyLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: dp(8) dp(16);
+  }
+}

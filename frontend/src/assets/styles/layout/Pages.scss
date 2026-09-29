@@ -1,5 +1,35 @@
 @import '../commonness.scss';
 
+.SkipLink {
+  position: fixed;
+  z-index: 1000;
+  top: dp(8);
+  left: dp(8);
+  padding: dp(10) dp(14);
+  border-radius: dp(6);
+  background: $paper;
+  color: $bg-page;
+  font-weight: 700;
+  transform: translateY(-150%);
+
+  &:focus { transform: translateY(0); }
+}
+
+.SiteLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: dp(8) dp(18);
+  padding: dp(12) dp(16);
+
+  a {
+    min-height: dp(44);
+    color: $muted;
+    font-size: sp(14);
+    line-height: dp(44);
+  }
+}
+
 .Pages {
   display: flex;
   flex-direction: column;

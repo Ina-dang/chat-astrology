@@ -15,7 +15,7 @@ const MainPage: React.FC = () => {
         <span className="MainHeaderMeta">사주 · 타로 · 포춘쿠키</span>
       </header>
 
-      <section className="MainContent" aria-labelledby="main-title">
+      <section className="MainContent" id="main-content" aria-labelledby="main-title">
         <div className="MainHero">
           <div className="MainMoon" aria-hidden="true"><span /></div>
           <h1 id="main-title">명식을 확인하고<br />질문의 카드를 펼쳐보세요</h1>

@@ -1,4 +1,14 @@
 import { calculateSaju } from '../_tools.js';
+import { createHash } from 'node:crypto';
+
+const RATE_WINDOW_MS = 60 * 60 * 1000;
+const RATE_LIMIT = 5;
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000;
+const CACHE_LIMIT = 100;
+
+// ponytail: Vercel 인스턴스별 메모리 제한이다. 분산 공격이 관측되면 외부 저장소 기반 제한으로 교체한다.
+const rateLimits = globalThis.__wolDamSajuRateLimits ??= new Map();
+const interpretationCache = globalThis.__wolDamSajuInterpretationCache ??= new Map();
 
 const schema = {
   type: 'object',
@@ -33,7 +43,59 @@ function isInterpretation(value) {
       .every((key) => typeof value[key] === 'string' && value[key].trim());
 }
 
+function getClientKey(req) {
+  const forwarded = req.headers?.['x-forwarded-for'];
+  return String(Array.isArray(forwarded) ? forwarded[0] : forwarded || req.socket?.remoteAddress || 'unknown')
+    .split(',')[0]
+    .trim();
+}
+
+function takeRateLimit(req, res) {
+  const now = Date.now();
+  const key = getClientKey(req);
+  const current = rateLimits.get(key);
+  const next = !current || current.resetAt <= now
+    ? { count: 1, resetAt: now + RATE_WINDOW_MS }
+    : { ...current, count: current.count + 1 };
+
+  if (next.count > RATE_LIMIT) {
+    res.setHeader('Retry-After', Math.ceil((next.resetAt - now) / 1000));
+    return false;
+  }
+
+  rateLimits.set(key, next);
+  if (rateLimits.size > 500) {
+    for (const [storedKey, value] of rateLimits) {
+      if (value.resetAt <= now) rateLimits.delete(storedKey);
+    }
+  }
+  return true;
+}
+
+function createCacheKey(chartSummary) {
+  return createHash('sha256').update(JSON.stringify(chartSummary)).digest('hex');
+}
+
+function readCache(key) {
+  const cached = interpretationCache.get(key);
+  if (!cached || cached.expiresAt <= Date.now()) {
+    interpretationCache.delete(key);
+    return null;
+  }
+  return cached.value;
+}
+
+function writeCache(key, value) {
+  if (interpretationCache.size >= CACHE_LIMIT) {
+    interpretationCache.delete(interpretationCache.keys().next().value);
+  }
+  interpretationCache.set(key, { value, expiresAt: Date.now() + CACHE_TTL_MS });
+}
+
 export default async function handler(req, res) {
+  const startedAt = Date.now();
+  res.setHeader('Cache-Control', 'no-store');
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ code: 'ERROR', message: 'POST 요청만 가능합니다.' });
@@ -62,6 +124,20 @@ export default async function handler(req, res) {
       twelveStage: pillar.twelveStage,
     })),
   };
+  const cacheKey = createCacheKey(chartSummary);
+  const cached = readCache(cacheKey);
+  if (cached) {
+    console.info(JSON.stringify({ event: 'saju_interpretation', status: 'cache_hit', durationMs: Date.now() - startedAt }));
+    return res.json({ ...cached, usage: { ...cached.usage, cached: true } });
+  }
+
+  if (!takeRateLimit(req, res)) {
+    console.warn(JSON.stringify({ event: 'saju_interpretation', status: 'rate_limited', durationMs: Date.now() - startedAt }));
+    return res.status(429).json({
+      code: 'RATE_LIMITED',
+      message: 'AI 해석은 한 시간에 5번까지 요청할 수 있습니다. 잠시 후 다시 시도해 주세요.',
+    });
+  }
 
   try {
     const openaiResponse = await fetch('https://api.openai.com/v1/responses', {
@@ -114,7 +190,7 @@ export default async function handler(req, res) {
       throw new Error('INVALID_AI_RESPONSE');
     }
 
-    return res.json({
+    const payload = {
       code: 'OK',
       message: 'AI 종합 해석을 생성했습니다.',
       data: interpretation,
@@ -122,8 +198,19 @@ export default async function handler(req, res) {
         model: response.model,
         inputTokens: response.usage?.input_tokens ?? null,
         outputTokens: response.usage?.output_tokens ?? null,
+        cached: false,
       },
-    });
+    };
+    writeCache(cacheKey, payload);
+    console.info(JSON.stringify({
+      event: 'saju_interpretation',
+      status: 'ok',
+      durationMs: Date.now() - startedAt,
+      model: payload.usage.model,
+      inputTokens: payload.usage.inputTokens,
+      outputTokens: payload.usage.outputTokens,
+    }));
+    return res.json(payload);
   } catch (error) {
     console.error('OpenAI interpretation failed', error instanceof Error ? error.message : error);
     return res.status(502).json({ code: 'AI_ERROR', message: 'AI 해석을 생성하지 못했습니다.' });

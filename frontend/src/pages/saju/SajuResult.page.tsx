@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Headers, Sections, SharedButtons } from '../../components';
+import { Footer, Headers, Sections, SharedButtons } from '../../components';
 import { getApiEndpoint } from '../../tools';
 const sajuStorageKey = 'saju.input.v1';
 const interpretationStoragePrefix = 'saju.interpretation.v1';
@@ -228,6 +228,7 @@ const SajuResultPage = () => {
         )}
         <Link to="/saju">출생 정보 수정하기</Link>
       </Sections>
+      <Footer />
     </main>
   );
 };
