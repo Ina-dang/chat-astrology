@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <nav className="SiteLinks" aria-label="서비스 안내">
         <Link to="/privacy">개인정보·서비스 안내</Link>
-        <a href="https://github.com/Ina-dang/chat-astrology" target="_blank" rel="noreferrer">소스·라이선스</a>
+        <Link to="/sources">계산·카드 출처</Link>
       </nav>
       <div className="kakaoAdd">
         <ins

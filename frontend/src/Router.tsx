@@ -10,6 +10,7 @@ import {
   FortuneResultPage,
   MainPage,
   PrivacyPage,
+  SourcesPage,
   SajuPage,
   SajuResultPage,
   TarotPage,
@@ -21,6 +22,7 @@ const router = createBrowserRouter(
     <Route path="/">
       <Route index element={<MainPage />} />
       <Route path="privacy" element={<PrivacyPage />} />
+      <Route path="sources" element={<SourcesPage />} />
       <Route path="saju">
         <Route index element={<SajuPage />} />
         <Route path="result" element={<SajuResultPage />} />
