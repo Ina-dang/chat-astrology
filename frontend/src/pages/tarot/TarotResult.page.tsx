@@ -90,6 +90,10 @@ const TarotResultPage = () => {
                       className={selected.orientation === 'reversed' ? 'is-reversed' : undefined}
                       src={IMAGES[selected.id] ?? cards[selected.id].image}
                       alt={`${cards[selected.id].name} ${selected.orientation === 'upright' ? '정방향' : '역방향'}`}
+                      loading="lazy"
+                      decoding="async"
+                      height="300"
+                      width="200"
                     />
                     <p>{cards[selected.id].name} · {selected.orientation === 'upright' ? '정방향' : '역방향'}</p>
                   </figure>

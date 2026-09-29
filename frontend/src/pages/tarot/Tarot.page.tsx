@@ -16,10 +16,12 @@ import {
 const TarotPage = () => {
   const navigate = useNavigate();
   const [reading, setReading] = useState(() => readReading() ?? createReading());
+  const [simpleMode, setSimpleMode] = useState(() => sessionStorage.getItem('tarot.simple.v1') === 'true');
   const positions = spreadPositions[reading.spread];
   const count = positions.length;
 
   useEffect(() => saveReading(reading), [reading]);
+  useEffect(() => sessionStorage.setItem('tarot.simple.v1', String(simpleMode)), [simpleMode]);
 
   const selectCard = (id: CardId) => {
     setReading((previous) => {
@@ -62,6 +64,9 @@ const TarotPage = () => {
                       className={selected.orientation === 'reversed' ? 'is-reversed' : undefined}
                       src={IMAGES[selected.id] ?? cards[selected.id].image}
                       alt={`${cards[selected.id].name} ${selected.orientation === 'upright' ? '정방향' : '역방향'}`}
+                      decoding="async"
+                      height="180"
+                      width="120"
                     />
                     <p>{cards[selected.id].name} · {selected.orientation === 'upright' ? '정방향' : '역방향'}</p>
                   </>
@@ -70,8 +75,12 @@ const TarotPage = () => {
             );
           })}
         </div>
-        <p>덱을 좌우로 넘겨 카드를 골라 주세요. 선택한 카드와 방향은 결과까지 유지됩니다.</p>
-        <div className="TarotDeck" role="group" aria-label="78장 타로카드 덱">
+        <label className="ModeToggle">
+          <input type="checkbox" checked={simpleMode} onChange={(event) => setSimpleMode(event.target.checked)} />
+          카드를 겹치지 않고 보기
+        </label>
+        <p id="deck-help">{simpleMode ? '전체 카드를 격자로 보고 고르세요.' : '펼쳐진 덱을 좌우로 넘겨 카드를 골라 주세요.'} 선택한 카드와 방향은 결과까지 유지됩니다.</p>
+        <div className={`TarotDeck${simpleMode ? ' is-simple' : ''}`} role="group" aria-label="78장 타로카드 덱" aria-describedby="deck-help">
           {reading.deck.map((id, index) => {
             const selected = reading.selected.some((card) => card.id === id);
             return (
@@ -79,13 +88,13 @@ const TarotPage = () => {
                 key={id}
                 type="button"
                 className="card"
-                style={{ '--card-index': index } as CSSProperties}
+                style={{ '--card-index': index, '--card-tilt': `${(index % 5 - 2) * 0.7}deg` } as CSSProperties}
                 aria-label={`${index + 1}번째 카드 선택`}
                 aria-pressed={selected}
                 disabled={selected || reading.selected.length === count}
                 onClick={() => selectCard(id)}
               >
-                <img src={IMAGES.BACK} alt="" />
+                <img src={IMAGES.BACK} alt="" loading="lazy" decoding="async" height="120" width="80" />
               </button>
             );
           })}

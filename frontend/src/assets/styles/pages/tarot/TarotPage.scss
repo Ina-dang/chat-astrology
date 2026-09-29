@@ -97,30 +97,63 @@
 
   .TarotDeck {
     display: flex;
-    gap: dp(12);
+    gap: 0;
     overflow-x: auto;
-    padding: dp(18);
+    padding: dp(28) max(dp(18), env(safe-area-inset-right)) dp(22) max(dp(18), env(safe-area-inset-left));
     margin: dp(16) 0;
     border: 1px solid $line;
     border-radius: dp(16);
     background: repeating-linear-gradient(45deg, transparent 0 dp(20), rgba(185, 226, 202, 0.055) dp(20) dp(21)),
       repeating-linear-gradient(-45deg, transparent 0 dp(20), rgba(239, 203, 216, 0.045) dp(20) dp(21));
     scroll-snap-type: x proximity;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x;
 
     .card {
       flex: 0 0 dp(80);
+      margin-right: dp(-28);
       border: 2px solid transparent;
       padding: 0;
       border-radius: dp(8);
       background: $surface;
-      scroll-snap-align: start;
+      scroll-snap-align: center;
       cursor: pointer;
       animation: deck-spread 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
       animation-delay: min(calc(var(--card-index) * 10ms), 420ms);
+      transform: rotate(var(--card-tilt));
+      transition: transform 180ms ease, opacity 180ms ease;
 
       img { width: 100%; aspect-ratio: 2 / 3; border-radius: dp(6); }
       &[aria-pressed='true'] { border-color: $jade; opacity: 0.45; }
+      &:hover:not(:disabled),
+      &:focus-visible { z-index: 2; transform: translateY(dp(-10)) rotate(0); }
     }
+
+    &.is-simple {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: dp(10);
+      overflow: visible;
+
+      .card {
+        width: 100%;
+        margin: 0;
+        transform: none;
+        animation: none;
+      }
+    }
+  }
+
+  .ModeToggle {
+    display: flex;
+    min-height: dp(44);
+    align-items: center;
+    gap: dp(10);
+    width: fit-content;
+    margin-top: dp(18);
+    color: $paper;
+
+    input { width: dp(20); height: dp(20); accent-color: $jade; }
   }
 
   button:disabled { cursor: default; }
@@ -142,7 +175,7 @@
 
 @keyframes deck-spread {
   from { opacity: 0; transform: translateX(dp(24)) rotate(3deg); }
-  to { opacity: 1; transform: translateX(0) rotate(0); }
+  to { opacity: 1; transform: translateX(0) rotate(var(--card-tilt)); }
 }
 
 @keyframes slot-arrive {
@@ -155,5 +188,20 @@
   .TarotResultPage {
     .TarotDeck .card,
     .TarotSlots figure:has(img) { animation: none; }
+  }
+}
+
+@media (min-width: dp(600)) {
+  .TarotPage .TarotDeck {
+    .card { flex-basis: dp(92); margin-right: dp(-34); }
+    &.is-simple { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  }
+}
+
+@media (max-width: dp(380)) {
+  .TarotPage {
+    .SpreadPicker { grid-template-columns: 1fr; }
+    .TarotSlots { gap: dp(6); }
+    .TarotDeck.is-simple { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
 }

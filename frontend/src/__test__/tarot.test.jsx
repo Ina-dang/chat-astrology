@@ -122,4 +122,7 @@ test('invalid saved data is discarded and every deck card has an image', async (
   }
   render(flow());
   await waitFor(() => expect(readReading().selected).toEqual([]));
+  await userEvent.click(screen.getByRole('checkbox', { name: '카드를 겹치지 않고 보기' }));
+  expect(document.querySelector('.TarotDeck')).toHaveClass('is-simple');
+  expect(sessionStorage.getItem('tarot.simple.v1')).toBe('true');
 });
