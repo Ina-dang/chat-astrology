@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Footer, Headers, Sections, SharedButtons } from '../../components';
-import { IMAGES } from '../../assets';
 import { getApiEndpoint } from '../../tools';
 import {
   cards,
@@ -88,7 +87,7 @@ const TarotResultPage = () => {
                     <figcaption>{positionNames[position]}</figcaption>
                     <img
                       className={selected.orientation === 'reversed' ? 'is-reversed' : undefined}
-                      src={IMAGES[selected.id] ?? cards[selected.id].image}
+                      src={cards[selected.id].image}
                       alt={`${cards[selected.id].name} ${selected.orientation === 'upright' ? '정방향' : '역방향'}`}
                       loading="lazy"
                       decoding="async"

@@ -5,7 +5,6 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { TarotPage, TarotResultPage } from '../pages/tarot';
 import { cardIds, cards, createReading, readingKey, readReading, saveReading } from '../pages/tarot/tarot';
-import { IMAGES } from '../assets';
 import handler from '../../api/tarot/result.js';
 
 beforeEach(() => {
@@ -118,7 +117,7 @@ test('invalid saved data is discarded and every deck card has an image', async (
   expect(cardIds).toHaveLength(78);
   for (const id of cardIds) {
     expect(cards[id].name).toBeTruthy();
-    expect(IMAGES[id] ?? cards[id].image).toBeTruthy();
+    expect(cards[id].image).toMatch(/^https:\/\/upload\.wikimedia\.org\//);
   }
   render(flow());
   await waitFor(() => expect(readReading().selected).toEqual([]));
