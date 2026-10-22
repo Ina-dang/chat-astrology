@@ -52,6 +52,7 @@ test('sends only calculated chart data and returns structured interpretation', a
 
   const response = await request();
   const openaiBody = JSON.parse(fetchMock.mock.calls[0][1].body);
+  expect(fetchMock.mock.calls[0][1].headers['Accept-Encoding']).toBe('identity');
 
   expect(response.statusCode).toBe(200);
   expect(response.body.data).toEqual(interpretation);

@@ -145,6 +145,8 @@ export default async function handler(req, res) {
       headers: {
         Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
+        // shortcut: the server may ignore identity; remove after the managed runtime is patched.
+        'Accept-Encoding': 'identity',
       },
       signal: AbortSignal.timeout(25000),
       body: JSON.stringify({
